@@ -33,7 +33,7 @@ Route::resource('todo', TodosController::class);
 Route::resource('web', IndexsController::class);
 Route::resource('property', PropertiesController::class);
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'welcome'])->name('home');
 Route::get('/property', [App\Http\Controllers\Web\HomeController::class, 'property'])->name('property');

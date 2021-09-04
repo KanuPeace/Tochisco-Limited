@@ -8,13 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>
-        <div class="logo">
-            <a href="/index">
-                <img src="web_assets/img/m-logo.png" alt="">
-            </a>
-        </div>
-    </title>
+    <title> </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="web_assets/img/icon.png" alt="">Tochisco Limited 
+                    <img src="web_assets/img/icon.png" alt="">Tochisco Limited
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
