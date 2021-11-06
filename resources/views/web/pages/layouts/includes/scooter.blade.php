@@ -12,7 +12,7 @@
         </div>
         <div class="logo">
             <a href="/index">
-                <img src="web_assets/img/m-logo.png" alt="">
+                <img src="{{ $web_source }}/web_assets/img/m-logo.png" alt="">
             </a>
         </div>
         <div id="mobile-menu-wrap"></div>
