@@ -4,11 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\IndexController;
 use App\Http\Controllers\Web\PropertiesController;
+// use App\Http\Controllers\Users\DashboardController;
 
 
 
 use App\Models\Todo;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +26,13 @@ use App\Models\Todo;
 |
 */
 
+ Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
+     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
+ });
+
+ Route::prefix("admin")->as("admin.")->middleware("verified")->group(function () {
+    Route::get('dashboard/' , [App\Http\Controllers\Admin\DashboardController::class , 'index'])->name('dashboard');
+});
 
 Route::get('/', [TodosController::class,'index']);
 Route::get('/completed-todo', [TodosController::class,'completed_todo'])->name('completed-todo');

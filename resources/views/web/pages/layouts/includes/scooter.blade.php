@@ -1,8 +1,8 @@
 
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Wrapper Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -19,7 +19,7 @@
         <div class="om-widget">
             <ul>
                 <li><i class="icon_mail_alt"></i> kanupeace85@gmail.com</li>
-                <li><i class="fa fa-mobile-phone"></i> 09157522382 <span>09093907715</span></li>
+                <li><i class="fa fa-phone"></i> 09157522382 <span>09093907715</span></li>
             </ul>
             <a href="#" class="hw-btn">Submit property</a>
         </div>
@@ -64,7 +64,23 @@
                     <div class="col-lg-9">
                         <nav class="nav-menu">
                             <ul>
+                                @auth
+                                <li><a href="{{ route('users.dashboard') }}">login</a></li>
+                                <li><a href="{{ route("property") }}">Properties</a>
+                                    <ul class="dropdown">
+                                        <li><a href="">Property List</a></li>
+                                        <li><a href="{{ route("prop_details") }}">Property Detail</a></li>
+                                        <li><a href="{{ route("prop_comparison") }}">Property Comperison</a></li>
+                                        <li><a href="{{ route("prop_submit") }}">Property Submit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{route("agent")}}">Agent</a></li>
+                                <li class="active"><a href="{{route("about")}}">About</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                                <li><a href="{{route("contact")}}">Contact</a></li>
+                                @else
                                 <li><a href="{{ route('login') }}">login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
                                 <li><a href="{{route("home")}}">Home</a></li>
                                 <li><a href="{{ route("property") }}">Properties</a>
                                     <ul class="dropdown">
@@ -78,6 +94,7 @@
                                 <li class="active"><a href="{{route("about")}}">About</a></li>
                                 <li><a href="/blog">Blog</a></li>
                                 <li><a href="{{route("contact")}}">Contact</a></li>
+                                @endauth
                             </ul>
                         </nav>
                     </div>

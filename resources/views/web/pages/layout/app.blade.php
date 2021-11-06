@@ -49,7 +49,7 @@
     <!-- Offcanvas Menu Wrapper End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+    <!-- <header class="header-section">
         <div class="hs-top">
             <div class="container">
                 <div class="row">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- Header End -->
 

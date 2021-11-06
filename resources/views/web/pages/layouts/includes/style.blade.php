@@ -22,3 +22,9 @@
 <link rel="stylesheet" href="web_assets/css/magnific-popup.css" type="text/css">
 <link rel="stylesheet" href="web_assets/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="web_assets/css/style.css" type="text/css">
+
+
+  <!-- fontawesome link -->
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

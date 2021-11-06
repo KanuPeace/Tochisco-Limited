@@ -1,99 +1,901 @@
-@extends('app.layouts')
-@section('content')
-    <div class="max-w-2xl px-3 py-3 mx-auto md:px-0 md:justify-between md:items-center">
-    {{-- message includes --}}
-      @include('app.message')
-        <div class="flex flex-col items-center justify-center mt-12 mb-9">
-            @forelse ($todos as $todo)
-                <div class="flex justify-between w-full p-6 mx-auto mt-5 bg-white rounded-lg shadow-md ">
-                    <div class="items-center md:mr-3">
-                        <p class="text-sm">{{ $todo->title }}</p>
-                        <p class="text-xs">{{ Illuminate\Support\Str::limit($todo->content, 25) }}</p>
-                    </div>
-                    <div class="items-center inline-block mt-3 ml-1">
-                        <a href="{{ route('todo.show',$todo->id) }}" class="inline-block px-2 font-bold text-center text-white bg-blue-500 rounded-md sm:px-1 sm:py-1 md:px-1 hover:bg-blue-400"><i class='bx bx-subdirectory-right bx-xs'></i></a> 
-                        <a href="{{ route('complete-todo',$todo->id) }}" class="inline-block px-2 font-bold text-center text-white bg-green-500 rounded-md hover:bg-green-400"><i class='bx bx-chevron-down-square bx-xs'></i></a>
-                        <a href="javascript:;" role="button" data-toggle="modal" data-target="#exampleModalTwo-{{ $todo->id }}" class="inline-block px-2 font-bold text-white bg-red-500 rounded-md hover:bg-red-400 text-cente"><i class='bx bx-trash bx-xs'></i></a>
-                    </div>
-                </div>
-                {{-- modal --}}
-                <div class="fixed inset-0 z-10 hidden overflow-y-auto md:mt-32 sm:mt-0" aria-labelledby="modal-title"
-                    id="exampleModalTwo-{{ $todo->id }}" tabindex="-1" role="dialog">
-                    <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
-                        role="document">
-                        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-10" aria-hidden="true"></div>
+@extends('web.pages.layouts.app')
 
-                        <!-- This element is to trick the browser into centering the modal contents. -->
-                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                        <div
-                            class="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-                                <div class="items-start sm:flex sm:items-start">
-                                    <div
-                                        class="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
-                                        <!-- Heroicon name: outline/exclamation -->
-                                        <svg class="w-6 h-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                        </svg>
-                                    </div>
-                                    <div class="mt-3 sm:text-left sm:mt-0 sm:ml-4">
-                                        <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">
-                                            Delete Todo
-                                        </h3>
-                                        <div class="mt-2">
-                                            <p class="text-sm text-left text-gray-500">
-                                                Are you sure you want to delete this todo.
-                                                This action cannot be undone
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+@section('content')
+
+
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hs-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="img.folder/logo.jpg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="hc-inner-text">
+                            <div class="hc-text">
+                                <h4>Balaji Symphony</h4>
+                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
+                                <div class="label">For Rent</div>
+                                <h5>$ 65.0<span>/month</span></h5>
                             </div>
-                            <div class="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
-                                <form action="{{ route('todo.destroy', $todo->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button" data-dismiss="modal"
-                                        class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                                        onclick="toggleModal('modal-id')">
-                                        Cancel
-                                    </button>
-                                    <button type="submit"
-                                        class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-                                        Delete
-                                    </button>
-                                </form>
+                            <div class="hc-widget">
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                    <li><i class="fa fa-bathtub"></i> 03</li>
+                                    <li><i class="fa fa-bed"></i> 05</li>
+                                    <li><i class="fa fa-automobile"></i> 01</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                @empty
-                <p class="text-lg font-semibold text-purple-900">No Todo Yet <box-icon name='sad' color='red' size='xs'></box-icon></p>
-            @endforelse
+            </div>
+            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-2.jpg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="hc-inner-text">
+                            <div class="hc-text">
+                                <h4>Balaji Symphony</h4>
+                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
+                                <div class="label">For Rent</div>
+                                <h5>$ 65.0<span>/month</span></h5>
+                            </div>
+                            <div class="hc-widget">
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                    <li><i class="fa fa-bathtub"></i> 03</li>
+                                    <li><i class="fa fa-bed"></i> 05</li>
+                                    <li><i class="fa fa-automobile"></i> 01</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-3.jpg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="hc-inner-text">
+                            <div class="hc-text">
+                                <h4>Balaji Symphony</h4>
+                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
+                                <div class="label">For Rent</div>
+                                <h5>$ 65.0<span>/month</span></h5>
+                            </div>
+                            <div class="hc-widget">
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                    <li><i class="fa fa-bathtub"></i> 03</li>
+                                    <li><i class="fa fa-bed"></i> 05</li>
+                                    <li><i class="fa fa-automobile"></i> 01</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{ $todos->links() }}
     </div>
+</section>
+<!-- Hero Section End -->
 
+<!-- Search Section Begin -->
+<section class="search-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-title">
+                    <h4>Where would you rather live?</h4>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="change-btn">
+                    <div class="cb-item">
+                        <label for="cb-rent" class="active">
+                            For Rent
+                            <input type="radio" id="cb-rent">
+                        </label>
+                    </div>
+                    <div class="cb-item">
+                        <label for="cb-sale">
+                            For Sale
+                            <input type="radio" id="cb-sale">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-form-content">
+            <form action="#" class="filter-form">
+                <select class="sm-width">
+                    <option value="">Chose The City</option>
+                </select>
+                <select class="sm-width">
+                    <option value="">Location</option>
+                </select>
+                <select class="sm-width">
+                    <option value="">Property Status</option>
+                </select>
+                <select class="sm-width">
+                    <option value="">Property Type</option>
+                </select>
+                <select class="sm-width">
+                    <option value="">No Of Bedrooms</option>
+                </select>
+                <select class="sm-width">
+                    <option value="">No Of Bathrooms</option>
+                </select>
+                <div class="room-size-range-wrap sm-width">
+                    <div class="price-text">
+                        <label for="roomsizeRange">Size:</label>
+                        <input type="text" id="roomsizeRange" readonly>
+                    </div>
+                    <div id="roomsize-range" class="slider"></div>
+                </div>
+                <div class="price-range-wrap sm-width">
+                    <div class="price-text">
+                        <label for="priceRange">Price:</label>
+                        <input type="text" id="priceRange" readonly>
+                    </div>
+                    <div id="price-range" class="slider"></div>
+                </div>
+                <button type="button" class="search-btn sm-width">Search</button>
+            </form>
+        </div>
+        <div class="more-option">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-heading active">
+                        <a data-toggle="collapse" data-target="#collapseOne">
+                            More Search Options
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="mo-list">
+                                <div class="ml-column">
+                                    <label for="air">Air conditioning
+                                        <input type="checkbox" id="air">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="lundry">Laundry
+                                        <input type="checkbox" id="lundry">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="refrigerator">Refrigerator
+                                        <input type="checkbox" id="refrigerator">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="washer">Washer
+                                        <input type="checkbox" id="washer">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="ml-column">
+                                    <label for="barbeque">Barbeque
+                                        <input type="checkbox" id="barbeque">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="lawn">Lawn
+                                        <input type="checkbox" id="lawn">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="sauna">Sauna
+                                        <input type="checkbox" id="sauna">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="wifi">Wifi
+                                        <input type="checkbox" id="wifi">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="ml-column">
+                                    <label for="dryer">Dryer
+                                        <input type="checkbox" id="dryer">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="microwave">Microwave
+                                        <input type="checkbox" id="microwave">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="pool">Swimming Pool
+                                        <input type="checkbox" id="pool">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="window">Window Coverings
+                                        <input type="checkbox" id="window">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="ml-column last-column">
+                                    <label for="gym">Gym
+                                        <input type="checkbox" id="gym">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="shower">OutdoorShower
+                                        <input type="checkbox" id="shower">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="tv">Tv Cable
+                                        <input type="checkbox" id="tv">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Search Section End -->
 
-<script type="text/javascript">
-    $("#exampleModal").on('show.bs.modal', function(event) {
-                console.log('texxxt')
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var recipient = button.data('whatever') // Extract info from data-* attributes
-                var modal = $(this)
-                modal.find('.modal-title').text('New message to ' + recipient)
-                modal.find('.modal-body input').val(recipient)
-    }
-</script>
-<script>
-    function closeAlert(event){
-            let element = event.target;
-            while(element.nodeName !== "BUTTON"){
-            element = element.parentNode;
-            }
-            element.parentNode.parentNode.removeChild(element.parentNode);
-        }
-</script>
+<!-- Property Section Begin -->
+<section class="property-section latest-property-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-title">
+                    <h4>Latest PROPERTY</h4>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="property-controls">
+                    <ul>
+                        <li data-filter="all">All</li>
+                        <li data-filter=".apart">Apartment</li>
+                        <li data-filter=".house">House</li>
+                        <li data-filter=".office">Office</li>
+                        <li data-filter=".hotel">Hotel</li>
+                        <li data-filter=".restaurent">Restaurent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row property-filter">
+            <div class="col-lg-4 col-md-6 mix all house">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-1.jpg">
+                        <div class="label">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0<span>/month</span></div>
+                        <h5><a href="#">Home in Merrick Way</a></h5>
+                        <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>Ashton Kutcher</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mix all restaurent hotel">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-2.jpg">
+                        <div class="label c-red">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0</div>
+                        <h5><a href="#">Unimont Aurum</a></h5>
+                        <p><span class="icon_pin_alt"></span> Gut No.102, Opp. HP Petrol Pump, Karjat</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>TOCHI KANU</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mix all apart office">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-2.jpg">
+                        <div class="label c-red">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0</div>
+                        <h5><a href="#">Vrindavan Flora</a></h5>
+                        <p><span class="icon_pin_alt"></span> No. 15, 16, 17-1A And 17-2, Rasayani, Rasayani</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/agent/agent-1.jpg" alt="">
+                                    <h6>Ashton Kutcher</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mix all hotel restaruent">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property-4.jpg">
+                        <div class="label c-red">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0</div>
+                        <h5><a href="#">Shramik Vaibhav</a></h5>
+                        <p><span class="icon_pin_alt"></span> 12 Pt at Shedung, Panvel, Raigarh, Navi Mumbai</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>Ashton Kutcher</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mix all office hotel">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-5.jpg">
+                        <div class="label c-magenta">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0</div>
+                        <h5><a href="#">Poddar Wondercity</a></h5>
+                        <p><span class="icon_pin_alt"></span> Badlapur East, Beyond Thane</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>Ashton Kutcher</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mix house apart office">
+                <div class="property-item">
+                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-6.jpg">
+                        <div class="label">For rent</div>
+                    </div>
+                    <div class="pi-text">
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <div class="pt-price">$ 289.0<span>/month</span></div>
+                        <h5><a href="#">GoldCrest Residency</a></h5>
+                        <p><span class="icon_pin_alt"></span> No.7, Sector- 11, Ghansoli, Mumbai, Navi Mumbai</p>
+                        <ul>
+                            <li><i class="fa fa-object-group"></i> 2, 283</li>
+                            <li><i class="fa fa-bathtub"></i> 03</li>
+                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-automobile"></i> 01</li>
+                        </ul>
+                        <div class="pi-agent">
+                            <div class="pa-item">
+                                <div class="pa-info">
+                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                    <h6>Ashton Kutcher</h6>
+                                </div>
+                                <div class="pa-text">
+                                    123-455-688
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Property Section End -->
+
+<!-- Chooseus Section Begin -->
+<section class="chooseus-section spad set-bg" data-setbg="web_assets/img/chooseus/chooseus-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="chooseus-text">
+                    <div class="section-title">
+                        <h4>Why choose us</h4>
+                    </div>
+                    <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+                <div class="chooseus-features">
+                    <div class="cf-item">
+                        <div class="cf-pic">
+                            <img src="web_assets/img/chooseus/chooseus-icon-1.png" alt="">
+                        </div>
+                        <div class="cf-text">
+                            <h5>Find your future home</h5>
+                            <p>We help you find a new home by offering a smart real estate.</p>
+                        </div>
+                    </div>
+                    <div class="cf-item">
+                        <div class="cf-pic">
+                            <img src="web_assets/img/chooseus/chooseus-icon-2.png" alt="">
+                        </div>
+                        <div class="cf-text">
+                            <h5>Buy or rent homes</h5>
+                            <p>Millions of houses and apartments in your favourite cities</p>
+                        </div>
+                    </div>
+                    <div class="cf-item">
+                        <div class="cf-pic">
+                            <img src="web_assets/img/chooseus/chooseus-icon-3.png" alt="">
+                        </div>
+                        <div class="cf-text">
+                            <h5>Experienced agents</h5>
+                            <p>Find an agent who knows your market best</p>
+                        </div>
+                    </div>
+                    <div class="cf-item">
+                        <div class="cf-pic">
+                            <img src="web_assets/img/chooseus/chooseus-icon-4.png" alt="">
+                        </div>
+                        <div class="cf-text">
+                            <h5>List your own property</h5>
+                            <p>Sign up now and sell or rent your own properties</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Chooseus Section End -->
+
+<!-- Feature Property Section Begin -->
+<section class="feature-property-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 p-0">
+                <div class="feature-property-left">
+                    <div class="section-title">
+                        <h4>Feature PROPERTY</h4>
+                    </div>
+                    <ul>
+                        <li>Apartment</li>
+                        <li>House</li>
+                        <li>Office</li>
+                        <li>Hotel</li>
+                        <li>Villa</li>
+                        <li>Restaurent</li>
+                    </ul>
+                    <a href="#">View all property</a>
+                </div>
+            </div>
+            <div class="col-lg-8 p-0">
+                <div class="fp-slider owl-carousel">
+                    <div class="fp-item set-bg" data-setbg="web_assets/img/feature-property/fp-1.jpg">
+                        <div class="fp-text">
+                            <h5 class="title">Home in Merrick Way</h5>
+                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                            <div class="label">For Rent</div>
+                            <h5>$ 289.0<span>/month</span></h5>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                <li><i class="fa fa-bathtub"></i> 03</li>
+                                <li><i class="fa fa-bed"></i> 05</li>
+                                <li><i class="fa fa-automobile"></i> 01</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="fp-item set-bg" data-setbg="img/feature-property/fp-2.jpg">
+                        <div class="fp-text">
+                            <h5 class="title">Home in Merrick Way</h5>
+                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                            <div class="label">For Rent</div>
+                            <h5>$ 289.0<span>/month</span></h5>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                <li><i class="fa fa-bathtub"></i> 03</li>
+                                <li><i class="fa fa-bed"></i> 05</li>
+                                <li><i class="fa fa-automobile"></i> 01</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Feature Property Section End -->
+
+<!-- Team Section Begin -->
+<section class="team-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="section-title">
+                    <h4>Latest Property</h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="team-btn">
+                    <a href="#"><i class="fa fa-user"></i> ALL counselor</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="ts-item">
+                    <div class="ts-text">
+                        <img src="web_assets/img/team/team-1.jpg" alt="">
+                        <h5>Ashton Kutcher</h5>
+                        <span>09157522382</span>
+                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
+                        <div class="ts-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ts-item">
+                    <div class="ts-text">
+                        <img src="web_assets/img/team/team-2.jpg" alt="">
+                        <h5>Ashton Kutcher</h5>
+                        <span>123-455-688</span>
+                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
+                        <div class="ts-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ts-item">
+                    <div class="ts-text">
+                        <img src="web_assets/img/team/team-3.jpg" alt="">
+                        <h5>Ashton Kutcher</h5>
+                        <span>123-455-688</span>
+                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
+                        <div class="ts-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Section End -->
+
+<!-- Categories Section Begin -->
+<section class="categories-section">
+    <div class="cs-item-list">
+        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-1.jpg">
+            <div class="cs-text">
+                <h5>Apartment</h5>
+                <span>230 property</span>
+            </div>
+        </div>
+        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-2.jpg">
+            <div class="cs-text">
+                <h5>Villa</h5>
+                <span>230 property</span>
+            </div>
+        </div>
+        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-3.jpg">
+            <div class="cs-text">
+                <h5>House</h5>
+                <span>230 property</span>
+            </div>
+        </div>
+        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-4.jpg">
+            <div class="cs-text">
+                <h5>Restaurent</h5>
+                <span>230 property</span>
+            </div>
+        </div>
+        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-5.jpg">
+            <div class="cs-text">
+                <h5>Office</h5>
+                <span>230 property</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+<!-- Testimonial Section Begin -->
+<section class="testimonial-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h4>What our client says?</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row testimonial-slider owl-carousel">
+            <div class="col-lg-6">
+                <div class="testimonial-item">
+                    <div class="ti-text">
+                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
+                            magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                    </div>
+                    <div class="ti-author">
+                        <div class="ta-pic">
+                            <img src="web_assets/img/testimonial-author/ta-1.jpg" alt="">
+                        </div>
+                        <div class="ta-text">
+                            <h5>Arise Naieh</h5>
+                            <span>Designer</span>
+                            <div class="ta-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-item">
+                    <div class="ti-text">
+                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
+                            magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                    </div>
+                    <div class="ti-author">
+                        <div class="ta-pic">
+                            <img src="web_assets/img/testimonial-author/ta-2.jpg" alt="">
+                        </div>
+                        <div class="ta-text">
+                            <h5>Arise Naieh</h5>
+                            <span>Designer</span>
+                            <div class="ta-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testimonial-item">
+                    <div class="ti-text">
+                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
+                            magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                    </div>
+                    <div class="ti-author">
+                        <div class="ta-pic">
+                            <img src="web_assets/img/testimonial-author/ta-1.jpg" alt="">
+                        </div>
+                        <div class="ta-text">
+                            <h5>Arise Naieh</h5>
+                            <span>Designer</span>
+                            <div class="ta-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial Section End -->
+
+<!-- Logo Carousel Begin -->
+<div class="logo-carousel">
+    <div class="container">
+        <div class="lc-slider owl-carousel">
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-1.png" alt="">
+                </div>
+            </a>
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-2.png" alt="">
+                </div>
+            </a>
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-3.png" alt="">
+                </div>
+            </a>
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-4.png" alt="">
+                </div>
+            </a>
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-5.png" alt="">
+                </div>
+            </a>
+            <a href="#" class="lc-item">
+                <div class="lc-item-inner">
+                    <img src="web_assets/img/logo-carousel/lc-6.png" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Logo Carousel End -->
+
+<!-- Contact Section Begin -->
+<section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact-info">
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="ci-text">
+                            <h5>Address</h5>
+                            <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                        <div class="ci-text">
+                            <h5>Phone</h5>
+                            <ul>
+                                <li>125-711-811</li>
+                                <li>125-668-886</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">
+                            <i class="fa fa-headphones"></i>
+                        </div>
+                        <div class="ci-text">
+                            <h5>Support</h5>
+                            <p>Support.aler@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d735515.5813275519!2d-80.41163541934742!3d43.93644386501528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882a55bbf3de23d7%3A0x3ada5af229b47375!2sMono%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1583262687289!5m2!1sen!2sbd" height="450" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="fs-about">
+                    <div class="fs-logo">
+                        <a href="#">
+                            <img src="web_assets/img/m-logo.png" alt="">
+                        </a>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua ut aliquip ex ea</p>
+                    <div class="fs-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="fs-widget">
+                    <h5>Help</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Knowledgebase</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="fs-widget">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Create Property</a></li>
+                        <li><a href="#">My Properties</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="fs-widget">
+                    <h5>Newsletter</h5>
+                    <p>Deserunt mollit anim id est laborum.</p>
+                    <form action="#" class="subscribe-form">
+                        <input type="text" placeholder="Email">
+                        <button type="submit" class="site-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>
+                    document.write(new Date().getFullYear());
+                </script> All rights reserved 
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
 @endsection
