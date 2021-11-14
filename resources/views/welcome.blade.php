@@ -78,6 +78,8 @@
 </section>
 <!-- Hero Section End -->
 
+
+
 <!-- Search Section Begin -->
 <section class="search-section spad">
     <div class="container">
@@ -826,6 +828,10 @@
     </div>
 </section>
 <!-- Contact Section End -->
+
+<div class="text">
+    <b>Would you like to invest and earn</b><span><a href="">  ---</a></span>
+</div>
 
 <!-- Footer Section Begin -->
 <footer class="footer-section">
