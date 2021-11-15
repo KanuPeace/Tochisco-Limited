@@ -1,4 +1,4 @@
-@extends('web.pages.layout.app' ,  ["meta_title" => "Contact"])
+@extends('web.pages.layouts.app' ,  ["meta_title" => "Contact"])
 
 @section('content')
 

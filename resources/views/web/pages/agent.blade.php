@@ -1,4 +1,4 @@
-@extends('web.pages.layout.app')
+@extends('web.pages.layouts.app')
 
 @section('content')
     <!-- Breadcrumb Section Begin -->
