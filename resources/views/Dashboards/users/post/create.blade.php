@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form enctype="multipart/form-data" class="form-row" action="" method="POST"> @csrf
+                            <form enctype="multipart/form-data" class="form-row" action="{{route('users.post.store')}}" method="POST"> @csrf
 
 
                                 <div class="form-group col-md-6">

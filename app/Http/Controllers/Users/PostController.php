@@ -39,11 +39,8 @@ class PostController extends Controller
      */
     public function store(Request $request , PropertyCategory $property)
     {
-        dd($request->all($property));
-
-        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
+        dd($request->all());
         $allowedTypes = Constants::SELL . "," . Constants::RENT;
-        $cover = empty($post_id) ? "required" : "";
         return $request->validate([
             "category_id" => "required|string|exists:property_categories,id",
             "type" => "required|string|in:$allowedTypes",
@@ -53,12 +50,7 @@ class PostController extends Controller
             "no_of_sittingrooms" => "required",
             "location" => "required",
             "price" => "required",
-            "is_sponsored" => "required|string|in:$allowedOptions",
-            "is_top_story" => "required|string|in:$allowedOptions",
-            "is_featured" => "required|string|in:$allowedOptions",
-            "is_published" => "required|string|in:$allowedOptions",
-            "can_comment" => "required|string|in:$allowedOptions",
-            "cover_image" => "image",
+            "cover_image" => "required|image",
         ]);
     }
 
