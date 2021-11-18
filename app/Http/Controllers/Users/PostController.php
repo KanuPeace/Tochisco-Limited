@@ -16,9 +16,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PropertyCategory  $property)
+    public function index()
     {
-      $property = PropertyCategory::get();
+      return view('Dashboards.users.post.create');
     }
 
     /**
