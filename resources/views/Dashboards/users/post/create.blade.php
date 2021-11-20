@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form enctype="multipart/form-data" class="form-row" action="{{route('users.category')}}" method="POST"> @csrf
+                            <form enctype="multipart/form-data" class="form-row" action="{{route('users.category.create')}}" method="POST"> @csrf
 
 
                                 <div class="form-group col-md-3">
@@ -63,13 +63,14 @@
                                     <label for="">Cover Image <span class="required">*</span></label>
                                     <input class="form-control" type="file" name="cover_image">
                                 </div>
-    
-                               
-                                <div class="form-group col-md-6">
-                                  <img class="img-fluid"  src="{{asset('propertyimages/' . $posts->cover_image)}}" alt="">
 
-                                 </div>
-                               
+
+                                @foreach($posts as $post)
+                                <div class="form-group col-md-6">
+                                    <td> <img class="img-fluid" src="{{asset('propertyimages/' . $post->cover_image)}}" alt="..." />
+                                </div>
+                                @endforeach
+
                                 <div class="form-group col-md-6">
                                     <label for="">Title <span class="required">*</span></label>
                                     <input class="form-control" type="text" name="title">
@@ -107,6 +108,15 @@
                                 </div>
 
 
+                                <div class="form-group col-md-3">
+                                    <label for="">Type <span class="required">*</span></label>
+                                    <select name="type" class="form-control" id="" required>
+                                        <option value="" disabled selected>Select Type</option>
+                                        @foreach ($types as $type)
+                                        <option value="{{ $type }}">{{ $type }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
                         </div>
 

@@ -19,13 +19,15 @@ class PostController extends Controller
      */
     public function index()
     {
-
-     $posts = Post::latest()->get();
-     $types = [Constants::SELL, Constants::RENT];
-      return view('Dashboards.users.post.create' , [
-        'types' => $types,
-        'posts' =>$posts,
-      ]);
+        $categories = PropertyCategory::get();
+        $types = [Constants::RENT, Constants::SELL];
+        $posts = Post::get();
+        return view('Dashboards.users.post.create', [
+            'posts' => $posts,
+            'types' => $types,
+            'categories' =>  $categories,
+        ]);
+       
     }
 
     /**
@@ -34,8 +36,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+     
     }
 
     /**
@@ -44,7 +46,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , Post $post)
+    public function store(Request $request, Post $post)
     {
         $allowedTypes = Constants::SELL . "," . Constants::RENT;
         return $request->validate([
@@ -59,25 +61,30 @@ class PostController extends Controller
             "cover_image" => "required|image",
         ]);
 
-        Post::create([
-          'category_id' => $request->input('category_id'),
-          'type' => $request->input('type'),
-          'title' => $request->input('title'),
-          'body' => $request->input('body'),
-          'no_of_bedrooms' => $request->input('no_of_bedrooms'),
-          'no_of_sittingrooms' => $request->input('no_of_sittingrooms'),
-          'location' => $request->input('location'),
-          'price' => $request->input('price'),
-
-         
-        ]); 
-
-        dd($request->image);
+        // dd($request->image);
         $image = time() . '_' . $request->name . '.' .
-        $request->image->extension();
-        $request->cover_image->move(public_path('propertyImages'),$image);
+            $request->image->extension();
+        $request->cover_image->move(public_path('propertyImages'), $image);
 
         return back()->with('success_message',  'Post added successfully');
+
+        Post::create();
+
+        $request = Post::create([
+            'category_id' => $request->input('category_id'),
+            'type' => $request->input('type'),
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'no_of_bedrooms' => $request->input('no_of_bedrooms'),
+            'no_of_sittingrooms' => $request->input('no_of_sittingrooms'),
+            'location' => $request->input('location'),
+            'price' => $request->input('price'),
+            'cover_image' => $image,
+
+
+        ]);
+        return back()->with('success_message',  'Category added successfully');
+
     }
 
     /**

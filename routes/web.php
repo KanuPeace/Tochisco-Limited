@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\Users\CategoryController;
 use App\Http\Controllers\Users\PostController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
@@ -29,11 +30,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
-     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'category'])->name('category');
-     Route::post('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'store'])->name('category');
-
-
+   
      Route::resource('post' , PostController::class);
+     Route::resource('category' , CategoryController::class);
  });
 
  Route::prefix("admin")->as("admin.")->middleware("verified")->group(function () {
