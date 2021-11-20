@@ -3,19 +3,21 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
-class CategoryController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Post $post)
     {
-        //
+        $posts = Post::latest()->get();
+        return view('Dashboards.users.profile.index' , compact('posts'));
+
     }
 
     /**
@@ -25,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-    
+        //
     }
 
     /**
@@ -34,17 +36,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , PropertyCategory $property)
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-         ]);
-      
-         $property = PropertyCategory::create([
-              'name' => $request->input('name'),
-         ]);
-
-         return back()->with('success_message',  'Category added successfully');
+        //
     }
 
     /**

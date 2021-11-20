@@ -21,6 +21,8 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="assets/css/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/users/user-profile.css" rel="stylesheet" type="text/css" />
+
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
 </head>

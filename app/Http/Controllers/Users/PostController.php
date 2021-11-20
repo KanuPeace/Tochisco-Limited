@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         $categories = PropertyCategory::get();
         $types = [Constants::RENT, Constants::SELL];
-        $posts = Post::get();
+        $posts = Post::latest()->get();
         return view('Dashboards.users.post.create', [
             'posts' => $posts,
             'types' => $types,
@@ -66,9 +66,7 @@ class PostController extends Controller
             $request->image->extension();
         $request->cover_image->move(public_path('propertyImages'), $image);
 
-        return back()->with('success_message',  'Post added successfully');
 
-        Post::create();
 
         $request = Post::create([
             'category_id' => $request->input('category_id'),
@@ -83,6 +81,7 @@ class PostController extends Controller
 
 
         ]);
+        
         return back()->with('success_message',  'Category added successfully');
 
     }
