@@ -29,6 +29,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
+     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'category'])->name('category');
+     Route::post('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'store'])->name('category');
+
 
      Route::resource('post' , PostController::class);
  });

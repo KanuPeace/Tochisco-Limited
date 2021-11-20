@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,13 @@ class PostController extends Controller
      */
     public function index()
     {
-      return view('Dashboards.users.post.create');
+
+     $posts = Post::latest()->get();
+     $types = [Constants::SELL, Constants::RENT];
+      return view('Dashboards.users.post.create' , [
+        'types' => $types,
+        'posts' =>$posts,
+      ]);
     }
 
     /**
@@ -37,9 +44,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , PropertyCategory $property)
+    public function store(Request $request , Post $post)
     {
-        dd($request->all());
         $allowedTypes = Constants::SELL . "," . Constants::RENT;
         return $request->validate([
             "category_id" => "required|string|exists:property_categories,id",
@@ -52,6 +58,26 @@ class PostController extends Controller
             "price" => "required",
             "cover_image" => "required|image",
         ]);
+
+        Post::create([
+          'category_id' => $request->input('category_id'),
+          'type' => $request->input('type'),
+          'title' => $request->input('title'),
+          'body' => $request->input('body'),
+          'no_of_bedrooms' => $request->input('no_of_bedrooms'),
+          'no_of_sittingrooms' => $request->input('no_of_sittingrooms'),
+          'location' => $request->input('location'),
+          'price' => $request->input('price'),
+
+         
+        ]); 
+
+        dd($request->image);
+        $image = time() . '_' . $request->name . '.' .
+        $request->image->extension();
+        $request->cover_image->move(public_path('propertyImages'),$image);
+
+        return back()->with('success_message',  'Post added successfully');
     }
 
     /**
