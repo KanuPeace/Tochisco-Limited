@@ -27,7 +27,8 @@
                 <div class="fl-module fl-module-rich-text fl-node-609aa1b6b8609" data-node="609aa1b6b8609">
                     <div class="fl-module-content fl-node-content">
                         <div class="fl-rich-text">
-                    <p>Still unsure if this is the best option for your personal circumstances? Contact our experts for a free property consultation or valuation and we can explore the various options available to you.</p>
+                    <p>Still unsure if this is the best option for your personal circumstances? Contact our experts for a 
+                        free property consultation or valuation and we can explore the various options available to you.</p>
                 </div>
                     </div>
                 </div>
