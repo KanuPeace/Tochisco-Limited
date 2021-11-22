@@ -29,6 +29,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/');
+
+
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
      Route::resource('profile' , ProfileController::class);
@@ -40,11 +43,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
     Route::get('dashboard/' , [App\Http\Controllers\Admin\DashboardController::class , 'index'])->name('dashboard');
 });
 
-Route::get('/', [TodosController::class,'index']);
-Route::get('/completed-todo', [TodosController::class,'completed_todo'])->name('completed-todo');
-Route::get('/completed-todo/{id}', [TodosController::class,'complete_a_todo'])->name('complete-todo');
-Route::get('/welcome', [WelcomeController::class,'welcome'])->name('tochisco');
-Route::get('/home', [HomeController::class, 'welcome'])->name('Home');
+// Route::get('/', [TodosController::class,'index']);
+// Route::get('/completed-todo', [TodosController::class,'completed_todo'])->name('completed-todo');
+// Route::get('/completed-todo/{id}', [TodosController::class,'complete_a_todo'])->name('complete-todo');
+// Route::get('/welcome', [WelcomeController::class,'welcome'])->name('tochisco');
+// Route::get('/home', [HomeController::class, 'welcome'])->name('Home');
 
 
 

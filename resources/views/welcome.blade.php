@@ -7,72 +7,36 @@
 <section class="hero-section">
     <div class="container">
         <div class="hs-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img.folder/logo.jpg">
+            @foreach($posts as $post)
+            <div class="hs-item set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
                 <div class="row">
+
                     <div class="col-lg-12">
                         <div class="hc-inner-text">
                             <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
+                                <h4>{{$post->title}}</h4>
+                                <p><span class="icon_pin_alt"></span> {{$post->location}}</p>
+                                <div class="label">{{$post->type}}</div>
+                                <h5>${{$post->price}}<span>/month</span></h5>
                             </div>
                             <div class="hc-widget">
                                 <ul>
                                     <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
+                                    <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
+                                    <li><i class="fa fa-bed"></i>{{$post->no_of_bedrooms}}</li>
                                     <li><i class="fa fa-automobile"></i> 01</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
-            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-2.jpg">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="hc-inner-text">
-                            <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
-                            </div>
-                            <div class="hc-widget">
-                                <ul>
-                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
-                                    <li><i class="fa fa-automobile"></i> 01</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-3.jpg">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="hc-inner-text">
-                            <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
-                            </div>
-                            <div class="hc-widget">
-                                <ul>
-                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
-                                    <li><i class="fa fa-automobile"></i> 01</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -830,7 +794,7 @@
 <!-- Contact Section End -->
 
 <div class="text">
-    <b>Would you like to invest and earn</b><span><a href="">  ---</a></span>
+    <b>Would you like to invest and earn</b><span><a href=""> ---</a></span>
 </div>
 
 <!-- Footer Section Begin -->
@@ -895,7 +859,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved 
+                </script> All rights reserved
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>

@@ -22,12 +22,11 @@ class PostController extends Controller
         $categories = PropertyCategory::get();
         $types = [Constants::RENT, Constants::SELL];
         $posts = Post::latest()->get();
-        return view('Dashboards.users.post.create', [
-            'posts' => $posts,
-            'types' => $types,
-            'categories' =>  $categories,
-        ]);
-       
+      return view('Dashboards.users.post.index' , [
+        'posts' => $posts,
+        'types' => $types,
+        'categories' =>  $categories,
+      ]);
     }
 
     /**
@@ -36,8 +35,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-     
+    {
+        $categories = PropertyCategory::get();
+        $types = [Constants::RENT, Constants::SELL];
+        $posts = Post::latest()->get();
+        return view('Dashboards.users.post.create', [
+            'posts' => $posts,
+            'types' => $types,
+            'categories' =>  $categories,
+        ]);
     }
 
     /**
@@ -46,10 +52,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Post $post)
+    public function store(Request $request)
     {
         $allowedTypes = Constants::SELL . "," . Constants::RENT;
-        return $request->validate([
+        $request->validate([
             "category_id" => "required|string|exists:property_categories,id",
             "type" => "required|string|in:$allowedTypes",
             "title" => "required|string|max:2500",
@@ -63,7 +69,7 @@ class PostController extends Controller
 
         // dd($request->image);
         $image = time() . '_' . $request->name . '.' .
-            $request->image->extension();
+            $request->cover_image->extension();
         $request->cover_image->move(public_path('propertyImages'), $image);
 
 
@@ -81,9 +87,8 @@ class PostController extends Controller
 
 
         ]);
-        
-        return back()->with('success_message',  'Category added successfully');
 
+        return back()->with('success_message',  'Post added successfully');
     }
 
     /**

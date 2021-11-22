@@ -65,11 +65,7 @@
                                 </div>
 
 
-                                @foreach($posts as $post)
-                                <div class="form-group col-md-6">
-                                    <td> <img class="img-fluid" src="{{asset('propertyimages/' . $post->cover_image)}}" alt="..." />
-                                </div>
-                                @endforeach
+                        
 
                                 <div class="form-group col-md-6">
                                     <label for="">Title <span class="required">*</span></label>

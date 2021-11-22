@@ -14,6 +14,7 @@ class Post extends Model
         'type',
         'title',
         'body',
+        'location',
         'no_of_bedrooms',
         'no_of_sittingrooms',
         'price',
