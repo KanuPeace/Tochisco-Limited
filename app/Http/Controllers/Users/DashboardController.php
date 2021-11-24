@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,5 +12,4 @@ class DashboardController extends Controller
     {
         return view('Dashboards.users.index');
     }
-
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,17 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PropertyCategory  $property)
+    public function index()
     {
-      $property = PropertyCategory::get();
+        $categories = PropertyCategory::get();
+        $types = [Constants::RENT, Constants::SELL];
+        $posts = Post::get();
+        return view('Dashboards.users.post.create', [
+            'posts' => $posts,
+            'types' => $types,
+            'categories' =>  $categories,
+        ]);
+       
     }
 
     /**
@@ -27,8 +36,8 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+     
     }
 
     /**
@@ -37,13 +46,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , PropertyCategory $property)
+    public function store(Request $request, Post $post)
     {
-        dd($request->all($property));
-
-        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::SELL . "," . Constants::RENT;
-        $cover = empty($post_id) ? "required" : "";
         return $request->validate([
             "category_id" => "required|string|exists:property_categories,id",
             "type" => "required|string|in:$allowedTypes",
@@ -53,13 +58,33 @@ class PostController extends Controller
             "no_of_sittingrooms" => "required",
             "location" => "required",
             "price" => "required",
-            "is_sponsored" => "required|string|in:$allowedOptions",
-            "is_top_story" => "required|string|in:$allowedOptions",
-            "is_featured" => "required|string|in:$allowedOptions",
-            "is_published" => "required|string|in:$allowedOptions",
-            "can_comment" => "required|string|in:$allowedOptions",
-            "cover_image" => "image",
+            "cover_image" => "required|image",
         ]);
+
+        // dd($request->image);
+        $image = time() . '_' . $request->name . '.' .
+            $request->image->extension();
+        $request->cover_image->move(public_path('propertyImages'), $image);
+
+        return back()->with('success_message',  'Post added successfully');
+
+        Post::create();
+
+        $request = Post::create([
+            'category_id' => $request->input('category_id'),
+            'type' => $request->input('type'),
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'no_of_bedrooms' => $request->input('no_of_bedrooms'),
+            'no_of_sittingrooms' => $request->input('no_of_sittingrooms'),
+            'location' => $request->input('location'),
+            'price' => $request->input('price'),
+            'cover_image' => $image,
+
+
+        ]);
+        return back()->with('success_message',  'Category added successfully');
+
     }
 
     /**

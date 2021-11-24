@@ -8,7 +8,6 @@ class Constants
     const ACTIVE = 1;
     const INACTIVE = 0;
 
-    const REGISTER_BONUS = 100000;
 
     const DEFAULT_USER = "User";
     const ADMIN_USER = "Admin";
