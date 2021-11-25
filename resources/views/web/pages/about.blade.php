@@ -401,7 +401,7 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="web_assets/img.folder/logo.jpg" alt="">
+                                <img src="web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

@@ -31,6 +31,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
     Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
+    Route::put('/update', "ProfileController@update")->name("update");
 
    
      Route::resource('post' , PostController::class);
@@ -51,7 +52,7 @@ Route::get('/home', [HomeController::class, 'welcome'])->name('Home');
 
 Route::resource('todo', TodosController::class);
 Route::resource('web', IndexsController::class);
-Route::resource('property', PropertiesController::class);
+Route::resource('property', PropertiesController::class); 
 
 Auth::routes(['verify' => true]);
 
