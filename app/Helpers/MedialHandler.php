@@ -12,9 +12,9 @@ class MediaHandler
 
     public $moveFile = true;
     public $fileModel;
-    public function __construct()
+    public function __construct(FileModel $fileModel)
     {
-        $this->fileModel = new FileModel;
+        $this->fileModel = $fileModel;
     }
 
     public function setMoveFile($value)
@@ -68,9 +68,9 @@ class MediaHandler
         //     $meta_info["length"] = VideoProcessor::mediaLength($fileFullPath);
         // }
 
-        if (!empty($file_id)) {
+        $file = $this->fileModel->find($file_id);
+        if (!empty($file_id) && !empty($file)) {
             $this->fileModel->cleanDelete($file_id, false);
-            $file = $this->fileModel->find($file_id);
             $file->update(
                 array_merge(
                     [
@@ -80,7 +80,6 @@ class MediaHandler
                     $meta_info,
                 )
             );
-
         } else {
             $file = $this->fileModel->create(
                 array_merge(
@@ -103,6 +102,4 @@ class MediaHandler
     {
         return $this->save($filepath, $type, $file_id, $user_id);
     }
-
 }
-

@@ -29,7 +29,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
-     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
+    Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
+    Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
+
    
      Route::resource('post' , PostController::class);
      Route::resource('category' , CategoryController::class);
