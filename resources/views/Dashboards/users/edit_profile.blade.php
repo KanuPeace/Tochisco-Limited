@@ -1,4 +1,4 @@
-@extends("dashboards.user.layout.app")
+@extends("Dashboards.users.layouts.app")
 @section('content')
 
     <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">

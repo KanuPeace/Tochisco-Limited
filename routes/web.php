@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Users\CategoryController;
 use App\Http\Controllers\Users\PostController;
+use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\IndexController;
@@ -30,10 +31,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
-    Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
-    Route::put('/update', "ProfileController@update")->name("update");
+    Route::get('/edit_profile' , [App\Http\Controllers\Users\ProfileController::class , 'edit_profile'])->name('edit_profile');
+    Route::put('/update' , [App\Http\Controllers\Users\ProfileController::class , 'update'])->name('update');
 
-   
+       
      Route::resource('post' , PostController::class);
      Route::resource('category' , CategoryController::class);
  });

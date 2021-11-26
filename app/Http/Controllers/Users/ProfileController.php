@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
+use App\Helpers\MediaHandler;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+
 
 use Illuminate\Http\Request;
 
@@ -16,7 +21,7 @@ class ProfileCotroller extends Controller
 
     {
         $user = auth()->user();
-        return view('Dashboards.user.edit_profile', ["user" => $user]);
+        return view('Dashboards.users.edit_profile', ["user" => $user]);
     }
 
     public function update(Request $request)
