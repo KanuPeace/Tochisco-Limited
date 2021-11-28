@@ -1,7 +1,7 @@
 @extends("Dashboards.users.layouts.app")
-@section('content')
+@section('contents')
 
-    <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
         @csrf @method("put")
 
         <div class="info">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="upload mt-4 pr-md-4">
                         <input type="file" id="input-file-max-fs" class="dropify" name="avatar"
-                            data-default-file="{{ $admin_assets }}/assets/img/user-profile.jpeg"
+                            data-default-file="{{ $web_source }}/assets/img/profile-1.jpg"
                             data-max-file-size="2M" />
 
                     </div>

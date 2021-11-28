@@ -31,6 +31,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
     Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
+    
+    Route::get('/profile' , [ProfileController::class , 'index'])->name('profile');
     Route::get('/edit_profile' , [ProfileController::class , 'edit_profile'])->name('edit_profile');
     Route::put('/update' , [ProfileController::class , 'update'])->name('update');
 

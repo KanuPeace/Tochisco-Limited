@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-namespace App\Http\Controllers\User;
+// namespace App\Http\ProfileControllers;
+namespace App\Http\Controllers\Users;
+
 use App\Helpers\MediaHandler;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -9,7 +10,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
-class ProfileCotroller extends Controller
+class ProfileController extends Controller
 {
     public $mediaHandler;
     public function __construct(MediaHandler $mediaHandler)
@@ -17,9 +18,17 @@ class ProfileCotroller extends Controller
         $this->mediaHandler = $mediaHandler;
     }
 
+    public function index()
+    {
+        $user = auth()->user();
+        return view('Dashboards.users.profile_card', ["user" => $user]);
+    }
+        
     public function edit_profile(User $user )
 
+     
     {
+        // dd($user);
         $user = auth()->user();
         return view('Dashboards.users.edit_profile', ["user" => $user]);
     }
