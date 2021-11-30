@@ -36,6 +36,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
     Route::get('/edit_profile' , [ProfileController::class , 'edit_profile'])->name('edit_profile');
     Route::put('/update' , [ProfileController::class , 'update'])->name('update');
 
+    Route::get('/edit-profile', "Profile/IndexController@edit_profile")->name("edit_profilee");
+    Route::post('/update', "Profile/IndexController@update")->name("update_profile");
+
        
      Route::resource('post' , PostController::class);
      Route::resource('category' , CategoryController::class);
