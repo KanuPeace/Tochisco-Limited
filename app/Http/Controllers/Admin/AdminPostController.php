@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
-use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class AdminPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Dashboards.users.category.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-    
+       return view('Dashboards.admin.post.create');
     }
 
     /**
@@ -35,17 +33,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , PropertyCategory $property)
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-         ]);
-      
-         $property = PropertyCategory::create([
-              'name' => $request->input('name'),
-         ]);
-
-         return back()->with('success_message',  'Category added successfully');
+        //
     }
 
     /**
@@ -54,12 +44,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PropertyCategory $categories, Post $post)
+    public function show($id)
     {
-        $post = $categories->$post()->with('categories');
-       return view('web.category.post', [
-           'post' => $post,
-       ]);
+        //
     }
 
     /**

@@ -34,7 +34,8 @@
                                             <th class="">Property Type</th>
                                             <th class="">Post By</th>
                                             <th class="">Cover Image</th>
-                                            <th class="">Rooms</th>
+                                            <th class="">Bebrooms</th>
+                                            <th class="">sittingrooms</th>
                                             <th class="">Title</th>
                                             <th class="">Created At</th>
                                             <th class="">action</th>
@@ -49,9 +50,10 @@
                                             <td>{{$post->type}}</td>
                                             <td>myname</td>
                                             <td><img style="width:80px; height:80px;" class="img-fluid" src="{{asset('propertyimages/' . $post->cover_image)}}" alt="..." /></td>
+                                            <td>{{$post->no_of_bedrooms}}</td>
+                                            <td>{{$post->no_of_sittingrooms}}</td>
+                                            <td>{{$post->title}}</td>
                                             <td>{{$post->created_at->diffForHumans()}}</td>
-                                            <td>my name</td>
-                                            <td>my name</td>
                                             <td>my name</td>
 
                                            

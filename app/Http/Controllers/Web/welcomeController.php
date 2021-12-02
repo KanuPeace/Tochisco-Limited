@@ -22,4 +22,14 @@ class welcomeController extends Controller
             'categories' =>  $categories,
         ]);
     } 
+
+    public function list(PropertyCategory $categories)
+    {
+        dd($categories);
+        $posts = $categories->post()->get();
+       return view('web.category.post', [
+           'posts' => $posts,
+           'categories' => $categories,
+       ]);
+    }
 }
