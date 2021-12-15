@@ -58,8 +58,8 @@ class PostController extends Controller
         $request->validate([
             "category_id" => "required|string|exists:property_categories,id",
             "type" => "required|string|in:$allowedTypes",
-            "title" => "required|string|max:2500",
-            "body" => "required|string|min:10",
+            "title" => "required|string",
+            "body" => "required|string",
             "no_of_bedrooms" => "required",
             "no_of_sittingrooms" => "required",
             "location" => "required",

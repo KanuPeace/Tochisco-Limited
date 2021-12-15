@@ -15,11 +15,13 @@ class welcomeController extends Controller
  
         $types = [Constants::RENT, Constants::SELL];
         $categories = PropertyCategory::get();
+        $latestPost = Post::latest()->orderby("created_at", "desc")->paginate(10); 
         $posts = Post::latest()->get();
         return view('welcome' , [
             'types' => $types,
             'posts' => $posts,
             'categories' =>  $categories,
+            ' latestPost' =>  $latestPost
         ]);
     } 
 
@@ -32,4 +34,5 @@ class welcomeController extends Controller
            'categories' => $categories,
        ]);
     }
+
 }

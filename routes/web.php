@@ -5,7 +5,7 @@ use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Users\CategoryController;
 use App\Http\Controllers\Users\PostController;
 use App\Http\Controllers\Admin\AdminPostController;
-use App\Http\Controllers\Users\ProfileController;
+use App\Http\Controllers\Users\ProfileController;   
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\IndexController;
@@ -36,6 +36,14 @@ Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeCont
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
      Route::resource('profile' , ProfileController::class);
+    Route::get('/profile' , [ProfileController::class , 'index'])->name('profile');
+    Route::get('/edit_profile' , [ProfileController::class , 'edit_profile'])->name('edit_profile');
+    Route::put('/update' , [ProfileController::class , 'update'])->name('update');
+
+    Route::get('/edit-profile', "Profile/IndexController@edit_profile")->name("edit_profilee");
+    Route::post('/update', "Profile/IndexController@update")->name("update_profile");
+
+       
      Route::resource('post' , PostController::class);
      Route::resource('category' , CategoryController::class);
  });
@@ -56,7 +64,7 @@ Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeCont
 
 Route::resource('todo', TodosController::class);
 Route::resource('web', IndexsController::class);
-Route::resource('property', PropertiesController::class);
+Route::resource('property', PropertiesController::class); 
 
 Auth::routes(['verify' => true]);
 

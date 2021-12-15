@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar_id',
+
     ];
 
     /**
@@ -41,8 +43,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    public function avatar()
+    {
+        return $this->hasOne(File::class, "id", "avatar_id");
+    }
+
+    public function avatarUrl()
+    {
+        $avatar = $this->avatar;
+
+        $filepath = optional($avatar)->path;
+
+        if (!empty($filepath)) {
+            return readFileUrl("encrypt", $filepath);
+        }
+
+        return ("bg.png");
     }
 }

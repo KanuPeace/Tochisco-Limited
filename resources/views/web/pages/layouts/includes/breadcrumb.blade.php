@@ -1,5 +1,5 @@
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/about-us.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="img/breadcrumb-contact-bg.jpg" style="background-image: url(&quot;img/breadcrumb-contact-bg.jpg&quot;);">
+    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-contact-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -101,17 +101,17 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="img/m-logo.png" alt="">
+                                <img src="web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua ut aliquip ex ea</p>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -134,8 +134,8 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Create Property</a></li>
                             <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                     </div>
                 </div>

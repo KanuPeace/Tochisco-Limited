@@ -4,9 +4,9 @@
 
             <ul class="navbar-item theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
-                    <a href="index.html">
+                    <!-- <a href="index.html">
                         <img src="{{ $web_source }}/web_assets/img/m-logo.png" class="navbar-logo" alt="logo">
-                    </a>
+                    </a> -->
                 </li>
                 <li class="nav-item theme-text">
                     <a href="index.html" class="nav-link">  </a>

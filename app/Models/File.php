@@ -19,11 +19,5 @@ class File extends Model
             }
         }
     }
-
-    public function url()
-    {
-        if (!empty($path = $this->path)) {
-            return readFileUrl("encrypt", $path);
-        }
-    }
 }
+

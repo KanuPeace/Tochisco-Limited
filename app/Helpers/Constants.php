@@ -2,25 +2,25 @@
 
 namespace App\Helpers;
 
-class Constants
-{
+ class  Constants{
 
-    const ACTIVE = 1;
-    const INACTIVE = 0;
+     const  APPROVED = "approved";
+     const  PENDING = "pending";
+     const  REJECTED = "rejected";
 
 
-    const DEFAULT_USER = "User";
-    const ADMIN_USER = "Admin";
+     const DEBIT_TRANSACTION = "Debit";
+     const CREDIT_TRANSACTION = "Credit";
 
-    const RENT = "Rent";
-    const SELL = "Sell";
 
-    const BOOL_OPTIONS = [
+     const ACTIVE = 1;
+     const INACTIVE = 0;
+
+     const BOOL_OPTIONS = [
         self::ACTIVE => "Yes",
         self::INACTIVE => "No",
-    ];
+     ];
 
-
-   
-
-}
+     const RENT = "rent";
+     const SELL = "sell";
+ }
