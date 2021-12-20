@@ -35,17 +35,9 @@ Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeCont
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
-     Route::resource('profile' , ProfileController::class);
-    Route::get('/profile' , [ProfileController::class , 'index'])->name('profile');
-    Route::get('/edit_profile' , [ProfileController::class , 'edit_profile'])->name('edit_profile');
-    Route::put('/update' , [ProfileController::class , 'update'])->name('update');
-
-    Route::get('/edit-profile', "Profile/IndexController@edit_profile")->name("edit_profilee");
-    Route::post('/update', "Profile/IndexController@update")->name("update_profile");
-
-       
      Route::resource('post' , PostController::class);
      Route::resource('category' , CategoryController::class);
+     Route::resource('profile' , ProfileController::class);
  });
 
  Route::prefix("admin")->as("admin.")->middleware(["verified", "admin"])->group(function () {

@@ -53,16 +53,8 @@ class User extends Authenticatable
         return $this->hasOne(File::class, "id", "avatar_id");
     }
 
-    public function avatarUrl()
+    public function prifile()
     {
-        $avatar = $this->avatar;
-
-        $filepath = optional($avatar)->path;
-
-        if (!empty($filepath)) {
-            return readFileUrl("encrypt", $filepath);
-        }
-
-        return ("bg.png");
+        return $this->hasOne(Profile::class);
     }
 }

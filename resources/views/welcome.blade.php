@@ -240,7 +240,7 @@
                             <div class="pa-item">
                                 <div class="pa-info">
                                     <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>{{$post->user->name}}</h6>
+                                    <h6></h6>
                                 </div>
                                 <div class="pa-text">
                                     123-455-688
