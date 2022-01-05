@@ -11,21 +11,21 @@ class TodosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $todos = Todo::latest()->where('status',1)->paginate(5);
-        return view('welcome',compact('todos'));
-    }
+    // public function index()
+    // {
+    //     $todos = Todo::latest()->where('status',1)->paginate(5);
+    //     return view('welcome',compact('todos'));
+    // }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('todos.create-todo');
-    }
+      */
+    // public function create()
+    // {
+    //     return view('todos.create-todo');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -33,20 +33,20 @@ class TodosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-       $data = $request->validate([
-           'title' => 'required|string',
-           'content' => 'required|string',
-       ]);
+    // public function store(Request $request)
+    // {
+    //    $data = $request->validate([
+    //        'title' => 'required|string',
+    //        'content' => 'required|string',
+    //    ]);
 
-       $data['status'] = 1;
+    //    $data['status'] = 1;
 
 
-       Todo::create($data);
+    //    Todo::create($data);
 
-       return redirect('/')->with('created','todo added successfully');
-    }
+    //    return redirect('/')->with('created','todo added successfully');
+    // }
 
     /**
      * Display the specified resource.
@@ -54,12 +54,12 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $todo = Todo::findOrFail($id);
+    // public function show($id)
+    // {
+    //     $todo = Todo::findOrFail($id);
 
-        return view('todos.show-todo',\compact('todo'));
-    }
+    //     return view('todos.show-todo',\compact('todo'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -67,11 +67,11 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $todo = Todo::findOrFail($id);
-        return view('todos.edit',compact('todo'));
-    }
+    // public function edit($id)
+    // {
+    //     $todo = Todo::findOrFail($id);
+    //     return view('todos.edit',compact('todo'));
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -80,16 +80,16 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $todo = Todo::findOrFail($id);
-        $todo->title = $request->title;
-        $todo->content = $request->content;
-        $todo->status = 1;
+    // public function update(Request $request, $id)
+    // {
+    //     $todo = Todo::findOrFail($id);
+    //     $todo->title = $request->title;
+    //     $todo->content = $request->content;
+    //     $todo->status = 1;
         
-        $todo->update();
-        return redirect('/')->with('updated','todo updated successfully');
-    }
+    //     $todo->update();
+    //     return redirect('/')->with('updated','todo updated successfully');
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -97,25 +97,25 @@ class TodosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $todo = Todo::findOrFail($id);
-        $todo->delete();
-        return redirect('/')->with('deleted','todo Deleted successfully');
-    }
+    // public function destroy($id)
+    // {
+    //     $todo = Todo::findOrFail($id);
+    //     $todo->delete();
+    //     return redirect('/')->with('deleted','todo Deleted successfully');
+    // }
 
-    public function complete_a_todo($id)
-    {
-        $todo = Todo::findOrFail($id);
+    // public function complete_a_todo($id)
+    // {
+    //     $todo = Todo::findOrFail($id);
 
-        $todo->status = 2;
-        $todo->update();
-        return redirect('/')->with('completed','todo Completed successfully');
-    }
+    //     $todo->status = 2;
+    //     $todo->update();
+    //     return redirect('/')->with('completed','todo Completed successfully');
+    // }
 
-    public function completed_todo()
-    {
-        $todos = Todo::where('status',2)->paginate(5);
-        return view('todos.comleted-todo',compact('todos'));
-    }
+    // public function completed_todo()
+    // {
+    //     $todos = Todo::where('status',2)->paginate(5);
+    //     return view('todos.comleted-todo',compact('todos'));
+    // }
 }

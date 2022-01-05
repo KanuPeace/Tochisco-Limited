@@ -4,14 +4,14 @@
 
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <h4>Property Grid</h4>
                         <div class="bt-option">
-                            <a href="{{route("home")}}"><i class="fa fa-home"></i> Home</a>
+                            <a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
                             <span>Property</span>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.0.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.0.jpg">
                             <div class="label">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -51,7 +51,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.1.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.1.jpg">
                             <div class="label c-red">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -81,7 +81,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.2.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.2.jpg">
                             <div class="label c-red">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -111,7 +111,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.3.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.3.jpg">
                             <div class="label c-red">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -141,7 +141,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -154,7 +154,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.4.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.4.jpg">
                             <div class="label c-magenta">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -171,7 +171,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -184,7 +184,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.5.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/web_assets/img/New/t.5.jpg">
                             <div class="label">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -201,7 +201,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -214,7 +214,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.6.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.6.jpg">
                             <div class="label c-red">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -231,7 +231,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -244,7 +244,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" background-image="img/New/t.7.jpg">
+                        <div class="pi-pic set-bg" background-image="web_assets/img/New/t.7.jpg">
                             <div class="label c-magenta">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -261,7 +261,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -274,7 +274,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="img/New/t.8.jpg">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/img/New/t.8.jpg">
                             <div class="label">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -291,7 +291,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ashton Kutcher</h6>
                                     </div>
                                     <div class="pa-text">
@@ -320,17 +320,17 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="img/m-logo.png" alt="">
+                                <img src="web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua ut aliquip ex ea</p>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -353,8 +353,8 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Create Property</a></li>
                             <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                     </div>
                 </div>

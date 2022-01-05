@@ -41,6 +41,11 @@ class PropertySeeder extends Seeder
                 "is_active" => 1,
                 "is_trending" => 1,
             ],
+            [
+                "name" => "villa",
+                "is_active" => 1,
+                "is_trending" => 1,
+            ],
         ];
 
         foreach ($data as $category) {

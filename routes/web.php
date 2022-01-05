@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
+use App\Http\Controllers\Users\CategoryController;
 use App\Http\Controllers\Users\PostController;
+use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Users\ProfileController;   
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\IndexController;
@@ -27,27 +30,33 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/');
+Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeController::class , 'list'])->name('category.post');
+
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');
-
      Route::resource('post' , PostController::class);
+     Route::resource('category' , CategoryController::class);
+     Route::resource('profile' , ProfileController::class);
  });
 
- Route::prefix("admin")->as("admin.")->middleware("verified")->group(function () {
+ Route::prefix("admin")->as("admin.")->middleware(["verified", "admin"])->group(function () {
     Route::get('dashboard/' , [App\Http\Controllers\Admin\DashboardController::class , 'index'])->name('dashboard');
+    Route::resource('post' , AdminPostController::class);
+
 });
 
-Route::get('/', [TodosController::class,'index']);
-Route::get('/completed-todo', [TodosController::class,'completed_todo'])->name('completed-todo');
-Route::get('/completed-todo/{id}', [TodosController::class,'complete_a_todo'])->name('complete-todo');
-Route::get('/welcome', [WelcomeController::class,'welcome'])->name('tochisco');
-Route::get('/home', [HomeController::class, 'welcome'])->name('Home');
+// Route::get('/', [TodosController::class,'index']);
+// Route::get('/completed-todo', [TodosController::class,'completed_todo'])->name('completed-todo');
+// Route::get('/completed-todo/{id}', [TodosController::class,'complete_a_todo'])->name('complete-todo');
+// Route::get('/welcome', [WelcomeController::class,'welcome'])->name('tochisco');
+// Route::get('/home', [HomeController::class, 'welcome'])->name('Home');
 
 
 
 Route::resource('todo', TodosController::class);
 Route::resource('web', IndexsController::class);
-Route::resource('property', PropertiesController::class);
+Route::resource('property', PropertiesController::class); 
 
 Auth::routes(['verify' => true]);
 

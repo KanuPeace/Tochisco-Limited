@@ -7,72 +7,36 @@
 <section class="hero-section">
     <div class="container">
         <div class="hs-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="img.folder/logo.jpg">
+            @foreach($posts as $post)
+            <div class="hs-item set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
                 <div class="row">
+
                     <div class="col-lg-12">
                         <div class="hc-inner-text">
                             <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
+                                <h4>{{$post->title}}</h4>
+                                <p><span class="icon_pin_alt"></span> {{$post->location}}</p>
+                                <div class="label">{{$post->type}}</div>
+                                <h5>${{$post->price}}<span>/month</span></h5>
                             </div>
                             <div class="hc-widget">
                                 <ul>
                                     <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
+                                    <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
+                                    <li><i class="fa fa-bed"></i>{{$post->no_of_bedrooms}}</li>
                                     <li><i class="fa fa-automobile"></i> 01</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
-            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-2.jpg">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="hc-inner-text">
-                            <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
-                            </div>
-                            <div class="hc-widget">
-                                <ul>
-                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
-                                    <li><i class="fa fa-automobile"></i> 01</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hs-item set-bg" data-setbg="web_assets/img/hero/hero-3.jpg">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="hc-inner-text">
-                            <div class="hc-text">
-                                <h4>Balaji Symphony</h4>
-                                <p><span class="icon_pin_alt"></span> Panvel, Navi Mumbai</p>
-                                <div class="label">For Rent</div>
-                                <h5>$ 65.0<span>/month</span></h5>
-                            </div>
-                            <div class="hc-widget">
-                                <ul>
-                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i> 03</li>
-                                    <li><i class="fa fa-bed"></i> 05</li>
-                                    <li><i class="fa fa-automobile"></i> 01</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -255,27 +219,28 @@
             </div>
         </div>
         <div class="row property-filter">
+            @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mix all house">
                 <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-1.jpg">
-                        <div class="label">For rent</div>
+                    <div class="pi-pic set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
+                        <div class="label">{{$post->type}}</div>
                     </div>
                     <div class="pi-text">
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0<span>/month</span></div>
-                        <h5><a href="#">Home in Merrick Way</a></h5>
-                        <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                        <div class="pt-price">${{$post->price}}<span>/month</span></div>
+                        <h5><a href="#">{{$post->title}}</a></h5>
+                        <p><span class="icon_pin_alt"></span>{{$post->address}}</p>
                         <ul>
                             <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
+                            <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
+                            <li><i class="fa fa-bed"></i> {{$post->no_of_bedrooms}}</li>
                             <li><i class="fa fa-automobile"></i> 01</li>
                         </ul>
                         <div class="pi-agent">
                             <div class="pa-item">
                                 <div class="pa-info">
                                     <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>Ashton Kutcher</h6>
+                                    <h6></h6>
                                 </div>
                                 <div class="pa-text">
                                     123-455-688
@@ -285,156 +250,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mix all restaurent hotel">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-2.jpg">
-                        <div class="label c-red">For rent</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0</div>
-                        <h5><a href="#">Unimont Aurum</a></h5>
-                        <p><span class="icon_pin_alt"></span> Gut No.102, Opp. HP Petrol Pump, Karjat</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>TOCHI KANU</h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mix all apart office">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-2.jpg">
-                        <div class="label c-red">For rent</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0</div>
-                        <h5><a href="#">Vrindavan Flora</a></h5>
-                        <p><span class="icon_pin_alt"></span> No. 15, 16, 17-1A And 17-2, Rasayani, Rasayani</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/agent/agent-1.jpg" alt="">
-                                    <h6>Ashton Kutcher</h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mix all hotel restaruent">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property-4.jpg">
-                        <div class="label c-red">For rent</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0</div>
-                        <h5><a href="#">Shramik Vaibhav</a></h5>
-                        <p><span class="icon_pin_alt"></span> 12 Pt at Shedung, Panvel, Raigarh, Navi Mumbai</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>Ashton Kutcher</h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mix all office hotel">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-5.jpg">
-                        <div class="label c-magenta">For rent</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0</div>
-                        <h5><a href="#">Poddar Wondercity</a></h5>
-                        <p><span class="icon_pin_alt"></span> Badlapur East, Beyond Thane</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>Ashton Kutcher</h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mix house apart office">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="web_assets/img/property/property-6.jpg">
-                        <div class="label">For rent</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">$ 289.0<span>/month</span></div>
-                        <h5><a href="#">GoldCrest Residency</a></h5>
-                        <p><span class="icon_pin_alt"></span> No.7, Sector- 11, Ghansoli, Mumbai, Navi Mumbai</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i> 03</li>
-                            <li><i class="fa fa-bed"></i> 05</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6>Ashton Kutcher</h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+           
         </div>
     </div>
 </section>
@@ -500,18 +317,15 @@
 <section class="feature-property-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 p-0">
+            <div class="col-lg-4 p-0 mb-5 ">
                 <div class="feature-property-left">
                     <div class="section-title">
                         <h4>Feature PROPERTY</h4>
                     </div>
                     <ul>
-                        <li>Apartment</li>
-                        <li>House</li>
-                        <li>Office</li>
-                        <li>Hotel</li>
-                        <li>Villa</li>
-                        <li>Restaurent</li>
+                        @foreach($categories as $category)
+                        <li><a href="">{{$category->name}}</a></li>
+                        @endforeach
                     </ul>
                     <a href="#">View all property</a>
                 </div>
@@ -830,7 +644,7 @@
 <!-- Contact Section End -->
 
 <div class="text">
-    <b>Would you like to invest and earn</b><span><a href="">  ---</a></span>
+    <b>Would you like to invest and earn</b><span><a href=""> ---</a></span>
 </div>
 
 <!-- Footer Section Begin -->
@@ -847,11 +661,11 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua ut aliquip ex ea</p>
                     <div class="fs-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-youtube-play"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
                     </div>
                 </div>
             </div>
@@ -895,7 +709,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved 
+                </script> All rights reserved
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>

@@ -4,7 +4,7 @@
 
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="img/breadcrumb-bg.jpg" style="background-image: url(&quot;img/breadcrumb-bg.jpg&quot;);">
+    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-bg.jpg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-30.jpg" style="background-image: url(&quot;imgg/IMG-30.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-30.jpg" >
                             <div class="label">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -159,7 +159,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-24.jpg" style="background-image: url(&quot;imgg/IMG-24.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-24.jpg" >
                             <div class="label c-red">For sale</div>
                         </div>
                         <div class="pi-text">
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-25.jpg" style="background-image: url(&quot;imgg/IMG-25.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-25.jpg" >
                             <div class="label c-red">For sale</div>
                         </div>
                         <div class="pi-text">
@@ -206,7 +206,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="imgg/agent 2.jpg" alt="">
+                                        <img src="web_assets/imgg/agent 2.jpg" alt="">
                                         <h6>Adejumo Lois Adenike</h6>
                                     </div>
                                     <div class="pa-text">
@@ -219,7 +219,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-26.jpg" style="background-image: url(&quot;imgg/IMG-26.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-26.jpg" >
                             <div class="label c-red">For sale</div>
                         </div>
                         <div class="pi-text">
@@ -236,7 +236,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="imgg/agent 3.jpg" alt="">
+                                        <img src="web_assets/imgg/agent 3.jpg" alt="">
                                         <h6>Eze Queen Gift</h6>
                                     </div>
                                     <div class="pa-text">
@@ -249,7 +249,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-27.jpg" style="background-image: url(&quot;imgg/IMG-27.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-27.jpg" >
                             <div class="label c-magenta">For sold</div>
                         </div>
                         <div class="pi-text">
@@ -266,7 +266,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="imgg/prin 6.jpg" alt="">
+                                        <img src="web_assets/imgg/prin 6.jpg" alt="">
                                         <h6>Prince Kanu</h6>
                                     </div>
                                     <div class="pa-text">
@@ -279,7 +279,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="imgg/IMG-29.jpg" style="background-image: url(&quot;imgg/IMG-29.jpg&quot;);">
+                        <div class="pi-pic set-bg" data-setbg="web_assets/imgg/IMG-29.jpg" style="background-image: url(&quot;imgg/IMG-29.jpg&quot;);">
                             <div class="label">For rent</div>
                         </div>
                         <div class="pi-text">
@@ -296,7 +296,7 @@
                             <div class="pi-agent">
                                 <div class="pa-item">
                                     <div class="pa-info">
-                                        <img src="img/property/posted-by/pb-1.jpg" alt="">
+                                        <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
                                         <h6>Ogbonna Frank</h6>
                                     </div>
                                     <div class="pa-text">
@@ -568,17 +568,17 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="img.folder/logo.jpg" alt="">
+                                <img src="web_assets/img.folder/logo.jpg" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua ut aliquip ex ea</p>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -601,8 +601,8 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Create Property</a></li>
                             <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                     </div>
                 </div>

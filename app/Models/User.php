@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar_id',
+
     ];
 
     /**
@@ -40,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function avatar()
+    {
+        return $this->hasOne(File::class, "id", "avatar_id");
+    }
+
+    public function prifile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

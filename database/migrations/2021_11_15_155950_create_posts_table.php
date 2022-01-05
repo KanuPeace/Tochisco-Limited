@@ -18,11 +18,11 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->string('price');
+            $table->string('cover_image');
             $table->string('location');
             $table->string('no_of_bedrooms');
             $table->string('no_of_sittingrooms');
             $table->enum('type', ["Rent", "Sell"]);
-            $table->string('tags')->nullable();
             $table->foreignId('agent_id')->on("users")->nullable()->nullOnDelete()->index();
             $table->foreignId('category_id')->on("property_categories")->nullable()->nullOnDelete();
             $table->tinyInteger('is_top_story')->default(0);

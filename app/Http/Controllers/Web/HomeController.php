@@ -40,6 +40,6 @@ class HomeController extends Controller
     } 
 
     public function contact(){
-        return view('web.pages..property.contact');
+        return view('web.pages.property.contact');
     } 
 }

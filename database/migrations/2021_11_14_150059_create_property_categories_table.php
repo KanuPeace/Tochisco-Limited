@@ -8,7 +8,7 @@ class CreatePropertyCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *property_categories
      * @return void
      */
     public function up()

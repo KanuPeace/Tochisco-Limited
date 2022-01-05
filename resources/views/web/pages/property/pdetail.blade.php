@@ -12,23 +12,23 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-lg-12 p-0">
-                                    <div class="ps-item-inner large-item set-bg" data-setbg="img/property/slider/ps-1.jpg"></div>
+                                    <div class="ps-item-inner large-item set-bg" data-setbg="web_assets/img/property/slider/ps-1.jpg"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-4.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-4.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-5.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-5.jpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -41,23 +41,23 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-lg-12 p-0">
-                                    <div class="ps-item-inner large-item set-bg" data-setbg="img/property/slider/ps-1.jpg"></div>
+                                    <div class="ps-item-inner large-item set-bg" data-setbg="web_assets/img/property/slider/ps-1.jpg"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-4.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-4.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="img/property/slider/ps-5.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-5.jpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                         </div>
                         <div class="pd-widget">
                             <h4>Floor plans</h4>
-                            <img src="img/property/details/floor-plan.jpg" alt="">
+                            <img src="web_assets/img/property/details/floor-plan.jpg" alt="">
                         </div>
                         <div class="pd-widget">
                             <h4>Floor plans</h4>
@@ -274,13 +274,13 @@
                             <h4>Agent</h4>
                             <div class="pd-agent">
                                 <div class="agent-pic">
-                                    <img src="img/property/details/agent.jpg" alt="">
+                                    <img src="web_assets/img/property/details/agent.jpg" alt="">
                                 </div>
                                 <div class="agent-text">
                                     <div class="at-title">
                                         <h6>Mr. Charles Kanu</h6>
                                         <span>Founder & CEO</span>
-                                        <a href="{{ route("profile")}}" class="primary-btn">VIew profile</a>
+                                        <a href="{{ route('profile')}}" class="primary-btn">VIew profile</a>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit, eiusmod tempor incididunt</p>
                                     <div class="at-option">
@@ -301,7 +301,7 @@
                                 <div class="pr-item">
                                     <div class="pr-avatar">
                                         <div class="pr-pic">
-                                            <img src="img/property/details/review/review-1.jpg" alt="">
+                                            <img src="web_assets/img/property/details/review/review-1.jpg" alt="">
                                         </div>
                                         <div class="pr-text">
                                             <h6>Brandon Kelley</h6>
@@ -320,7 +320,7 @@
                                 <div class="pr-item">
                                     <div class="pr-avatar">
                                         <div class="pr-pic">
-                                            <img src="img/property/details/review/review-2.jpg" alt="">
+                                            <img src="web_assets/img/property/details/review/review-2.jpg" alt="">
                                         </div>
                                         <div class="pr-text">
                                             <h6>Matthew Nelson</h6>
@@ -368,7 +368,7 @@
                             </div>
                             <div class="top-agent">
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="img/property/details/sidebar/ta-1.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-1.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -376,7 +376,7 @@
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="img/property/details/sidebar/ta-2.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-2.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -384,7 +384,7 @@
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="img/property/details/sidebar/ta-3.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-3.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -398,25 +398,25 @@
                                 <h5>Featural categories</h5>
                             </div>
                             <div class="sf-slider owl-carousel">
-                                <div class="sf-item set-bg" data-setbg="img/categories/cat-1.jpg">
+                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-1.jpg">
                                     <div class="sf-text">
                                         <h5>House</h5>
                                         <span>38 property</span>
                                     </div>
                                 </div>
-                                <div class="sf-item set-bg" data-setbg="img/categories/cat-2.jpg">
+                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-2.jpg">
                                     <div class="sf-text">
                                         <h5>Apartment</h5>
                                         <span>238 property</span>
                                     </div>
                                 </div>
-                                <div class="sf-item set-bg" data-setbg="img/categories/cat-3.jpg">
+                                <div class="sf-item set-bg" data-setbg="iweb_assets/img/categories/cat-3.jpg">
                                     <div class="sf-text">
                                         <h5>Villa</h5>
                                         <span>230 property</span>
                                     </div>
                                 </div>
-                                <div class="sf-item set-bg" data-setbg="img/categories/cat-4.jpg">
+                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-4.jpg">
                                     <div class="sf-text">
                                         <h5>Restaurent</h5>
                                         <span>38 property</span>
@@ -509,17 +509,17 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="img/f-logo.png" alt="">
+                                <img src="web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua ut aliquip ex ea</p>
                         <div class="fs-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-youtube-play"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -542,8 +542,8 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Create Property</a></li>
                             <li><a href="#">My Properties</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                         </ul>
                     </div>
                 </div>
