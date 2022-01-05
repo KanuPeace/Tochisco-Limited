@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Tochisco</title>
-    <link rel="icon" type="image/x-icon" href="{{ $web_source }}/web_assets/img/icon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $web_source }}/web_assets/img/icon.png">
     <link href="{{$admin_assets}}/assets/css/loader.css" rel="stylesheet" type="text/css" />
     <script src="{{$admin_assets}}/{{$admin_assets}}/assets/js/loader.js"></script>
 
