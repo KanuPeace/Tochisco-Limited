@@ -17,11 +17,7 @@ class ProfileController extends Controller
     public function index()
     {
         $profile = Profile::find(1);
-         $user = User::find(1);
-        return view('Dashboards.users.profile.index' ,[
-           'user' => $user,  
-           'profile' => $profile,
-        ]);
+        return view('Dashboards.users.profile.index' , compact('profile'));
     }
 
     /**
@@ -31,10 +27,6 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        $user = User::find(1);
-        return view('Dashboards.users.profile.create' , [
-            'user' => $user 
-        ]);
        
     }
 
@@ -44,34 +36,9 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
-      
+    public function store(Request $request)
     {
-         $user = User::find(1);
-        $request->validate([
-            'profile_image' => 'required',
-            'location' => 'required',
-            'phone' => 'required',
-            'facebook' => 'nullable',
-            'instagram' => 'nullable',
-            'twitter' => 'nullable',
-        ]);
-
-        $profileImage = uniqid();
-            $request->profile_image->extension();
-        $request->profile_image->move(public_path('users/profileImages'), $profileImage);
-
-        $request = Profile::create([
-           'profile_image' => $profileImage,
-           'location' => $request->input('location'),
-           'phone' => $request->input('phone'),
-           'instagram' => $request->input('instagram'),
-           'facebook' => $request->input('facebook'),
-           'twitter' => $request->input('twitter'),
-           
-        ]);
-
-        return back()->with('succes_message' , 'Profile created successfully');
+        //
     }
 
     /**
@@ -91,9 +58,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $user = auth()->user();
+        return view('Dashboards.users.edit_profile', ["user" => $user]);
     }
 
     /**
@@ -103,9 +71,32 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user = auth()->user();
+        $data = $request->validate([
+            "name" => "required|string",
+            "email" => "required|email|unique:users,email,$user->id",
+            "linkedin_username" => "nullable|string",
+            "facebook_username" => "nullable|string",
+            "twitter_username" => "nullable|string",
+            "github_username" => "nullable|string",
+            "avatar" => "nullable|image"
+
+        ]);
+
+       
+
+        $request = Profile::create([
+            'name' =>  $request->input('name'),
+            'email' =>  $request->input('email'),
+            'linkedin_username' =>  $request->input('linkedin_username'),
+            'facebook-username' =>  $request->input('facebook-username'),
+            'twitter-username' =>  $request->input('twitter-username'),
+            'github-username' =>  $request->input('github-username'),
+            'user_id' => auth()->user()->id,
+        ]);
+
     }
 
     /**

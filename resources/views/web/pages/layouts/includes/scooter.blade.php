@@ -18,10 +18,10 @@
         <div id="mobile-menu-wrap"></div>
         <div class="om-widget">
             <ul>
-                <li><i class="icon_mail_alt"></i> kanupeace85@gmail.com</li>
-                <li><i class="fa fa-phone"></i> 09157522382 <span>09093907715</span></li>
+                <li><i class="icon_mail_alt"></i> </li>
+                <li><i class="fa fa-phone"></i>  <span></span></li>
             </ul>
-            <a href="#" class="hw-btn">Submit property</a>
+            <a href="{{route('admin.post.create')}}" class="hw-btn">Submit property</a>
         </div>
         <div class="om-social">
             <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
@@ -46,10 +46,10 @@
                     <div class="col-lg-10">
                         <div class="ht-widget">
                             <ul>
-                                <li><i class="icon_mail_alt"></i>kanupeace85@gmail.com</li>
-                                <li><i class="fa fa-mobile-phone"></i>  09157522382 <span>09093907715</span></li>
+                                <li><i class="icon_mail_alt"></i></li>
+                                <li><i class="fa fa-mobile-phone"></i>  </li>
                             </ul>
-                            <a href="/psubmit" class="hw-btn">Submit property</a>
+                            <a href="{{route('admin.post.create')}}" class="hw-btn">Submit property</a>
                         </div>
                     </div>
                 </div>
