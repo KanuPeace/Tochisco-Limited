@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="width:40px;"  src="web_assets/img/icon.png" alt=""><b>Tochisco Limited</b>
+                    <img style="width:40px;"  src="web_assets/img/icon.png" alt=""><b>Tochisco</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
