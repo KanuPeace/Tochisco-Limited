@@ -1,4 +1,4 @@
-@extends('Dashboards.users.profile.layouts.app')
+@extends('Dashboards.users.profile.layout.app')
 
 @section('content')
 <!--  BEGIN CONTENT AREA  -->
