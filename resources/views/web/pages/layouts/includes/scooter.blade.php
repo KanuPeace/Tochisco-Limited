@@ -98,7 +98,7 @@
                                 </li>
                                 <li><a href="{{route('agent')}}">Agent</a></li>
                                 <li class="active"><a href="{{route('about')}}">About</a></li>
-                                <li><a href="/blog">Blog</a></li>
+                                {{-- <li><a href="/blog">Blog</a></li> --}}
                                 <li><a href="{{route('contact')}}">Contact</a></li>
                                 @endauth
                             </ul>
