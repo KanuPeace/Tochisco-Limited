@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card"  style="background-image: url('{{ $web_source }}/admin/assets/img/slider-3.jpg');">
+            <div class="card"  >
                 <div class="card-header"><b>{{ __('Register') }}</b></div>
 
                 <div class="card-body">
@@ -24,6 +24,8 @@
                                 @enderror
                             </div>
                         </div>
+
+                        
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right"><b>{{ __('E-Mail Address') }}</b></label>
@@ -61,13 +63,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group">
+                            <label>Referrer Code</label>
+                            <input class="form-control" type="text" name="referrer" placeholder="Enter your referrer code" maxlength="20" value="{{ session()->get('ref_code') ??  old('referrer') }}" aria-required="true">
+                            @error('referrer')
+                                <span class="form-input-error" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                <button type="submit" class="btn btn-primary theme-button mt-4">Sign Up</button>
+
+                        {{-- <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
-                        </div>
+                        </div> --}}
+
+                    </div>
+                    <p class="signup">Already an agent? <a href="{{ route('login') }}" class="signuplink">Login now</a></p>
+                  </div>
                     </form>
                 </div>
             </div>

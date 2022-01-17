@@ -9,7 +9,7 @@
                   </a>
               </li> --}}
               <li class="nav-item theme-text">
-                  <a href="index.html" class="nav-link"> Echokemedia</a>
+                  <a href="index.html" class="nav-link"> Tochisco</a>
               </li>
           </ul>
 
@@ -73,7 +73,7 @@
               <li class="nav-item dropdown user-profile-dropdown">
                   <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <img class="img-fluid" src="{{ $admin_assets }}/assets/img/m-icon.jpeg" alt="avatar">
+                      <img class="img-fluid" src="{{ $web_source }}/web_assets/img/icon.png" alt="avatar">
                   </a>
                   <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                       <div class="">

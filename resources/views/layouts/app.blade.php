@@ -53,7 +53,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-success" href="{{ route('register') }}">Become An Agent</a>
                                 </li>
                             @endif
                         @else
