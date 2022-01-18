@@ -83,7 +83,7 @@
                             </div>
                         </div> --}}
 
-                    </div>
+                    {{-- </div>
                     <p class="signup">Already an agent? <a href="{{ route('login') }}" class="signuplink">Login now</a></p>
                   </div>
                     </form>

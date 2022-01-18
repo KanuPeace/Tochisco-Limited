@@ -23,4 +23,7 @@ namespace App\Helpers;
 
      const RENT = "rent";
      const SELL = "sell";
+
+     const DEFAULT_USER = "User";
+     const ADMIN_USER = "Admin";
  }
