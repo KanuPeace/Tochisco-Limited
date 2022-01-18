@@ -11,7 +11,7 @@ class DashboardController extends Controller
    
    public function dashboard()
    {
-       return view('Dashboards.admin.index');
+       return view('admin.index');
    }
 
    public function usersMessages(ModelsContactUs $contact)

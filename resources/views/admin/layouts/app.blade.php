@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Flairworlds Admin </title>
-    <link rel="icon" type="image/x-icon" href="{{ $logo_icon_image }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $web_source }}/web_assets/img/icon.png">
     <link href="{{ $admin_assets }}/assets/css/loader.css" rel="stylesheet" type="text/css" />
     <script src="{{ $admin_assets }}/assets/js/loader.js"></script>
 
@@ -182,8 +182,8 @@
     </div>
     <!--  END LOADER -->
 
-    @include("dashboards.admin.layouts.includes.navbar")
-    @include("dashboards.admin.layouts.includes.subheader")
+    @include("admin.layouts.includes.navbar")
+    @include("admin.layouts.includes.subheader")
 
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -204,7 +204,7 @@
 
                 </div>
             </div>
-            @include("dashboards.admin.layouts.includes.footer")
+            @include("admin.layouts.includes.footer")
 
         </div>
     </div>

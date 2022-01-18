@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Helpers\Constants;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -48,9 +49,27 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function isAdmin()
+    {
+        return $this->role == Constants::ADMIN_USER;
+    
+    }
     public function avatar()
     {
         return $this->hasOne(File::class, "id", "avatar_id");
+    }
+
+    public function avatarUrl()
+    {
+        $avatar = $this->avatar;
+
+        $filepath = optional($avatar)->path;
+
+        if (!empty($filepath)) {
+            return readFileUrl("encrypt", $filepath);
+        }
+
+        return my_asset("user.png");
     }
 
     public function prifile()

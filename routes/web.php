@@ -5,6 +5,7 @@ use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Users\CategoryController;
 use App\Http\Controllers\Users\PostController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
@@ -80,8 +81,10 @@ Route::as("user.")->namespace("User")->middleware('verified')->group(function ()
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
-    Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
+    Route::get('/dashboard',  [App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name("dashboard");
     Route::resource('users', UserController::class);
+    Route::resource('profile', ProfileController::class);
+
     Route::resource('post', AdminPostController::class);
 
     Route::resource('subscriptions', SubscriptionController::class);
