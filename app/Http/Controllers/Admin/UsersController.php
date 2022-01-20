@@ -2,8 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Constants;
+use App\Helpers\Wallet;
 use App\Http\Controllers\Controller;
+use App\Services\Auth\AuthorizationService;
+use Illuminate\Support\Facades\Auth;
+use App\QueryBuilder\UserQueryBuilder;
+use App\Helpers\MediaHandler;
+use App\Models\Plan;
+use App\Models\User;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+
+
 
 class UsersController extends Controller
 {
@@ -30,14 +44,14 @@ class UsersController extends Controller
         $roles = [
             "Admin", "User"
         ];
-        return view("dashboards.admin.users.index", [
+        return view("admin.users.index", [
             "users" => $users,
             "sn" => $sn,
             "plans" => $plans,
             "roles" => $roles
         ]);
     }
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -96,7 +110,7 @@ class UsersController extends Controller
         if (isDev()) {
             $role_permissions = Role::get();
         }
-        return view("dashboards.admin.users.edit", ["user" => $user, "role_permissions" => $role_permissions]);
+        return view("admin.users.edit", ["user" => $user, "role_permissions" => $role_permissions]);
     }
     
 
@@ -150,7 +164,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         AuthorizationService::hasPermissionTo("can_delete_users");
         $user->delete();

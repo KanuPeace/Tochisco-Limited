@@ -1,4 +1,4 @@
-@extends('Dashboards.admin.layouts.app')
+@extends('admin.layouts.app')
 
 
 @section('contents')
@@ -12,7 +12,7 @@
     <div class="search-overlay"></div>
 
     <!-- add sidebar -->
-    @include('Dashboards.admin.layouts.fragments.sidebar')
+    {{-- @include('admin.layouts.includes.sidebar') --}}
 
     <!-- end sidebar -->
 

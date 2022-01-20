@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Flairworlds Admin </title>
+    <title>Tochisco Admin </title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ $web_source }}/web_assets/img/icon.png">
     <link href="{{ $admin_assets }}/assets/css/loader.css" rel="stylesheet" type="text/css" />
     <script src="{{ $admin_assets }}/assets/js/loader.js"></script>
@@ -192,7 +192,7 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
 
-        @include("dashboards.admin.layouts.includes.sidebar")
+        @include("admin.layouts.includes.sidebar")
 
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">

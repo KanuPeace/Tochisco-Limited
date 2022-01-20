@@ -9,7 +9,7 @@
                   </a>
               </li>
               <li class="nav-item theme-text">
-                  <a href="{{ route('web.index') }}" class="nav-link"> Flairworlds</a>
+                  <a href="{{ route('web.index') }}" class="nav-link">Tochisco</a>
               </li>
           </ul>
 

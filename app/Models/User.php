@@ -7,10 +7,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+
+
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    // use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +24,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role',
         'password',
         'avatar_id',
 
@@ -69,10 +74,9 @@ class User extends Authenticatable
             return readFileUrl("encrypt", $filepath);
         }
 
-        return my_asset("user.png");
     }
 
-    public function prifile()
+    public function profile()
     {
         return $this->hasOne(Profile::class);
     }
