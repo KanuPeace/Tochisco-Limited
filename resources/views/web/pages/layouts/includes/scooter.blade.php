@@ -86,10 +86,16 @@
                             <li class="active"><a href="{{ route('about') }}">About</a></li>
                             {{-- <li><a href="/blog">Blog</a></li> --}}
                             <li><a href="{{ route('contact') }}">Contact</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                            <li>
+                                {{-- {{ __('Logout') }} --}}
+                                <form action="{{ route('logout') }}" method="post" id="logoutForm">@csrf
+                                    <a onclick="return $('#logoutForm').trigger('submit')">
+                                        <i class="icon-exit"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </form>
+            
+
                             </li>
                         @else
                             <li><a href="{{ route('login') }}">Sign in</a></li>

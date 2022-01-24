@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
         $user = auth()->user();
-        return view('admin.index');
+        return view('user1.home');
     }
 }
