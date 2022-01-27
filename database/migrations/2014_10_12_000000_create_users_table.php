@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('avatar')->default('');
             $table->string('name');
-            $table->string('username');
+            $table->string('username')->default('');
             $table->string('email' , 100)->unique();
             $table->enum('role', ['User', 'Admin'])->default('User');
             $table->string('status')->default("Pending");

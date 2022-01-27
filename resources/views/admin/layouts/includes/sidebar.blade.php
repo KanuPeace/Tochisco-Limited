@@ -32,7 +32,7 @@
                 </a>
             </li>
 
-            <li class="menu">
+            {{-- <li class="menu">
                 <a href="/" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Category</span>
@@ -40,7 +40,7 @@
                 </a>
 
 
-            </li>
+            </li> --}}
 
             <hr>
 

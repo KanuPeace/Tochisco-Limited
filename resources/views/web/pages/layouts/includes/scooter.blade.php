@@ -70,7 +70,7 @@
                                     <a href="{{ route('admin.dashboard') }}" class="dropdown-item"
                                         type="button">Dashboard</a>
                                 @else
-                                    <a href="{{ route('user.dashboard') }}" class="dropdown-item"
+                                    <a href="{{ route('user.user.index') }}" class="dropdown-item"
                                         type="button">Dashboard</a>
                                 @endif
                             </li>

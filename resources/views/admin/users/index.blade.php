@@ -38,6 +38,7 @@
                                             <th class="">Status</th>
                                             <th class="">Created At</th>
                                             <th class="">no. of post</th>
+                                            <th class="">.....</th>
                                             <th class="">Action</th>
                                         </tr>
                                     </thead>

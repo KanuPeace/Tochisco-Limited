@@ -3,21 +3,51 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 
-class ProfileController extends Controller
+
+class DashboardsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function postslist(User $user)
     {
-        $profile = Profile::find(1);
-        return view('users.profile.index' , compact('profile'));
+      $posts = $user->posts()->with(['user'])->paginate(5);
+         return view('users.posts.posts_list' , [
+          'user' => $user,
+          'posts' => $posts,
+   ]);
+    }
+
+   
+
+   public function error()
+   {
+       return view('users.503_error');
+   }
+
+     public function earnings()
+     {
+      
+       $money = 0.000 ;
+       $posts_count  = Post::where('user_id', auth()->id())->count();
+       $total = $posts_count * $money;
+          return view('users.earning' , [
+              'total' => $total,
+          ]);
+     }
+
+
+    public function index( User $user)
+    {
+      return view('users.dashboard' , ['user' => $user]);
+        
     }
 
     /**
@@ -27,7 +57,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-       
+        //
     }
 
     /**
@@ -58,10 +88,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        $user = auth()->user();
-        return view('users.profile.edit', ["user" => $user]);
+        //
     }
 
     /**
@@ -71,32 +100,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $user = auth()->user();
-        $data = $request->validate([
-            "name" => "required|string",
-            "email" => "required|email|unique:users,email,$user->id",
-            "linkedin_username" => "nullable|string",
-            "facebook_username" => "nullable|string",
-            "twitter_username" => "nullable|string",
-            "github_username" => "nullable|string",
-            "avatar" => "nullable|image"
-
-        ]);
-
-
-       
-
-        $request = Profile::create([
-            'name' =>  $request->input('name'),
-            'email' =>  $request->input('email'),
-            'linkedin_username' =>  $request->input('linkedin_username'),
-            'facebook-username' =>  $request->input('facebook-username'),
-            'twitter-username' =>  $request->input('twitter-username'),
-            'github-username' =>  $request->input('github-username'),
-            'user_id' => auth()->user()->id,
-        ]);
+        //
     }
 
     /**

@@ -40,7 +40,10 @@ Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->n
 Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeController::class, 'list'])->name('category.post');
 
 
-Route::as("user.")->namespace("User")->middleware('verified')->group(function () {
+Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
+    Route::resource('user', DashboardsController::class);
+    // Route::resource('profile', ProfileController::class);
+    Route::get('/profile', [App\Http\Controllers\Users\ProfileController::class, 'index'])->name('profile');
     Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
     Route::get('/referrals', "DashboardController@referrals")->name("referrals");
     Route::get('/transactions', "DashboardController@transactions")->name("transactions");
@@ -48,6 +51,9 @@ Route::as("user.")->namespace("User")->middleware('verified')->group(function ()
     Route::get('/withdrawal-requests', "DashboardController@withdrawal_requests")->name("withdrawal_requests");
     Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
     Route::put('/update', "ProfileController@update")->name("update");
+    Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
+    Route::resource('post', PostController::class);
+
 
 
 
@@ -82,12 +88,18 @@ Route::as("user.")->namespace("User")->middleware('verified')->group(function ()
         Route::get('withdraw', "WalletController@withdraw")->name("withdraw");
         Route::post('withdraw-request', "WalletController@withdraw_request")->name("withdraw_request");
     });
- });
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
     Route::get('/dashboard',  [App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name("dashboard");
+    Route::get('/users_messages', [App\Http\Controllers\Dashboard\AdminController::class, 'usersMessages'])->name('users_messages');
+
     Route::resource('users', UsersController::class);
+    Route::get('users/status/{id}',  [App\Http\Controllers\Admin\UsersController::class, 'status'])->name('users_status');
+
     Route::resource('category', CategoriesController::class);
 
     Route::resource('profile', ProfileController::class);
@@ -154,12 +166,12 @@ Route::resource('property', PropertiesController::class);
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'welcome'])->name('home');
+// Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'welcome'])->name('home');
 Route::get('/property', [App\Http\Controllers\Web\HomeController::class, 'property'])->name('property');
 Route::get('/prop_comparison', [App\Http\Controllers\Web\HomeController::class, 'prop_com'])->name('prop_comparison');
 Route::get('/prop_details', [App\Http\Controllers\Web\HomeController::class, 'prop_detail'])->name('prop_details');
 Route::get('/prop_submit', [App\Http\Controllers\Web\HomeController::class, 'prop_sub'])->name('prop_submit');
 Route::get('/agent', [App\Http\Controllers\Web\HomeController::class, 'agent'])->name('agent');
 Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])->name('about');
-Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
+// Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
 Route::get('/contact', [App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
