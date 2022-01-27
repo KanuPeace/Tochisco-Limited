@@ -1,77 +1,123 @@
-@extends("admin.layouts.app")
-@section('content')
-    <div id="tableCheckbox" class="">
-        <div class="statbox widget box box-shadow mt-5">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                        <h4>Users</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="widget-content widget-content-area">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
-                        <thead>
-                            <tr>
-                                <th class="">S/N</th>
-                                <th class="checkbox-column">
-                                    <label class="new-control new-checkbox checkbox-primary"
-                                        style="height: 18px; margin: 0 auto;">
-                                        <input type="checkbox" class="new-control-input todochkbox" id="todoAll">
-                                        <span class="new-control-indicator"></span>
-                                    </label>
-                                </th>
-                                <th class="">Name</th>
-                                <th class="">Email</th>
-                                <th class="">Role</th>
-                                <th class="">Active Plan</th>
-                                <th class="">Joined On</th>
-                                <th class="text-center">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $sn++ }}</td>
-                                    <td class="checkbox-column">
-                                        <label class="new-control new-checkbox checkbox-primary"
-                                            style="height: 18px; margin: 0 auto;">
-                                            <input type="checkbox" class="new-control-input todochkbox" id="todo-1">
-                                            <span class="new-control-indicator"></span>
-                                        </label>
-                                    </td>
-                                    <td>{{ $user->names() }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
-                                    <td>{{ $user->activePlan()->plan_name }}</td>
-                                    <td>{{ $user->created_at }}</td>
+@extends('admin.layouts.app')
 
-                                    <td class="text-center">
-                                        <ul class="table-controls">
-                                            <li><a href="{{ route("admin.users.show" , $user->id) }}" data-toggle="tooltip" data-placement="top"
-                                                    title="Settings"><i data-feather="settings"></i></a> </li> 
-                                            <li><a href="{{ route('admin.users.edit', $user->id) }}"
-                                                    data-toggle="tooltip" data-placement="top" title="Edit"><i>
-                                                        <i data-feather="edit-2" class="text-info"></i></a></li>
-                                            <li>
+@section('style')
+
+
+
+<div class="main-container" id="container">
+
+    <div class="overlay"></div>
+    <div class="search-overlay"></div>
+    <!--  BEGIN CONTENT PART  -->
+    <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+
+            <div class="row layout-top-spacing">
+                @include('notifications.flash_messages')
+
+
+                <div id="tableCheckbox" class="">
+                    <div class="statbox widget box box-shadow mt-5">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Users Information</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+                                    <thead>
+                                        <tr>
+                                            <th class="">S/N</th>
+                                            <th class="">User Email</th>
+                                            <th class="">Role</th>
+                                            <th class="">Username</th>
+                                            <th class="">Profile</th>
+                                            <th class="">Status</th>
+                                            <th class="">Created At</th>
+                                            <th class="">no. of post</th>
+                                            <th class="">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($users as $user )
+                                        @php
+                                        $statusColor = "";
+                                        $status = $user->status;
+                                        if($status == "Pending"){
+                                        $statusColor = "text-info";
+                                        }
+                                        if($status == "Approved"){
+                                        $statusColor = "text-success";
+                                        }
+                                        if($status == "Suspended"){
+                                        $statusColor = "text-danger";
+                                        }
+                                        @endphp
+                                        <tr>
+
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->role}}</td>
+                                            <td>{{$user->username}}</td>
+                                            <td>
+                                                <a href="{{ asset(auth()->user()->avatar) }}" target="_blank" rel="noopener noreferrer">
+                                                    <img class="img-fluid" src="{{ asset(auth()->user()->avatar) }}" alt="avatar">
+                                                </a>
+                                            </td>
+                                            <td class="{{$statusColor}}">{{$user->status }}</td>
+                                            <td>{{$user->created_at}}
+                                            <td>
+                                                <h3>
+                                                    
+                                                </h3>
+                                            </td>
+                                            <td>
+                                                <ul class="table-controls">
+                                                    <li class="mb-3">
+                                                        <div class="dropdown">
+                                                            <button class="btn dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                Change Status
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                @foreach (['Pending', 'Approved' , 'Suspended'] as $status)
+                                                                <a class="dropdown-item" onclick="return  confirm ('Are you sure of the action?')" href="{{ route('admin.users_status', ['id' => $user->id, 'status' => $status]) }}">
+                                                                    Mark as {{ ucfirst($status) }}
+                                                                </a>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            <td>
                                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" data-feather="trash-2" class="text-danger"
-                                                    onClick="$(this).parent().trigger('submit')"></button>
+                                                    <button type="submit" class="btn btn-danger" onClick="$(this).parent().trigger('submit')">Delete</button>
                                                 </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                                {{-- <button class="btn btn-primary">Edit</button> --}}
+                                                <a href="{{ route('admin.users.edit',$user->id ) }}" class="btn btn-success btn-block disable" data-toggle="tooltip" data-placement="top" title="Edit"><i><i data-feather="edit-2" class="text-info"></i>Edit
+                                                </a>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        @endforeach
 
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {!! $users->links('pagination::bootstrap-4') !!}
+                                        {{$users->links () }}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!--  END CONTENT PART  -->
+
             </div>
         </div>
-    </div>
-@endsection
+
+        @endsection

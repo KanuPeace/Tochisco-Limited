@@ -15,6 +15,6 @@ class PropertyCategory extends Model
 
     public function post()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class ,'category_id');
     }
 }

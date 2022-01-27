@@ -17,9 +17,17 @@
             <b>Blog</b>
             <br>
             <li class="menu">
-                <a href="{{ route("admin.post.create") }}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ route("admin.post.index") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Posts</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu">
+                <a href="{{ route("admin.post.create") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <span>Create Posts</span>
                     </div>
                 </a>
             </li>

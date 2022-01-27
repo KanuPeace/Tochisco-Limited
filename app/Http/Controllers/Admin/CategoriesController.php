@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\PropertyCategory;
 
 
-class UsersController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderby("created_at", "desc")
-        ->paginate(20);
-        $users->firstItem();
-        return view('admin.users.index', ['users' => $users]);
+        //
     }
 
     /**
@@ -40,7 +37,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data  = $request->validate([
+            'name' => 'required|max:20',
+          ]);
+  
+          $data = PropertyCategory::create($data);
+          return back()->with('success_message', 'Category added successfully');
     }
 
     /**
@@ -62,8 +64,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = user::findOrFail($id);
-        return view("admin.users.edit", ["user" => $user]);
+        //
     }
 
     /**
@@ -84,21 +85,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function status(Request $request)
+    public function destroy($id)
     {
-        $status = $request->status;
-        User::find($request->id)->update([
-            "status" => $status,
-        ]);
-        return back()->with("success_message", "Status updated successfully!");
-    }
-
-
-    public function destroy(User $user)
-    {
-        $user->delete();
-        return back()->with("error_message" , "Deleted successfully!");
-        
+        //
     }
 }

@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
 use App\Http\Controllers\Users\CategoryController;
+// use App\Http\Controllers\Admin\CategoriesController;
+
+
 use App\Http\Controllers\Users\PostController;
+use App\Http\Controllers\Users\DashboardController;
+
 // use App\Http\Controllers\Admin\AdminPostController;
-use App\Http\Controllers\Admin\DashboardController;
+// use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
@@ -77,12 +82,14 @@ Route::as("user.")->namespace("User")->middleware('verified')->group(function ()
         Route::get('withdraw', "WalletController@withdraw")->name("withdraw");
         Route::post('withdraw-request', "WalletController@withdraw_request")->name("withdraw_request");
     });
-});
+ });
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
     Route::get('/dashboard',  [App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name("dashboard");
     Route::resource('users', UsersController::class);
+    Route::resource('category', CategoriesController::class);
+
     Route::resource('profile', ProfileController::class);
 
     Route::resource('post', AdminPostController::class);

@@ -1,33 +1,37 @@
 <?php
 
 namespace App\Models;
+
 use App\Helpers\Constants;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
 use Spatie\Permission\Traits\HasRoles;
 
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable;
-    // use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
+    use  HasFactory, Notifiable, HasApiTokens;
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
     protected $fillable = [
+        'avatar',
         'name',
         'email',
-        'role',
+        'username',
         'password',
-        'avatar_id',
-
+        'is_email_verified'
     ];
 
     /**
@@ -46,6 +50,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'created_at' => 'datetime',
         'email_verified_at' => 'datetime',
     ];
 
@@ -57,7 +62,6 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role == Constants::ADMIN_USER;
-    
     }
     public function avatar()
     {
@@ -73,7 +77,6 @@ class User extends Authenticatable
         if (!empty($filepath)) {
             return readFileUrl("encrypt", $filepath);
         }
-
     }
 
     public function profile()

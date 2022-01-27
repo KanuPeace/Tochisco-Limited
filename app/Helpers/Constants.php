@@ -41,6 +41,9 @@ namespace App\Helpers;
         self::INACTIVE => "No",
      ];
 
+     const LAND = "land";
+     const LUXURY = "house";
+
      const RENT = "rent";
      const SELL = "sell";
 
