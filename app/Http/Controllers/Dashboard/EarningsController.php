@@ -17,7 +17,7 @@ class EarningsController extends Controller
         $posts_count  = Post::where('user_id', auth()->id())->count();
         $total = $posts_count * $money;
 
-        return view('dashboards.earnings', [
+        return view('users.earning', [
             'total' => $total,
         ]);
     }

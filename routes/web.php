@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodosController;
-use App\Http\Controllers\Users\CategoryController;
+// use App\Http\Controllers\Users\CategoryController;
 // use App\Http\Controllers\Admin\CategoriesController;
 
 
-use App\Http\Controllers\Users\PostController;
+// use App\Http\Controllers\Users\PostController;
 use App\Http\Controllers\Users\DashboardController;
 
 // use App\Http\Controllers\Admin\AdminPostController;
@@ -53,6 +53,8 @@ Route::as("user.")->namespace("Users")->middleware('verified')->group(function (
     Route::put('/update', "ProfileController@update")->name("update");
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
+    Route::resource('category', CategoryController::class);
+
 
 
 

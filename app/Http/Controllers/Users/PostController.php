@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users;
 use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
@@ -17,16 +18,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $categories = PropertyCategory::get();
-        $types = [Constants::RENT, Constants::SELL];
-        $posts = Post::latest()->get();
-      return view('Dashboards.users.post.index' , [
-        'posts' => $posts,
-        'types' => $types,
-        'categories' =>  $categories,
-      ]);
+    public function index(User $user, Post $posts, PropertyCategory $categories)
+    { {
+            $posts = Post::whereHas("user")->get();
+            return view('', [
+                'posts' => $posts
+                // "sn" => $sn, "boolOptions" => $boolOptions,
+
+            ]);
+        }
     }
 
     /**
@@ -36,14 +36,27 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = PropertyCategory::get();
+
+        $boolOptions = Constants::BOOL_OPTIONS;
         $types = [Constants::RENT, Constants::SELL];
-        $posts = Post::latest()->get();
-        return view('Dashboards.users.post.create', [
-            'posts' => $posts,
-            'types' => $types,
-            'categories' =>  $categories,
-        ]);
+        $maxPost = 5;
+        $todays_post = Post::where('user_id', auth()->id())
+            ->whereDate("created_at", today())->count();
+
+
+        if ($todays_post > $maxPost) {
+            return view('dashboards.503_error');
+        } else {
+            $categories =  PropertyCategory::get();
+            return view(
+                'users.posts.create',
+                [
+                    'categories' => $categories,
+                    'types' => $types,
+                    'boolOptions' =>  $boolOptions,
+                ]
+            );
+        }
     }
 
     /**
@@ -54,36 +67,57 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $allowedTypes = Constants::SELL . "," . Constants::RENT;
+        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
+        $allowedTypes = Constants::RENT . "," . Constants::SELL;
         $request->validate([
-            "category_id" => "required|string|exists:property_categories,id",
+            'category_id' => "required|string",
+            'name' => 'required|string',
+            'content_desccription' => 'required:string',
             "type" => "required|string|in:$allowedTypes",
-            "title" => "required|string",
-            "body" => "required|string",
-            "no_of_bedrooms" => "required",
-            "no_of_sittingrooms" => "required",
-            "location" => "required",
-            "price" => "required",
-            "cover_image" => "required|image",
+            'cover_image' => 'required|image',
+            "cover_video" => 'required',
+            'price' => 'required',
+            'no_of_bedrooms' => 'required',
+            'no_of_sittingrooms' => 'required',
+            'location' => 'required',
+            "is_sponsored" => "required|string|in:$allowedOptions",
+            "is_top_story" => "required|string|in:$allowedOptions",
+            "is_featured" => "required|string|in:$allowedOptions",
+            "is_published" => "required|string|in:$allowedOptions",
+            "can_comment" => "required|string|in:$allowedOptions",
         ]);
 
+
         // dd($request->image);
-        $image = time() . '_' . $request->name . '.' .
+        $meidiaImage = time() . '_' . $request->name . '.' .
             $request->cover_image->extension();
-        $request->cover_image->move(public_path('propertyImages'), $image);
+
+        $request->cover_image->move(public_path('postImages'), $meidiaImage);
+
+
+        $meidiaVideo = time() . '-' . $request->name . '.' .
+            $request->cover_video->extension();
+        $request->cover_video->move(public_path('postVideos'), $meidiaVideo);
 
 
 
         $request = Post::create([
-            'category_id' => $request->input('category_id'),
-            'type' => $request->input('type'),
-            'title' => $request->input('title'),
-            'body' => $request->input('body'),
+            'category_id' =>  $request->input('category_id'),
+            'name' =>  $request->input('name'),
+            'content_desccription' =>  $request->input('content_desccription'),
+            'type' =>  $request->input('type'),
+            'cover_image' => $meidiaImage,
+            'cover_video' => $meidiaVideo,
             'no_of_bedrooms' => $request->input('no_of_bedrooms'),
             'no_of_sittingrooms' => $request->input('no_of_sittingrooms'),
             'location' => $request->input('location'),
             'price' => $request->input('price'),
-            'cover_image' => $image,
+            'is_sponsored' => $request->input('is_sponsored'),
+            'is_top_story' => $request->input('"is_top_story'),
+            'is_featured' => $request->input('is_featured'),
+            'can_comment' => $request->input('can_comment'),
+            'is_published' => $request->input('is_published'),
+            'user_id' => auth()->user()->id,
 
 
         ]);

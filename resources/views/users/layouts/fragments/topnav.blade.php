@@ -2,16 +2,16 @@
   <div class="header-container fixed-top">
       <header class="header navbar navbar-expand-sm">
 
-          <ul class="navbar-item theme-brand flex-row  text-center">
-              {{-- <li class="nav-item ">
-                  <a href="/">
-                      <img class="ui fluid image" src="{{ $admin_assets }}/assets/img/m-logo.png">
-                  </a>
-              </li> --}}
-              <li class="nav-item theme-text">
-                  <a href="index.html" class="nav-link"> Tochisco</a>
-              </li>
-          </ul>
+        <ul class="navbar-item theme-brand flex-row  text-center">
+            <li class="nav-item theme-logo">
+                <a href="{{ route('web.index') }}">
+                    <img src="{{ $web_source }}/web_assets/img/icon.png" class="navbar-logo" alt="logo">
+                </a>
+            </li>
+            <li class="nav-item theme-text">
+                <a href="{{ route('web.index') }}" class="nav-link">Tochisco</a>
+            </li>
+        </ul>
 
           <ul class="navbar-item flex-row ml-md-0 ml-auto">
               <li class="nav-item align-self-center search-animated">
@@ -71,10 +71,9 @@
 
 
               <li class="nav-item dropdown user-profile-dropdown">
-                  <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <img class="img-fluid" src="{{ $admin_assets }}/assets/img/m-icon.jpeg" alt="avatar">
-                  </a>
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <img src="{{ auth()->user()->avatarUrl() }}" alt="avatar">
+                </a>
                   <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                       <div class="">
                           <div class=" dropdown-item">

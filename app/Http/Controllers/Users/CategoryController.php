@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Dashboards.users.category.index');
+        // return view('Dashboards.users.category.index');
     }
 
     /**
@@ -35,17 +35,15 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , PropertyCategory $property)
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-         ]);
-      
-         $property = PropertyCategory::create([
-              'name' => $request->input('name'),
-         ]);
 
-         return back()->with('success_message',  'Category added successfully');
+        $data  = $request->validate([
+            'name' => 'required|max:20',
+          ]);
+  
+          $data = PropertyCategory::create($data);
+          return back()->with('success_message', 'Category added successfully');
     }
 
     /**
