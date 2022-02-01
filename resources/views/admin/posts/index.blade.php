@@ -56,7 +56,7 @@
                                                 @foreach ($posts as $post)
                                                     {{-- <td>{{ $sn++ }}</td> --}}
                                                     <td>{{ $post->id }}</td>
-                                                    <td>{{ $post->content_type }}
+                                                    <td>{{ $post->type }}
                                                     <td>{{ $post->user->name }}</td>
                                                     <td><img style="width:80px; height:80px;" class="img-fluid"
                                                             src="{{ asset('propertyimages/' . $post->cover_image) }}"

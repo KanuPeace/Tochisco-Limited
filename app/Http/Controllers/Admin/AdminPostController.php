@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Helpers\Constants;
+use App\Services\Auth\AuthorizationService;
+use App\Helpers\PostHandler;
+use App\QueryBuilder\PostQueryBuilder;
 use Illuminate\Http\Request;
 use App\Models\PropertyCategory;
 
@@ -17,13 +20,15 @@ class AdminPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    { 
         {
             $posts = Post::whereHas("user")->get();
-            return view('admin.posts.index' ,[
+            $posts = PostQueryBUilder::filterIndex($request)->orderby("id", "desc")->paginate(20);
+
+            return view('admin.posts.index', [
                 'posts' => $posts
-            // "sn" => $sn, "boolOptions" => $boolOptions,
+                // "sn" => $sn, "boolOptions" => $boolOptions,
 
             ]);
         }
@@ -53,10 +58,11 @@ class AdminPostController extends Controller
                     'categories' => $categories,
                     'types' => $types,
                     'boolOptions' =>  $boolOptions,
-                ]);
+                ]
+            );
         }
 
-    //    return view('admin.posts.create');
+        //    return view('admin.posts.create');
     }
 
     /**
@@ -68,7 +74,7 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
-        $allowedTypes = Constants::RENT. "," . Constants::SELL;
+        $allowedTypes = Constants::RENT . "," . Constants::SELL;
         $request->validate([
             'category_id' => "required|string",
             'name' => 'required|string',
@@ -155,7 +161,7 @@ class AdminPostController extends Controller
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
         // $categories = Constants::CATEGORY;
         $request->validate([
-           
+
             'category_id' => "required|exist:categories,id",
             'name' => 'required|string',
             'content_desccription' => 'required:string',
@@ -179,7 +185,7 @@ class AdminPostController extends Controller
             $request->cover_video->extension();
         $request->cover_video->move(public_path('postVideos'), $meidiaVideo);
 
-       
+
 
         return back()->with('success_message', 'Post updated successfully');
     }
@@ -190,15 +196,11 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::find(1);
-        if ($post != null){
-           
-            $post->delete();
-            
-            return back()->with("error_message" , "Deleted successfully!");
-        }
-           return back()->with("error_message" , "post can't be deleted!");
+        AuthorizationService::hasPermissionTo("can_delete_posts");
+        $postHandler = new PostHandler;
+        $postHandler->cleanDelete($post);
+        return back()->with("success_message", "Deleted successfully!");
     }
 }

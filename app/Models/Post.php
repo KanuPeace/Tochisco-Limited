@@ -37,4 +37,14 @@ class Post extends Model
     {
         return $this->belongsTo(PropertyCategory::class);
     }
+
+    public function coverImage()
+    {
+        return $this->hasOne(File::class, "id", "cover_image");
+    }
+
+    public function coverVideo()
+    {
+        return $this->hasOne(File::class, "id", "cover_video");
+    }
 }

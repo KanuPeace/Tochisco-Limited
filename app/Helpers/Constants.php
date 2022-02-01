@@ -11,6 +11,8 @@ namespace App\Helpers;
 
      const DEBIT_TRANSACTION = "Debit";
      const CREDIT_TRANSACTION = "Credit";
+     const COMPLETED = "Completed";
+
 
      const WALLET_PAYMENT = "Wallet";
      const WALLET_DEFAULT = "balance";
