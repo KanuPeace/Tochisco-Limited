@@ -54,6 +54,8 @@ Route::as("user.")->namespace("Users")->middleware('verified')->group(function (
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
     Route::resource('category', CategoryController::class);
+    Route::post('{user}/make-admin', 'DashboardsController@makeadmin')->name('make-admin');
+
 
 
 

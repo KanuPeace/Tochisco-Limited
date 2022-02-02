@@ -18,36 +18,35 @@ class DashboardsController extends Controller
 
     public function postslist(User $user)
     {
-      $posts = $user->posts()->with(['user'])->paginate(5);
-         return view('users.posts.posts_list' , [
-          'user' => $user,
-          'posts' => $posts,
-   ]);
+        $posts = $user->posts()->with(['user'])->paginate(5);
+        return view('users.posts.posts_list', [
+            'user' => $user,
+            'posts' => $posts,
+        ]);
     }
 
-   
-
-   public function error()
-   {
-       return view('users.503_error');
-   }
-
-     public function earnings()
-     {
-      
-       $money = 0.000 ;
-       $posts_count  = Post::where('user_id', auth()->id())->count();
-       $total = $posts_count * $money;
-          return view('users.earning' , [
-              'total' => $total,
-          ]);
-     }
 
 
-    public function index( User $user)
+    public function error()
     {
-      return view('users.dashboard' , ['user' => $user]);
-        
+        return view('users.503_error');
+    }
+
+    public function earnings()
+    {
+
+        $money = 0.000;
+        $posts_count  = Post::where('user_id', auth()->id())->count();
+        $total = $posts_count * $money;
+        return view('users.earning', [
+            'total' => $total,
+        ]);
+    }
+
+
+    public function index(User $user)
+    {
+        return view('users.dashboard', ['user' => $user]);
     }
 
     /**
@@ -103,6 +102,17 @@ class DashboardsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function makeadmin(User $user)
+    {
+        $user->role = 'admin';
+
+        $user->save();
+
+        session()->flash('success', 'Admin made user admin successfully.');
+
+        return redirect(route('admin.users.index'));
     }
 
     /**

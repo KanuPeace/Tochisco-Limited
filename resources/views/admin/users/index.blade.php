@@ -37,7 +37,7 @@
                                             <th class="">Profile</th>
                                             <th class="">Status</th>
                                             <th class="">Created At</th>
-                                            <th class="">no. of post</th>
+                                            <th class="">Change user role</th>
                                             <th class="">.....</th>
                                             <th class="">Action</th>
                                         </tr>
@@ -71,9 +71,14 @@
                                             <td class="{{$statusColor}}">{{$user->status }}</td>
                                             <td>{{$user->created_at}}
                                             <td>
-                                                <h3>
-                                                    
-                                                </h3>
+                                                @if(!$user->isAdmin())
+                                                <form action="{{ route('user.make-admin', $user->id)}}" method="POST">
+                                                    @csrf
+
+                                                    <button type="submit" class="btn btn-success btn-sm">Make-Admin</button>
+                                                </form>
+
+                                                @endif
                                             </td>
                                             <td>
                                                 <ul class="table-controls">
@@ -92,6 +97,16 @@
                                                         </div>
                                                     </li>
                                                 </ul>
+                                                {{-- <td>
+                                                    @if(!$user->isAdmin())
+                                                    <form action="{{ route('user.make-admin', $user->id)}}" method="POST">
+                                                        @csrf
+
+                                                        <button type="submit" class="btn btn-success btn-sm">Make-Admin</button>
+                                                    </form>
+
+                                                    @endif
+                                                </td> --}}
                                             <td>
                                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?')">
                                                     @csrf

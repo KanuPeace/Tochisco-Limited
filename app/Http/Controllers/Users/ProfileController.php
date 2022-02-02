@@ -85,18 +85,35 @@ class ProfileController extends Controller
 
         ]);
 
+        $user = auth()->user();
+        $data = $request->validate([
+            "first_name" => "required|string",
+            "last_name" => "required|string",
+            // "email" => "required|email|unique:users,email,$user->id",
+            // "phone" => "required|string",
+            "avatar" => "nullable|image"
 
+        ]);
+
+        if(!empty($avatar = $request->file("avatar"))){
+            $filePath = putFileInPrivateStorage($avatar , "temp");
+            $avatarFile = $this->mediaHandler->saveFromFilePath(storage_path("app/$filePath") , "avatars" , null , $user->id);
+            $data["avatar_id"] = $avatarFile->id;
+        }
+
+        $user->update($data);
+        return back()->with("success_message" , "Changes saved successfully!");
        
 
-        $request = Profile::create([
-            'name' =>  $request->input('name'),
-            'email' =>  $request->input('email'),
-            'linkedin_username' =>  $request->input('linkedin_username'),
-            'facebook-username' =>  $request->input('facebook-username'),
-            'twitter-username' =>  $request->input('twitter-username'),
-            'github-username' =>  $request->input('github-username'),
-            'user_id' => auth()->user()->id,
-        ]);
+        // $request = Profile::create([
+        //     'name' =>  $request->input('name'),
+        //     'email' =>  $request->input('email'),
+        //     'linkedin_username' =>  $request->input('linkedin_username'),
+        //     'facebook-username' =>  $request->input('facebook-username'),
+        //     'twitter-username' =>  $request->input('twitter-username'),
+        //     'github-username' =>  $request->input('github-username'),
+        //     'user_id' => auth()->user()->id,
+        // ]);
     }
 
     /**

@@ -46,7 +46,6 @@
     <link rel="stylesheet" href="{{ $admin_assets }}/plugins/suneditor/css/katex.min.css">
 
 
-    @yield("style")
 
     <style>
         .feather-icon .icon-section {
@@ -185,6 +184,7 @@
     @include("admin.layouts.includes.navbar")
     @include("admin.layouts.includes.subheader")
 
+    @yield("style")
 
     <!--  BEGIN MAIN CONTAINER  -->
     <div class="main-container" id="container">
