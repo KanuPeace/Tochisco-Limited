@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Helpers\MediaHandler;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,14 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $mediaHandler;
+    public function __construct(MediaHandler $mediaHandler)
+    {
+        $this->mediaHandler = $mediaHandler;
+    }
+
+
     public function index()
     {
         $profile = Profile::find(1);
