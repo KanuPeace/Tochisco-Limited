@@ -8,7 +8,7 @@
             <li class="menu">
                 <a href="{{ route("admin.dashboard") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
-                        <span>Home</span>
+                        <span>DASHBOARD</span>
                     </div>
                 </a>
             </li>

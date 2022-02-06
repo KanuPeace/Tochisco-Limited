@@ -42,6 +42,14 @@
                     </a>
                 </li>
 
+                {{-- <li class="menu">
+                    <a href="{{ route("user.post.index") }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <span>Posts</span>
+                        </div>
+                    </a>
+                </li> --}}
+
                 <li class="menu">
                     <a href="{{route('user.earnings')}}" aria-expanded="false" class="dropdown-toggle">
                         <div class="">

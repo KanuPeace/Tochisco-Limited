@@ -97,6 +97,17 @@
                                   </svg> Inbox</a>
                           </div>
 
+                          <div class="dropdown-item">
+                            <a href="/" aria-expanded="false" class="dropdown-toggle">
+
+                                <div class="">
+                                    <i class="fa fa-home" style="font-size:30px;color:black"></i>
+                                    <span>Home</span>
+                                </div>
+
+                            </a>
+                        </div>
+
 
 
                           <div class="dropdown-item">

@@ -21,7 +21,7 @@ class PostController extends Controller
     public function index(User $user, Post $posts, PropertyCategory $categories)
     { {
             $posts = Post::whereHas("user")->get();
-            return view('', [
+            return view('users.posts.posts_list', [
                 'posts' => $posts
                 // "sn" => $sn, "boolOptions" => $boolOptions,
 
