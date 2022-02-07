@@ -31,7 +31,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/');
-Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeController::class , 'list'])->name('category.post');
+Route::get('/category/{categories}/post' , [App\Http\Controllers\Web\WelcomeController::class , 'specificCategory'])->name('category.post');
 
  Route::prefix("users")->as("users.")->middleware("verified")->group(function () {
      Route::get('dashboard/' , [App\Http\Controllers\Users\DashboardController::class , 'index'])->name('dashboard');

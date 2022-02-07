@@ -2,48 +2,6 @@
 
 @section('content')
 
-
-<!-- Hero Section Begin -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hs-slider owl-carousel">
-            @foreach($posts as $post)
-            <div class="hs-item set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
-                <div class="row">
-
-                    <div class="col-lg-12">
-                        <div class="hc-inner-text">
-                            <div class="hc-text">
-                                <h4>{{$post->title}}</h4>
-                                <p><span class="icon_pin_alt"></span> {{$post->location}}</p>
-                                <div class="label">{{$post->type}}</div>
-                                <h5>${{$post->price}}<span>/month</span></h5>
-                            </div>
-                            <div class="hc-widget">
-                                <ul>
-                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                    <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
-                                    <li><i class="fa fa-bed"></i>{{$post->no_of_bedrooms}}</li>
-                                    <li><i class="fa fa-automobile"></i> 01</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-
-            @endforeach
-
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-
-
 <!-- Search Section Begin -->
 <section class="search-section spad">
     <div class="container">
@@ -208,46 +166,44 @@
             <div class="col-lg-7">
                 <div class="property-controls">
                     <ul>
-                    @foreach($posts as $Post)
-                       <a href="{{route('category.post' , $post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
+                        @foreach($categories as $category)
+                        <li data-filter="all">{{$category->name}}</li>
                         @endforeach
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row property-filter">
-            @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mix all house">
-                <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
-                        <div class="label">{{$post->type}}</div>
-                    </div>
-                    <div class="pi-text">
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">${{$post->price}}<span>/month</span></div>
-                        <h5><a href="#">{{$post->title}}</a></h5>
-                        <p><span class="icon_pin_alt"></span>{{$post->address}}</p>
-                        <ul>
-                            <li><i class="fa fa-object-group"></i> 2, 283</li>
-                            <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
-                            <li><i class="fa fa-bed"></i> {{$post->no_of_bedrooms}}</li>
-                            <li><i class="fa fa-automobile"></i> 01</li>
-                        </ul>
-                        <div class="pi-agent">
-                            <div class="pa-item">
-                                <div class="pa-info">
-                                    <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
-                                    <h6></h6>
-                                </div>
-                                <div class="pa-text">
-                                    123-455-688
-                                </div>
+                @foreach($posts as $Post)
+                <div class="hs-item set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="hc-inner-text">
+                            <div class="hc-text">
+                                <h4>{{$post->title}}</h4>
+                                <p><span class="icon_pin_alt"></span> {{$post->location}}</p>
+                                <div class="label">{{$post->type}}</div>
+                                <h5>${{$post->price}}<span>/month</span></h5>
+                            </div>
+                            <div class="hc-widget">
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i> 2, 283</li>
+                                    <li><i class="fa fa-bathtub"></i>{{$post->no_of_sittingrooms}}</li>
+                                    <li><i class="fa fa-bed"></i>{{$post->no_of_bedrooms}}</li>
+                                    <li><i class="fa fa-automobile"></i> 01</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
-            @endforeach
+                @endforeach
+            </div>
            
         </div>
     </div>
@@ -310,162 +266,7 @@
 </section>
 <!-- Chooseus Section End -->
 
-<!-- Feature Property Section Begin -->
-<section class="feature-property-section spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 p-0 mb-5 ">
-                <div class="feature-property-left">
-                    <div class="section-title">
-                        <h4>Feature PROPERTY</h4>
-                    </div>
-                    <ul>
-                        @foreach($categories as $category)
-                        <li><a href="">{{$category->name}}</a></li>
-                        @endforeach
-                    </ul>
-                    <a href="#">View all property</a>
-                </div>
-            </div>
-            <div class="col-lg-8 p-0">
-                <div class="fp-slider owl-carousel">
-                    <div class="fp-item set-bg" data-setbg="web_assets/img/feature-property/fp-1.jpg">
-                        <div class="fp-text">
-                            <h5 class="title">Home in Merrick Way</h5>
-                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
-                            <div class="label">For Rent</div>
-                            <h5>$ 289.0<span>/month</span></h5>
-                            <ul>
-                                <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                <li><i class="fa fa-bathtub"></i> 03</li>
-                                <li><i class="fa fa-bed"></i> 05</li>
-                                <li><i class="fa fa-automobile"></i> 01</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="fp-item set-bg" data-setbg="img/feature-property/fp-2.jpg">
-                        <div class="fp-text">
-                            <h5 class="title">Home in Merrick Way</h5>
-                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
-                            <div class="label">For Rent</div>
-                            <h5>$ 289.0<span>/month</span></h5>
-                            <ul>
-                                <li><i class="fa fa-object-group"></i> 2, 283</li>
-                                <li><i class="fa fa-bathtub"></i> 03</li>
-                                <li><i class="fa fa-bed"></i> 05</li>
-                                <li><i class="fa fa-automobile"></i> 01</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Feature Property Section End -->
 
-<!-- Team Section Begin -->
-<section class="team-section spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8">
-                <div class="section-title">
-                    <h4>Latest Property</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="team-btn">
-                    <a href="#"><i class="fa fa-user"></i> ALL counselor</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="ts-item">
-                    <div class="ts-text">
-                        <img src="web_assets/img/team/team-1.jpg" alt="">
-                        <h5>Ashton Kutcher</h5>
-                        <span>09157522382</span>
-                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
-                        <div class="ts-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="ts-item">
-                    <div class="ts-text">
-                        <img src="web_assets/img/team/team-2.jpg" alt="">
-                        <h5>Ashton Kutcher</h5>
-                        <span>123-455-688</span>
-                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
-                        <div class="ts-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-envelope-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="ts-item">
-                    <div class="ts-text">
-                        <img src="web_assets/img/team/team-3.jpg" alt="">
-                        <h5>Ashton Kutcher</h5>
-                        <span>123-455-688</span>
-                        <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
-                        <div class="ts-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-envelope-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Team Section End -->
-
-<!-- Categories Section Begin -->
-<section class="categories-section">
-    <div class="cs-item-list">
-        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-1.jpg">
-            <div class="cs-text">
-                <h5>Apartment</h5>
-                <span>230 property</span>
-            </div>
-        </div>
-        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-2.jpg">
-            <div class="cs-text">
-                <h5>Villa</h5>
-                <span>230 property</span>
-            </div>
-        </div>
-        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-3.jpg">
-            <div class="cs-text">
-                <h5>House</h5>
-                <span>230 property</span>
-            </div>
-        </div>
-        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-4.jpg">
-            <div class="cs-text">
-                <h5>Restaurent</h5>
-                <span>230 property</span>
-            </div>
-        </div>
-        <div class="cs-item set-bg" data-setbg="web_assets/img/categories/cat-5.jpg">
-            <div class="cs-text">
-                <h5>Office</h5>
-                <span>230 property</span>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Categories Section End -->
 
 <!-- Testimonial Section Begin -->
 <section class="testimonial-section spad">
@@ -502,97 +303,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="testimonial-item">
-                    <div class="ti-text">
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
-                            magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
-                    </div>
-                    <div class="ti-author">
-                        <div class="ta-pic">
-                            <img src="web_assets/img/testimonial-author/ta-2.jpg" alt="">
-                        </div>
-                        <div class="ta-text">
-                            <h5>Arise Naieh</h5>
-                            <span>Designer</span>
-                            <div class="ta-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="testimonial-item">
-                    <div class="ti-text">
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
-                            magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
-                    </div>
-                    <div class="ti-author">
-                        <div class="ta-pic">
-                            <img src="web_assets/img/testimonial-author/ta-1.jpg" alt="">
-                        </div>
-                        <div class="ta-text">
-                            <h5>Arise Naieh</h5>
-                            <span>Designer</span>
-                            <div class="ta-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
         </div>
     </div>
 </section>
 <!-- Testimonial Section End -->
 
-<!-- Logo Carousel Begin -->
-<div class="logo-carousel">
-    <div class="container">
-        <div class="lc-slider owl-carousel">
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-1.png" alt="">
-                </div>
-            </a>
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-2.png" alt="">
-                </div>
-            </a>
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-3.png" alt="">
-                </div>
-            </a>
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-4.png" alt="">
-                </div>
-            </a>
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-5.png" alt="">
-                </div>
-            </a>
-            <a href="#" class="lc-item">
-                <div class="lc-item-inner">
-                    <img src="web_assets/img/logo-carousel/lc-6.png" alt="">
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-<!-- Logo Carousel End -->
+
 
 <!-- Contact Section Begin -->
 <section class="contact-section">
@@ -658,11 +375,11 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua ut aliquip ex ea</p>
                     <div class="fs-social">
-                        <a href="#https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-youtube-play"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
                     </div>
                 </div>
             </div>

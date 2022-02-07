@@ -27,12 +27,19 @@ class welcomeController extends Controller
 
     public function list(PropertyCategory $categories)
     {
-        dd($categories);
         $posts = $categories->post()->get();
-       return view('web.category.post', [
+         return view('web.category.post', [
            'posts' => $posts,
            'categories' => $categories,
        ]);
+    }
+
+    public function specificCategory(PropertyCategory $categories)
+    {
+        $posts = $categories->posts()->with(['categories'])->get();
+        return view('web.category.specific-category' , [
+            'posts' => $posts,
+        ]);
     }
 
 }
