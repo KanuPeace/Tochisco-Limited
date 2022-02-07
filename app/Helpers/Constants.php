@@ -43,6 +43,14 @@ namespace App\Helpers;
         self::INACTIVE => "No",
      ];
 
+     const WEB_GUARD = "web";
+     const PLAN_GUARD = "plan";
+
+     const PERMISSION_GUARDS = [
+        self::WEB_GUARD => "Site Role",
+        self::PLAN_GUARD => "Subscription Plan"
+     ];
+
      const LAND = "land";
      const LUXURY = "house";
 

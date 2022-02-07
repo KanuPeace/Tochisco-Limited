@@ -38,7 +38,7 @@
                                                 {{-- <th class="">S/N</th> --}}
                                                 <th class="">Post By</th>
                                                 <th class="">Post Type</th>
-                                                <th class="">The Role</th>
+                                                {{-- <th class="">The Role</th> --}}
                                                 <th class="">Cover Image</th>
                                                 <th class="">Cover Video</th>
                                                 <th class="">Bebrooms</th>
@@ -57,7 +57,7 @@
                                                     {{-- <td>{{ $sn++ }}</td> --}}
                                                     <td>{{ $post->id }}</td>
                                                     <td>{{ $post->type }}</td>
-                                                    <td>{{ $post->user->name }}</td>
+                                                    {{-- <td>{{ $post->user->name }}</td> --}}
                                                     <td><img style="width:80px; height:80px;" class="img-fluid"
                                                             src="{{ asset('postImages/' . $post->cover_image) }}"
                                                             alt="..." /></td>

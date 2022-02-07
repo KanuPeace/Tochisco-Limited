@@ -64,7 +64,7 @@ class RoleController extends Controller
         $role = Role::findById($id);
         $permissions = Permission::whereNotIn("guard_name" , [Constants::PLAN_GUARD])->get();
         $sn = 1;
-        return view("dashboards.admin.authorization.roles.permissions" , [
+        return view("admin.authorization.roles.permissions" , [
             "role" => $role,
             "permissions" => $permissions,
             "sn" => $sn

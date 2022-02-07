@@ -1,4 +1,6 @@
 @extends("admin.layouts.app")
+
+
 @section('style')
 
 
@@ -10,8 +12,7 @@
         <div class="content-body">
 
             <div class="mt-5">
-                <form action="{{ route('admin.users.update', $user->id) }}" method="POST"
-                    enctype="multipart/form-data">
+                <form action="{{ route('admin.users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -27,13 +28,13 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="username">User-name</label>
-                                <input type="text" class="form-control" required name="username"
-                                    placeholder="Name" value="{{$user->name}}" />
+                                <input type="text" class="form-control" required name="username" placeholder="Name"
+                                    value="{{ $user->name }}" />
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="text" class="form-control" required name="email"
-                                    placeholder="E-mail" value="{{$user->email}}" />
+                                <input type="text" class="form-control" required name="email" placeholder="E-mail"
+                                    value="{{ $user->email }}" />
                             </div>
 
                             <div class="form-group">

@@ -143,9 +143,21 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        AuthorizationService::hasPermissionTo("can_edit_posts");
+        $categories = PropertyCategory::where("is_active", Constants::ACTIVE)->get();
+        $types = [Constants::RENT, Constants::SELL];
+        $boolOptions = Constants::BOOL_OPTIONS;
+        return view(
+            "admin.posts.edit",
+            [
+                "post" => $post,
+                "categories" => $categories,
+                "types" => $types,
+                "boolOptions" => $boolOptions
+            ]
+        );
     }
 
     /**

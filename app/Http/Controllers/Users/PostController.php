@@ -18,15 +18,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user, Post $posts, PropertyCategory $categories)
-    { {
-            $posts = Post::whereHas("user")->get();
-            return view('users.posts.posts_list', [
-                'posts' => $posts
-                // "sn" => $sn, "boolOptions" => $boolOptions,
-
-            ]);
-        }
+    public function index(User $user)
+    {
+        $posts = $user->posts()->with(['user'])->paginate(5);
+          return view('users.post.posts_list' , [
+           'user' => $user,
+           'posts' => $posts,
+          ]);
     }
 
     /**
@@ -156,7 +154,37 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
+        $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
+        // $categories = Constants::CATEGORY;
+        $request->validate([
+
+            'category_id' => "required|exist:categories,id",
+            'name' => 'required|string',
+            'content_desccription' => 'required:string',
+            "type" => "required|string|in:$allowedTypes",
+            'cover_image' => 'required|image',
+            "cover_video" => "mimes:mp4, mp3, ogx,oga,ogv,ogg,webm",
+            "is_sponsored" => "required|string|in:$allowedOptions",
+            "is_top_story" => "required|string|in:$allowedOptions",
+            "is_featured" => "required|string|in:$allowedOptions",
+            "is_published" => "required|string|in:$allowedOptions",
+            "can_comment" => "required|string|in:$allowedOptions",
+        ]);
+
+        $meidiaImage = time() . '_' . $request->name . '.' .
+            $request->cover_image->extension();
+
+        $request->cover_image->move(public_path('postImages'), $meidiaImage);
+
+
+        $meidiaVideo = time() . '-' . $request->name . '.' .
+            $request->cover_video->extension();
+        $request->cover_video->move(public_path('postVideos'), $meidiaVideo);
+
+
+        return back()->with('success_message', 'Post updated successfully');
     }
 
     /**
