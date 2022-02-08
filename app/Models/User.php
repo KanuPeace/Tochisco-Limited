@@ -66,6 +66,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->role == Constants::ADMIN_USER;
     }
+
+    public function removeAdmin()
+    {
+        return $this->role == Constants::DEFAULT_USER;
+    }
     public function avatar()
     {
         return $this->hasOne(File::class, "id", "avatar_id");

@@ -53,8 +53,7 @@ Route::as("user.")->namespace("Users")->middleware('verified')->group(function (
     Route::resource('post', PostController::class);
     Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
-    Route::post('{user}/make-admin', 'DashboardsController@makeadmin')->name('make-admin');
-
+   
 
 
 
@@ -120,6 +119,8 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
     Route::get('transaction/status/{id}/{status}', "TransactionController@status")->name("transaction_status");
     Route::get('referrals', [ReferralsController::class, 'index'])->name("referrals.index");
 
+    Route::post('{user}/make-admin', [App\Http\Controllers\Admin\DashboardController::class ,'makeadmin'])->name('make-admin');
+    Route::post('{user}/remove-admin', [App\Http\Controllers\Admin\DashboardController::class ,'removeadmin'])->name('remove-admin');
 
     Route::resource('coupons', CouponController::class);
     Route::get('vendors', "VendorController@vendors")->name('vendors');
