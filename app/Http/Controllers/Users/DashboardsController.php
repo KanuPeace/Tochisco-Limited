@@ -104,16 +104,6 @@ class DashboardsController extends Controller
         //
     }
 
-    public function makeadmin(User $user)
-    {
-        $user->role = 'admin';
-
-        $user->save();
-
-        session()->flash('success', 'Admin made user admin successfully.');
-
-        return redirect(route('admin.users.index'));
-    }
 
     /**
      * Remove the specified resource from storage.

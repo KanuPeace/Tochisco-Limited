@@ -60,6 +60,6 @@ namespace App\Helpers;
      const DEFAULT_USER = "User";
      const ADMIN_USER = "Admin";
 
-    const DEV_EMAIL = "confidence@flairworlds.com";
+    const DEV_EMAIL = "email";
 
  }

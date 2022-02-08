@@ -199,7 +199,6 @@
             <div class="layout-px-spacing mb-4">
 
                 <div class="layout-top-spacing">
-                    @include("notifications.flash_messages")
                     @yield("content")
 
                 </div>

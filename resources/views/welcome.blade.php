@@ -208,12 +208,9 @@
             <div class="col-lg-7">
                 <div class="property-controls">
                     <ul>
-                        <li data-filter="all">All</li>
-                        <li data-filter=".apart">Apartment</li>
-                        <li data-filter=".house">House</li>
-                        <li data-filter=".office">Office</li>
-                        <li data-filter=".hotel">Hotel</li>
-                        <li data-filter=".restaurent">Restaurent</li>
+                    @foreach($posts as $Post)
+                       <a href="{{route('category.post' , $post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
+                        @endforeach
                     </ul>
                 </div>
             </div>

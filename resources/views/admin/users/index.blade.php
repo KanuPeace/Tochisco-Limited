@@ -3,7 +3,6 @@
 @section('style')
 
 
-
 <div class="main-container" id="container">
 
     <div class="overlay"></div>
@@ -72,12 +71,19 @@
                                             <td>{{$user->created_at}}
                                             <td>
                                                 @if(!$user->isAdmin())
-                                                <form action="{{ route('user.make-admin', $user->id)}}" method="POST">
+                                                <form action="{{ route('admin.make-admin', $user->id)}}" method="POST">
                                                     @csrf
 
                                                     <button type="submit" class="btn btn-success btn-sm">Make-Admin</button>
+                                                   
                                                 </form>
 
+                                                @else(!?$user->removeAdmin())
+                                                <form action="{{ route('admin.remove-admin', $user->id)}}" method="POST">
+                                                @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm">Remove-Admin</button>
+
+                                                </form>
                                                 @endif
                                             </td>
                                             <td>
@@ -100,13 +106,13 @@
                                                 {{-- <td>
                                                     @if(!$user->isAdmin())
                                                     <form action="{{ route('user.make-admin', $user->id)}}" method="POST">
-                                                        @csrf
+                                                @csrf
 
-                                                        <button type="submit" class="btn btn-success btn-sm">Make-Admin</button>
-                                                    </form>
+                                                <button type="submit" class="btn btn-success btn-sm">Make-Admin</button>
+                                                </form>
 
-                                                    @endif
-                                                </td> --}}
+                                                @endif
+                                            </td> --}}
                                             <td>
                                                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?')">
                                                     @csrf
@@ -122,7 +128,7 @@
                                         </tr>
                                         @endforeach
 
-                                        {{$users->links () }}
+
                                     </tbody>
                                 </table>
 

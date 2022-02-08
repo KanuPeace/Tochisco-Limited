@@ -16,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use  HasFactory, Notifiable, HasApiTokens;
+    use  HasFactory, Notifiable;
 
 
     /**
@@ -28,8 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'avatar',
         'name',
+        'phone',
         'email',
         'username',
+        'role',
+        'last_login',
         'password',
         'is_email_verified'
     ];
@@ -62,6 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin()
     {
         return $this->role == Constants::ADMIN_USER;
+    }
+
+    public function removeAdmin()
+    {
+        return $this->role == Constants::DEFAULT_USER;
     }
     public function avatar()
     {

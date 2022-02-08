@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 
@@ -115,11 +116,9 @@ class PostController extends Controller
             'is_featured' => $request->input('is_featured'),
             'can_comment' => $request->input('can_comment'),
             'is_published' => $request->input('is_published'),
+            "slug"=> Str::slug($request->name, '-'),
             'user_id' => auth()->user()->id,
-
-
         ]);
-
         return back()->with('success_message',  'Post added successfully');
     }
 
