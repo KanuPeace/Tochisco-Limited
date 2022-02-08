@@ -11,7 +11,7 @@ use App\Http\Controllers\Users\DashboardController;
 
 // use App\Http\Controllers\Admin\AdminPostController;
 // use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Users\ProfileController;
+// use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\IndexController;
@@ -43,16 +43,15 @@ Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeContr
 Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
     Route::resource('user', DashboardsController::class);
     // Route::resource('profile', ProfileController::class);
-    Route::get('/profile', [App\Http\Controllers\Users\ProfileController::class, 'index'])->name('profile');
     Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
     Route::get('/referrals', "DashboardController@referrals")->name("referrals");
     Route::get('/transactions', "DashboardController@transactions")->name("transactions");
     Route::get('/subscriptions', "DashboardController@subscriptions")->name("subscriptions");
     Route::get('/withdrawal-requests', "DashboardController@withdrawal_requests")->name("withdrawal_requests");
-    Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
     Route::put('/update', "ProfileController@update")->name("update");
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
+    Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
     Route::post('{user}/make-admin', 'DashboardsController@makeadmin')->name('make-admin');
 

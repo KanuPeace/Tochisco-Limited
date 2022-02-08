@@ -107,7 +107,7 @@
 
                                 <div class="col-md-6">
                                     <input id="avatar" type="file"
-                                        class="form-control @error('avatar') is-invalid @enderror" name="avatar"
+                                        class="form-control @error('avatar') is-invalid @enderror" name="avatar_id"
                                         value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
 
                                     @error('avatar')
@@ -164,6 +164,27 @@
                                         </span>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phone"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Phone_number') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror"
+                                        name="phone" value="{{ old('phone') }}" >
+
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                {{-- <div class="form-group">
+                                    <label for="">Phone Number</label>
+                                    <input type="text" name="phone" class="form-control" placeholder="Phone Number*"
+                                        required value="{{ $user->phone }}">
+                                </div> --}}
                             </div>
 
                             <div class="form-group row">

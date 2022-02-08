@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public function index(Profile $profiles)
     {
         $profiles = Profile::find(1);
-        return view('Dashboards.admin.profile.index' , [
+        return view('admin.profile.index' , [
             'profiles' => $profiles
         ]); 
     }
@@ -29,10 +29,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        $profiles = Profile::find(1);
-        return view('Dashboards.admin.profile.create' , [
-            'profiles' => $profiles
-        ] );
+        //
     }
 
     /**
@@ -85,7 +82,7 @@ class ProfileController extends Controller
     public function edit($id, User $user)
     {
         $user = auth()->user();
-        return view('Dashboards.admin.profile.edit' , [
+        return view('admin.profile.edit' , [
             'user' => $user
          ] );
     }
