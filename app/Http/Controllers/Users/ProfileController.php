@@ -25,8 +25,10 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $profile = Profile::find(1);
-        return view('users.profile.index' , compact('profile'));
+        $profiles = Profile::find(1);
+        return view('users.profile.index' , [
+            'profiles' => $profiles
+        ]); 
     }
 
     /**
@@ -45,9 +47,30 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'username' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' =>'required|string',
+            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+
+        ]);
+
+
+        $newImageName = uniqid() . '_' . $request->title . '.' .
+         $request->file('avatar')->getClientOriginalName();
+         $request->file('avatar')->move(public_path('admin/profileImages'), $newImageName);
+
+        /* Store $imageName name in DATABASE from HERE */
+
+        $request = Profile::create([
+            'image' => $newImageName,
+            'user_id' => $user->id
+        ]);
+        
+        return back()->with('success_message', ' Profile added successfully!');
     }
 
     /**
@@ -69,8 +92,10 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        $user = auth()->user();
-        return view('users.profile.edit', ["user" => $user]);
+       $user = auth()->user();
+        return view('users.profile.edit' , [
+            'user' => $user
+         ] );
     }
 
     /**
@@ -82,36 +107,25 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user = auth()->user();
-        $data = $request->validate([
-            "name" => "required|string",
-            "email" => "required|email|unique:users,email,$user->id",
-            "linkedin_username" => "nullable|string",
-            "facebook_username" => "nullable|string",
-            "twitter_username" => "nullable|string",
-            "github_username" => "nullable|string",
-            "avatar" => "nullable|image"
+        $request->validate([
+            'username' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' =>'required|string',
+            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
         ]);
 
-        $user = auth()->user();
-        $data = $request->validate([
-            "first_name" => "required|string",
-            "last_name" => "required|string",
-            // "email" => "required|email|unique:users,email,$user->id",
-            // "phone" => "required|string",
-            "avatar" => "nullable|image"
+        
+        $newImageName = uniqid() . '_' . $request->title . '.' .
+         $request->file('avatar')->getClientOriginalName();
+         $request->file('avatar')->move(public_path('admin/profileImages'), $newImageName);
 
-        ]);
-
-        if(!empty($avatar = $request->file("avatar"))){
-            $filePath = putFileInPrivateStorage($avatar , "temp");
-            $avatarFile = $this->mediaHandler->saveFromFilePath(storage_path("app/$filePath") , "avatars" , null , $user->id);
-            $data["avatar_id"] = $avatarFile->id;
-        }
-
-        $user->update($data);
-        return back()->with("success_message" , "Changes saved successfully!");
+        /* Store $imageName name in DATABASE from HERE */
+       
+        $request = Profile::create();
+        
+        return back()->with('success_message', ' Post added successfully!');
        
 
         // $request = Profile::create([
