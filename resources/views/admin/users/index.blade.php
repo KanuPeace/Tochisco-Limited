@@ -2,8 +2,6 @@
 
 @section('style')
 
-
-
 <div class="main-container" id="container">
 
     <div class="overlay"></div>
@@ -122,7 +120,7 @@
                                         </tr>
                                         @endforeach
 
-                                        {{$users->links () }}
+                                     
                                     </tbody>
                                 </table>
 

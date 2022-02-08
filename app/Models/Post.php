@@ -18,6 +18,7 @@ class Post extends Model
         'cover_image',
         'content_desccription',
         'price',
+        'slug',
         'no_of_bedrooms',
         'no_of_sittingrooms',
         'location',

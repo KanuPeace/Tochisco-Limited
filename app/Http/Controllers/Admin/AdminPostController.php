@@ -11,6 +11,7 @@ use App\QueryBuilder\PostQueryBuilder;
 use Illuminate\Http\Request;
 use App\Models\PropertyCategory;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 
 class AdminPostController extends Controller
@@ -27,8 +28,7 @@ class AdminPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    { 
-        {
+    { {
             $posts = Post::whereHas("user")->get();
             $posts = PostQueryBUilder::filterIndex($request)->orderby("id", "desc")->paginate(20);
 
@@ -125,6 +125,7 @@ class AdminPostController extends Controller
             'is_featured' => $request->input('is_featured'),
             'can_comment' => $request->input('can_comment'),
             'is_published' => $request->input('is_published'),
+            "slug" => Str::slug($request->name, '-'),
             'user_id' => auth()->user()->id,
 
         ]);
@@ -173,7 +174,7 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request , Post $post)
+    public function update(Request $request, Post $post)
     {
         $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
@@ -214,10 +215,9 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($post)
     {
-        $postHandler = new PostHandler;
-        $postHandler->cleanDelete($post);
+        Post::where('id', $post)->delete();
         return back()->with("success_message", "Deleted successfully!");
     }
 }

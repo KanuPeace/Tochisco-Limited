@@ -16,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use  HasFactory, Notifiable, HasApiTokens;
+    use  HasFactory, Notifiable;
 
 
     /**
@@ -28,8 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'avatar',
         'name',
+        'phone',
         'email',
         'username',
+        'role',
+        'last_login',
         'password',
         'is_email_verified'
     ];
