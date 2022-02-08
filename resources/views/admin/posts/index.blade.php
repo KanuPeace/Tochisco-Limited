@@ -77,7 +77,7 @@
                                                         <a href="{{ route('admin.post.edit', $post->id) }}"
                                                             class="btn btn-primary">Edit</a>
                                                             
-                                                        <form action="{{ route('admin.post.destroy', [$post->id]) }}"
+                                                        <form action="{{ route('admin.post.destroy', $post->id) }}"
                                                             method="post"
                                                             onsubmit="return confirm('Are you sure you want to delete this record?')">
                                                             @csrf

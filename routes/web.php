@@ -11,7 +11,7 @@ use App\Http\Controllers\Users\DashboardController;
 
 // use App\Http\Controllers\Admin\AdminPostController;
 // use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Users\ProfileController;
+// use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Web\WelcomeController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\IndexController;

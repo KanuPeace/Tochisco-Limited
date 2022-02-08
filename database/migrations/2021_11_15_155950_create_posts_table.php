@@ -41,7 +41,7 @@ class CreatePostsTable extends Migration
             $table->string('cover_image');
             $table->string('cover_video');
             $table->string('name');
-            $table->enum('type' , ["Blog" , "Vlog"]);
+            $table->enum('type' , ["Sell" , "Rent"]);
             $table->text('content_desccription');
             $table->string('price');
             $table->string('no_of_bedrooms');
@@ -55,7 +55,6 @@ class CreatePostsTable extends Migration
             $table->tinyInteger('can_comment')->default(1);
             $table->tinyInteger('is_sponsored')->default(0);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -4,17 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Helpers\Constants;
+use App\Helpers\MediaHandler;
 use App\Services\Auth\AuthorizationService;
 use App\Helpers\PostHandler;
 use App\QueryBuilder\PostQueryBuilder;
 use Illuminate\Http\Request;
 use App\Models\PropertyCategory;
-
 use App\Models\Post;
 
 
 class AdminPostController extends Controller
 {
+
+    public $mediaHandler;
+    public function __construct(MediaHandler $mediaHandler)
+    {
+        $this->mediaHandler = $mediaHandler;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -153,7 +159,7 @@ class AdminPostController extends Controller
             "admin.posts.edit",
             [
                 "post" => $post,
-                "categories" => $categories,
+                "PropertyCategory" => $categories,
                 "types" => $types,
                 "boolOptions" => $boolOptions
             ]
@@ -167,7 +173,7 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $post)
+    public function update(Request $request , Post $post)
     {
         $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
@@ -210,7 +216,6 @@ class AdminPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        AuthorizationService::hasPermissionTo("can_delete_posts");
         $postHandler = new PostHandler;
         $postHandler->cleanDelete($post);
         return back()->with("success_message", "Deleted successfully!");

@@ -10,6 +10,12 @@
     
         <!-- Google Font -->
         @include("web.pages.layouts.includes.header")
+
+        <style>
+            .hs-item set-bg{
+                background-size: 70% 30% ;
+            }
+        </style>
     </head>
 <body>
     <header>
