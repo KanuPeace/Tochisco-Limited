@@ -8,7 +8,7 @@
     <div class="container">
         <div class="hs-slider owl-carousel">
             @foreach($posts as $post)
-            <div class="hs-item set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
+            <div class="hs-item set-bg" data-setbg="{{asset('postImages/' . $post->cover_image)}}">
                 <div class="row">
 
                     <div class="col-lg-12">
@@ -219,9 +219,9 @@
             @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mix all house">
                 <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="{{asset('propertyimages/' . $post->cover_image)}}">
-                        <div class="label">{{$post->type}}</div>
+                    <div class="pi-pic set-bg" data-setbg="{{asset('postImages/' . $post->cover_image)}}">
                     </div>
+                    <div class="label">{{$post->type}}</div>
                     <div class="pi-text">
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <div class="pt-price">${{$post->price}}<span>/month</span></div>
@@ -706,7 +706,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved
+                </script>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>

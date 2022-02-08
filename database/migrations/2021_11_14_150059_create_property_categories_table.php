@@ -19,6 +19,7 @@ class CreatePropertyCategoriesTable extends Migration
             $table->tinyInteger('is_trending')->default(0);
             $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
