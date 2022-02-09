@@ -16,36 +16,12 @@ class DashboardsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function postslist(User $user)
-    {
-        $posts = $user->posts()->with(['user'])->paginate(5);
-        return view('users.posts.posts_list', [
-            'user' => $user,
-            'posts' => $posts,
-        ]);
-    }
 
-
-
-    public function error()
-    {
-        return view('users.503_error');
-    }
-
-    public function earnings()
-    {
-
-        $money = 0.000;
-        $posts_count  = Post::where('user_id', auth()->id())->count();
-        $total = $posts_count * $money;
-        return view('users.earning', [
-            'total' => $total,
-        ]);
-    }
 
 
     public function index(User $user)
     {
+        // $posts = $user->posts()->with(['user'])->paginate(5);
         return view('users.dashboard', ['user' => $user]);
     }
 

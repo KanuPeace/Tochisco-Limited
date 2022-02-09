@@ -27,18 +27,14 @@ class PostController extends Controller
      */
     public function index(User $user)
     {
-        $posts = $user->posts()->with(['user'])->paginate(5);
+        // $posts = $user->posts()->with(['user'])->paginate(5);
           return view('users.post.posts_list' , [
            'user' => $user,
-           'posts' => $posts,
+        //    'posts' => $posts,
           ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
 
