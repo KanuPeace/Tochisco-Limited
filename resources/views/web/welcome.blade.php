@@ -219,7 +219,7 @@
             @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mix all house">
                 <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="{{asset('postImages/' . $post->cover_image)}}">
+                    <div class="pi-pic set-bg" data-setbg="{{asset($post->cover_image)}}">
                     </div>
                     <div class="label">{{$post->type}}</div>
                     <div class="pi-text">
