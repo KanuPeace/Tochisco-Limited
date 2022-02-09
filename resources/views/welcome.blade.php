@@ -209,7 +209,7 @@
                 <div class="property-controls">
                     <ul>
                     @foreach($posts as $Post)
-                       <a href="{{route($post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
+                       <a href="{{route('category.post' , $post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
                         @endforeach
                     </ul>
                 </div>
@@ -219,7 +219,7 @@
             @foreach($posts as $post)
             <div class="col-lg-4 col-md-6 mix all house">
                 <div class="property-item">
-                    <div class="pi-pic set-bg" data-setbg="{{asset('postImages/' . $post->cover_image)}}">
+                    <div class="pi-pic set-bg" data-setbg="{{asset($post->cover_image)}}">
                     </div>
                     <div class="label">{{$post->type}}</div>
                     <div class="pi-text">
