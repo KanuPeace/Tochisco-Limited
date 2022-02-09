@@ -8,7 +8,7 @@
     <div class="container">
         <div class="hs-slider owl-carousel">
             @foreach($posts as $post)
-            <div class="hs-item set-bg" data-setbg="{{asset('postImages/' . $post->cover_image)}}">
+            <div class="hs-item set-bg" data-setbg="{{asset($post->cover_image)}}">
                 <div class="row">
 
                     <div class="col-lg-12">
