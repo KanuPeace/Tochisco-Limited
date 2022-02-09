@@ -15,7 +15,7 @@
 
 
         <!--  BEGIN CONTENT PART  -->
-        <div id="tableCheckbox" class="">
+        {{-- <div id="tableCheckbox" class="">
             <div class="statbox widget box box-shadow mt-5">
                 <div class="widget-header">
                     <div class="row">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!--  END CONTENT PART  -->
 
     </div>
