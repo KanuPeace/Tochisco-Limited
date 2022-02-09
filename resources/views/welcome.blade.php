@@ -209,7 +209,7 @@
                 <div class="property-controls">
                     <ul>
                     @foreach($posts as $Post)
-                       <a href="{{route('category.post' , $post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
+                       <a href="{{route($post->category)}}"><li data-filter="all">{{$post->category->name}}</li></a>
                         @endforeach
                     </ul>
                 </div>
