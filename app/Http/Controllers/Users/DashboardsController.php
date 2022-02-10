@@ -6,6 +6,7 @@ use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Models\PropertyCategory;
 use App\Models\User;
 
@@ -77,9 +78,14 @@ class DashboardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        $comments = Comment::get();
+        return view('web.post_details', [
+            'post' => $post,
+            'comments' =>  $comments,
+            // "metaData" => PageMetaData::blogDetailsPage($post)
+        ]);
     }
 
     /**

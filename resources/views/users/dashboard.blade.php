@@ -223,18 +223,7 @@
                                         <h4>Latest PROPERTY</h4>
                                     </div>
                                 </div>
-                                {{-- <div class="col-lg-6">
-                                    <div class="property-controls">
-                                        <ul>
-                                            @foreach ($posts as $Post)
-                                                <a href="{{ route('category.post', $Post->category) }}">
-                                                    <li data-filter="all">{{ $Post->category->name }}</li>
-                                                </a>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> --}}
+                                
                             <div class="row property-filter">
                                 @foreach ($posts as $post)
                                     <div class="col-lg-12 col-md-6 mix all house">
