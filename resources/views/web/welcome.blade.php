@@ -701,15 +701,15 @@
                 </div>
             </div>
         </div>
-        <div class="copyright-text">
+        {{-- <div class="copyright-text">
             <p>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>
+               <script>
                     document.write(new Date().getFullYear());
                 </script>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
-        </div>
+        </div> --}}
     </div>
 </footer>
 <!-- Footer Section End -->
