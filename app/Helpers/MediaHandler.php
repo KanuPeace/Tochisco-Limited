@@ -6,6 +6,7 @@ use App\Models\File as FileModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use app\Helpers\MediaFilesHelper;
 
 class MediaHandler
 {

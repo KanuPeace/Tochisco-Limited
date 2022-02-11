@@ -55,6 +55,7 @@
     <link href="{{ $admin_assets }}/assets/css/pages/error/style-503.css" rel="stylesheet" type="text/css" />
 
 
+
 </head>
 
 <body>

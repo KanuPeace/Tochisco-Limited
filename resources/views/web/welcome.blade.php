@@ -224,7 +224,7 @@
                     <div class="label">{{$post->type}}</div>
                     <div class="pi-text">
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <div class="pt-price">${{$post->price}}<span>/month</span></div>
+                        <div class="pt-price">{{$post->price}}<span>/month</span></div>
                         <h5><a href="#">{{$post->title}}</a></h5>
                         <p><span class="icon_pin_alt"></span>{{$post->address}}</p>
                         <ul>

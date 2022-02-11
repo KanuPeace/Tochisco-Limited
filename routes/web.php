@@ -42,16 +42,16 @@ Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeContr
 
 Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
     Route::resource('user', DashboardsController::class);
-    // Route::resource('profile', ProfileController::class);
     Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
     Route::get('/referrals', "DashboardController@referrals")->name("referrals");
     Route::get('/transactions', "DashboardController@transactions")->name("transactions");
     Route::get('/subscriptions', "DashboardController@subscriptions")->name("subscriptions");
     Route::get('/withdrawal-requests', "DashboardController@withdrawal_requests")->name("withdrawal_requests");
     Route::put('/update', "ProfileController@update")->name("update");
+    Route::get('/edit-profile', "ProfileController@edit_profile")->name("edit_profile");
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
-    Route::resource('profile', ProfileController::class);
+    // Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
    
 
