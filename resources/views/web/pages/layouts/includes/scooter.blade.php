@@ -98,8 +98,15 @@
 
                             </li>
                         @else
-                            <li><a href="{{ route('login') }}">Sign in</a></li>
-                            <li><a href="{{ route('register') }}">Sign up</a></li>
+                        <li><a href="/">Become An Agent</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ route('login') }}">Sign in</a></li>
+                                <li><a href="{{ route('register') }}">Sign up</a></li>
+                            </ul>
+
+                        </li>
+
+                           
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('property') }}">Properties</a>
                                 <ul class="dropdown">
