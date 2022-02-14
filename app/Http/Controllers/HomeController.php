@@ -31,7 +31,7 @@ class HomeController extends Controller
             return redirect()->route("admin.dashboard");
         }
         else{
-            return redirect()->route("user.user.index");
+            return redirect()->route("user.dashboard");
         }
     }
 }

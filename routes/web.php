@@ -41,8 +41,11 @@ Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeContr
 
 
 Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
-    Route::resource('user', DashboardsController::class);
+    // Route::resource('user', DashboardsController::class);
     Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
+    Route::get('/', "DashboardController@show")->name("show");
+    Route::get('/', "DashboardController@list")->name("list");
+    Route::get('/', "DashboardController@specificCategory")->name("specificCategory");
     Route::get('/referrals', "DashboardController@referrals")->name("referrals");
     Route::get('/transactions', "DashboardController@transactions")->name("transactions");
     Route::get('/subscriptions', "DashboardController@subscriptions")->name("subscriptions");

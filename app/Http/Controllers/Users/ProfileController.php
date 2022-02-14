@@ -38,8 +38,9 @@ class ProfileController extends Controller
 
         if(!empty($avatar = $request->file("avatar"))){
             $filePath = putFileInPrivateStorage($avatar , "temp");
-            $avatarFile = $this->mediaHandler->saveFromFilePath(storage_path("app/$filePath") , "avatars" , null , $user->id);
+            $avatarFile = $this->mediaHandler->saveFromFilePath( storage_path('app/$filePath') , "avatars" , null , $user->id);
             $data["avatar_id"] = $avatarFile->id;
+           
         }
 
         $user->update($data);

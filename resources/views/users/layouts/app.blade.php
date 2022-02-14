@@ -54,7 +54,19 @@
 
     <link href="{{ $admin_assets }}/assets/css/pages/error/style-503.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        .img {
+            width: 280px;
+        }
 
+
+        /*cards*/
+        body {
+            background: #e2e1e0;
+            text-align: center;
+        }
+
+    </style>
 
 </head>
 

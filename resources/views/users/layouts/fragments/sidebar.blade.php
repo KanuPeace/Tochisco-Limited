@@ -11,7 +11,7 @@
             <div class="shadow-bottom"></div>
             <ul class="list-unstyled menu-categories" id="accordionExample">
             <li class="menu">
-                    <a href="{{route('user.user.index')}}" aria-expanded="false" class="dropdown-toggle">
+                    <a href="{{route('user.dashboard')}}" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <i class="fa fa-dashboard" style="font-size:30px;color:black"></i>
                             <span>Dashboard</span>
