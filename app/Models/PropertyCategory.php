@@ -10,7 +10,7 @@ class PropertyCategory extends Model
     use HasFactory;
 
     protected $fillable = [
-       'name',
+       'name', 'categories'
     ];
 
     public function posts()

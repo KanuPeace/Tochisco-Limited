@@ -46,11 +46,22 @@ class welcomeController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $search = $_GET['query'];
+        $categories = PropertyCategory::where('name', 'like', '%' . $search . '%')->get();
+        $posts = Post::where('name', 'like', '%' . $search . '%')->get();
+        return view('web.welcome', [
+            "posts" => $posts,
+            "categories" => $categories,
+            // "metaData" => PageMetaData::searchPage()
+        ]);
+    }
+
+
     public function specificCategory(PropertyCategory $categories)
     {
         $posts = $categories->posts()->with(['categories'])->get();
-        $categories =  PropertyCategory::get();
-
         return view('web.category.specific-category', [
             'posts' => $posts,
             'categories' => $categories,

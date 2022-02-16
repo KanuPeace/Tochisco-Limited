@@ -114,7 +114,7 @@
                                     <input class="form-control" type="text" name="location">
                                 </div>
 
-                                {{-- <div class="form-group col-md-3">
+                                <div class="form-group col-md-3">
                                     <label for="">Is Sponsored <span class="required">*</span></label>
                                     <select name="is_sponsored" class="form-control" id="" required>
                                         <option value="" disabled selected>Select Option</option>
@@ -162,7 +162,7 @@
                                         <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                </div> --}}
+                                </div>
 
                                 <div class="form-group col-12">
                                     <button class="btn btn-primary btn-lg">Submit</button>

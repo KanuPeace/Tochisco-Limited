@@ -59,6 +59,13 @@
 </div>
 <div class="hs-nav">
     <div class="container">
+        <div class="col-lg-3 col-md-8 col-sm-12">
+            <div class="header-top-bar d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
+                <ul class="header-top-date liststyle d-flex flrx-wrap align-items-center mr--20">
+                    <li><a href="#">{{ today()->format("d F Y") }}</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-9">
                 <nav class="nav-menu">
@@ -70,7 +77,7 @@
                                     <a href="{{ route('admin.dashboard') }}" class="dropdown-item"
                                         type="button">Dashboard</a>
                                 @else
-                                    <a href="{{ route('user.user.index') }}" class="dropdown-item"
+                                    <a href="{{ route('user.dashboard') }}" class="dropdown-item"
                                         type="button">Dashboard</a>
                                 @endif
                             </li>
@@ -123,6 +130,19 @@
                         @endauth
                 </ul>
             </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="navbar-item search">
+                    <form id="search_form" method="GET" action="{{ route('web.search') }}">
+   
+                        <input type="text" name="query" class="searchText_nav" placeholder="type to search..."
+                            autocomplete="on" />
+                        <input type="submit" class="nav-submit" value="Search" />
+   
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="col-lg-3">
             <div class="hn-social">

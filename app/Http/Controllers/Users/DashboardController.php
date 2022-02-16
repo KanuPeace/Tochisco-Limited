@@ -54,8 +54,11 @@ class DashboardController extends Controller
     public function specificCategory(PropertyCategory $categories)
     {
         $posts = $categories->posts()->with(['categories'])->get();
+        $categories = PropertyCategory::all();
         return view('web.category.specific-category' , [
             'posts' => $posts,
+            'categories' => $categories,
+
         ]);
     }
 
