@@ -39,7 +39,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/home');
 Route::get('/search', [App\Http\Controllers\Web\WelcomeController::class, 'search'])->name('web.search');
 Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeController::class, 'list'])->name('category.post');
-Route::get('/home', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('home');
 
 
 Auth::routes(["verify" => true]);
