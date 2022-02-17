@@ -4,12 +4,12 @@
 
         <ul class="navbar-item theme-brand flex-row  text-center">
             <li class="nav-item theme-logo">
-                <a href="{{ route('web.index') }}">
+                <a href="/">
                     <img src="{{ $web_source }}/web_assets/img/icon.png" class="navbar-logo" alt="logo">
                 </a>
             </li>
             <li class="nav-item theme-text">
-                <a href="{{ route('web.index') }}" class="nav-link">Tochisco</a>
+                <a href="/" class="nav-link">Tochisco</a>
             </li>
         </ul>
 
@@ -98,7 +98,7 @@
                           </div>
 
                           <div class="dropdown-item">
-                            <a href="/" aria-expanded="false" class="dropdown-toggle">
+                            <a href="{{route('home')}}" aria-expanded="false" class="dropdown-toggle">
 
                                 <div class="">
                                     <i class="fa fa-home" style="font-size:30px;color:black"></i>

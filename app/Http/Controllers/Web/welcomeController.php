@@ -9,8 +9,9 @@ use App\Models\Post;
 use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
-class welcomeController extends Controller
+class WelcomeController extends Controller
 {
+  
     public function index(Post $posts)
     {
 
@@ -69,3 +70,4 @@ class welcomeController extends Controller
         ]);
     }
 }
+

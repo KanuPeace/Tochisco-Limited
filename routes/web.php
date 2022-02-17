@@ -36,9 +36,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/');
+// Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/home');
 Route::get('/search', [App\Http\Controllers\Web\WelcomeController::class, 'search'])->name('web.search');
 Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeController::class, 'list'])->name('category.post');
+Route::get('/home', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('home');
+
+
+Auth::routes(["verify" => true]);
 
 
 Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
@@ -96,7 +100,8 @@ Route::as("user.")->namespace("Users")->middleware('verified')->group(function (
     });
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
@@ -168,11 +173,11 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
 
 
-Route::resource('todo', TodosController::class);
-Route::resource('web', IndexsController::class);
-Route::resource('property', PropertiesController::class);
+// Route::resource('todo', TodosController::class);
+// Route::resource('web', IndexsController::class);
+// Route::resource('property', PropertiesController::class);
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 // Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'welcome'])->name('home');
 Route::get('/property', [App\Http\Controllers\Web\HomeController::class, 'property'])->name('property');
@@ -181,5 +186,5 @@ Route::get('/prop_details', [App\Http\Controllers\Web\HomeController::class, 'pr
 Route::get('/prop_submit', [App\Http\Controllers\Web\HomeController::class, 'prop_sub'])->name('prop_submit');
 Route::get('/agent', [App\Http\Controllers\Web\HomeController::class, 'agent'])->name('agent');
 Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])->name('about');
-// Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
+Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
 Route::get('/contact', [App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
