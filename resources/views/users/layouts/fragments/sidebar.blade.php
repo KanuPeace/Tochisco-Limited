@@ -69,6 +69,13 @@
                     </a>
                 </li>
 
+                <li class="menu-item">
+                    <a href="/" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-tasks" style="font-size:30px;color:black"></i>
+                        <span >Apply for Vendor</span>
+                    </a>
+                </li>
+
 
                 <li class="menu">
 
