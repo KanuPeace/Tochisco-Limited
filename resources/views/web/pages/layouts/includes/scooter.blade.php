@@ -10,7 +10,7 @@
         <span class="icon_close"></span>
     </div>
     <div class="logo">
-        <a href="/index">
+        <a href="/">
             <img src="{{ $web_source }}/web_assets/img/m-logo.png" alt="">
         </a>
     </div>
@@ -62,7 +62,7 @@
         <div class="col-lg-3 col-md-8 col-sm-12">
             <div class="header-top-bar d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
                 <ul class="header-top-date liststyle d-flex flrx-wrap align-items-center mr--20">
-                    <li><a href="#">{{ today()->format("d F Y") }}</a></li>
+                    <li><a href="/">{{ today()->format("d F Y") }}</a></li>
                 </ul>
             </div>
         </div>
