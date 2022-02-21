@@ -98,7 +98,7 @@
                           </div>
 
                           <div class="dropdown-item">
-                            <a href="{{route('home')}}" aria-expanded="false" class="dropdown-toggle">
+                            <a href="{{ route('home')}}" aria-expanded="false" class="dropdown-toggle">
 
                                 <div class="">
                                     <i class="fa fa-home" style="font-size:30px;color:black"></i>

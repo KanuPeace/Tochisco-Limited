@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use App\Models\Post;
+use App\Models\PropertyCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+
     public function welcome(){
         return view('web.pages.index');
     } 

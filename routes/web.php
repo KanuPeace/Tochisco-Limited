@@ -36,10 +36,14 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+// Route::get('/', function () {
+//     return view("web.welcome");
+// });
+
 // Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('/home');
-Route::get('/search', [App\Http\Controllers\Web\WelcomeController::class, 'search'])->name('web.search');
-Route::get('/category/{categories}/post', [App\Http\Controllers\Web\WelcomeController::class, 'list'])->name('category.post');
-Route::get('/', [App\Http\Controllers\Web\WelcomeController::class, 'index'])->name('home');
+Route::get('/search', [App\Http\Controllers\WelcomeController::class, 'search'])->name('web.search');
+Route::get('/category/{categories}/post', [App\Http\Controllers\WelcomeController::class, 'list'])->name('category.post');
+// Route::get('/home', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 
 
 Auth::routes(["verify" => true]);
@@ -179,7 +183,7 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
 // Auth::routes(['verify' => true]);
 
-// Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'welcome'])->name('home');
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 Route::get('/property', [App\Http\Controllers\Web\HomeController::class, 'property'])->name('property');
 Route::get('/prop_comparison', [App\Http\Controllers\Web\HomeController::class, 'prop_com'])->name('prop_comparison');
 Route::get('/prop_details', [App\Http\Controllers\Web\HomeController::class, 'prop_detail'])->name('prop_details');

@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="logo">
-                    <a href="/index"><img src="web_assets/img/m-logo.png" alt=""></a>
+                    <a href="/"><img src="web_assets/img/m-logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-10">
