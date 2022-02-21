@@ -4,12 +4,12 @@
 
           <ul class="navbar-item theme-brand flex-row  text-center">
               <li class="nav-item theme-logo">
-                  <a href="{{ route('web.index') }}">
+                  <a href="{{ route('home') }}">
                       <img src="{{ $web_source }}/web_assets/img/icon.png" class="navbar-logo" alt="logo">
                   </a>
               </li>
               <li class="nav-item theme-text">
-                  <a href="{{ route('web.index') }}" class="nav-link">Tochisco</a>
+                  <a href="{{ route('home') }}" class="nav-link">Tochisco</a>
               </li>
           </ul>
 
