@@ -21,12 +21,13 @@
                       <circle cx="11" cy="11" r="8"></circle>
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
-                  <form class="form-inline search-full form-inline search" role="search">
-                      <div class="search-bar">
-                          <input type="text" class="form-control search-form-control  ml-lg-auto"
-                              placeholder="Search...">
-                      </div>
-                  </form>
+                  <form id="search_form" method="GET" action="{{ route('web.search') }}">
+   
+                    <input type="text" name="query" class="searchText_nav" placeholder="type to search..."
+                        autocomplete="on" />
+                    <input type="submit" class="nav-submit" value="Search" />
+
+                </form>
               </li>
           </ul>
 
