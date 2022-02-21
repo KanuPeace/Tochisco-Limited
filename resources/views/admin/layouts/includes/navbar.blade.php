@@ -22,12 +22,12 @@
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                   <form id="search_form" method="GET" action="{{ route('web.search') }}">
-   
-                    <input type="text" name="query" class="searchText_nav" placeholder="type to search..."
-                        autocomplete="on" />
-                    <input type="submit" class="nav-submit" value="Search" />
 
-                </form>
+                      <input type="text" name="query" class="searchText_nav" placeholder="type to search..."
+                          autocomplete="on" />
+                      <input type="submit" class="nav-submit" value="Search" />
+
+                  </form>
               </li>
           </ul>
 
@@ -66,60 +66,27 @@
                   </a>
                   <div class="dropdown-menu position-absolute" aria-labelledby="messageDropdown">
                       <div class="">
-                          <a class="dropdown-item">
+                          <a href="{{ route('admin.users_messages') }}" class="dropdown-item">
                               <div class="">
 
                                   <div class="media">
                                       <div class="user-img">
                                           <div class="avatar avatar-xl">
-                                              <span class="avatar-title rounded-circle">KY</span>
+                                              <span class="avatar-title rounded-circle"></span>
                                           </div>
                                       </div>
                                       <div class="media-body">
                                           <div class="">
-                                              <h5 class="usr-name">Kara Young</h5>
-                                              <p class="msg-title">ACCOUNT UPDATE</p>
+                                              <h5 class="usr-name">checkout now</h5>
+
                                           </div>
                                       </div>
                                   </div>
 
                               </div>
                           </a>
-                          <a class="dropdown-item">
-                              <div class="">
-                                  <div class="media">
-                                      <div class="user-img">
-                                          <img src="{{ $admin_assets }}/assets/img/profile-15.jpg"
-                                              class="img-fluid mr-2" alt="avatar">
-                                      </div>
-                                      <div class="media-body">
-                                          <div class="">
-                                              <h5 class="usr-name">Daisy Anderson</h5>
-                                              <p class="msg-title">ACCOUNT UPDATE</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                          <a class="dropdown-item">
-                              <div class="">
 
-                                  <div class="media">
-                                      <div class="user-img">
-                                          <div class="avatar avatar-xl">
-                                              <span class="avatar-title rounded-circle">OG</span>
-                                          </div>
-                                      </div>
-                                      <div class="media-body">
-                                          <div class="">
-                                              <h5 class="usr-name">Oscar Garner</h5>
-                                              <p class="msg-title">ACCOUNT UPDATE</p>
-                                          </div>
-                                      </div>
-                                  </div>
 
-                              </div>
-                          </a>
                       </div>
                   </div>
               </li>
@@ -190,7 +157,8 @@
                   <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                       <div class="">
                           <div class="dropdown-item">
-                              <a class="javascript:void(0);" href="{{ route('admin.users.edit', auth()->id()) }}"><svg
+                              <a class="javascript:void(0);"
+                                  href="{{ route('admin.users.edit', auth()->id()) }}"><svg
                                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                       fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                       stroke-linejoin="round" class="feather feather-user">
@@ -200,7 +168,7 @@
                           </div>
 
                           <div class="dropdown-item">
-                              <a href="{{route('home')}}" aria-expanded="false" class="dropdown-toggle">
+                              <a href="{{ route('home') }}" aria-expanded="false" class="dropdown-toggle">
 
                                   <div class="">
                                       <i class="fa fa-home" style="font-size:30px;color:black"></i>
