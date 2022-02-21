@@ -77,7 +77,7 @@
             <div class="row layout-spacing">
 
                 <!-- Content -->
-                <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
 
                     <div class="row">
                         <div class="col-md-auto col-6 text-center">
@@ -90,10 +90,10 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
                 {{-- <div class="col-lg-12` layout-top-spacing"> --}}
-                <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
                     <section class="property-section latest-property-section spad">
                         <div class="container">
                             <div class="row">
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                     </section>
-                </div>
+                </div> --}}
 
             </div>
 
