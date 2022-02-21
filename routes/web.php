@@ -193,3 +193,9 @@ Route::get('/agent', [App\Http\Controllers\Web\HomeController::class, 'agent'])-
 Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])->name('about');
 Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
 Route::get('/contact', [App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
+
+
+
+Route::get('/email', function() {
+    return new \App\Mail\NewUserWelcomeMail();
+  });
