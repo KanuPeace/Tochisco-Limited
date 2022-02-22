@@ -9,7 +9,7 @@
                     <div class="breadcrumb-text">
                         <h4>Our Agents</h4>
                         <div class="bt-option">
-                            <a href="/index"><i class="fa fa-home"></i> Home</a>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
                             <span>Agents</span>
                         </div>
                     </div>
@@ -390,7 +390,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                <p>Ajah,lagos.</p>
                             </div>
                         </div>
                         <div class="ci-item">
@@ -400,8 +400,8 @@
                             <div class="ci-text">
                                 <h5>Phone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>+2349157522382</li>
+                                    <li>+2349093907715</li>
                                 </ul>
                             </div>
                         </div>
@@ -411,7 +411,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <p>kanupeace85@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -482,9 +482,7 @@
                 </div>
             </div>
             <div class="copyright-text">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>, distributed by <a href="https://bootthemes.com/" target="_blank">BootThemes</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
     </footer>

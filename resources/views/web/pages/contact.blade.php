@@ -10,7 +10,7 @@
                     <div class="breadcrumb-text">
                         <h4>Contact Us</h4>
                         <div class="bt-option">
-                            <a href="/index"><i class="fa fa-home"></i> Home</a>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
                             <span>Contact</span>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                <p>Ajah,Lagos.</p>
                             </div>
                         </div>
                         <div class="ci-item">
@@ -75,7 +75,7 @@
                                 <h5>Phone</h5>
                                 <ul>
                                     <li>+2349093907715</li>
-                                    <li>+2340957522382</li>
+                                    <li>+2349157522382</li>
                                 </ul>
                             </div>
                         </div>
