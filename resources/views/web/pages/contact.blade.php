@@ -74,8 +74,8 @@
                             <div class="ci-text">
                                 <h5>Phone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>+2349093907715</li>
+                                    <li>+2340957522382</li>
                                 </ul>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <p>kanupeace85@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -162,11 +162,9 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <script>
                         document.write(new Date().getFullYear());
-                    </script>2021 All rights reserved | This template is made with <i
-                        class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                        target="_blank">Colorlib</a>, distributed by <a href="https://bootthemes.com/"
-                        target="_blank">BootThemes</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </script> <i></i>
+                       
+          
                 </p>
             </div>
         </div>
