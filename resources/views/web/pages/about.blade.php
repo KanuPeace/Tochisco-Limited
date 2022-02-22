@@ -210,7 +210,7 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="img/team/team-1.jpg" alt="">
+                            <img src="{{ $web_source }}/web_assets/img/team/team-1.jpg" alt="">
                             <h5>Ashton Kutcher</h5>
                             <span>123-455-688</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
@@ -225,7 +225,7 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="img/team/team-2.jpg" alt="">
+                            <img src="{{ $web_source }}/web_assets/img/team/team-2.jpg" alt="">
                             <h5>Ashton Kutcher</h5>
                             <span>123-455-688</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
@@ -240,7 +240,7 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="img/team/team-3.jpg" alt="">
+                            <img src="{{ $web_source }}/web_assets/img/team/team-3.jpg" alt="">
                             <h5>Ashton Kutcher</h5>
                             <span>123-455-688</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
