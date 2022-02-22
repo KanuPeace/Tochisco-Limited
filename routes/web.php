@@ -192,7 +192,11 @@ Route::get('/prop_submit', [App\Http\Controllers\Web\HomeController::class, 'pro
 Route::get('/agent', [App\Http\Controllers\Web\HomeController::class, 'agent'])->name('agent');
 Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])->name('about');
 Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
-Route::get('/contact', [App\Http\Controllers\Web\HomeController::class, 'contact'])->name('contact');
+// Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'contact'])->name('contact');
+// Route::post('/contact', [App\Http\Controllers\Web\ContactController::class, 'store']);
+Route::resource('contact',Web\ContactController::class);
+
+
 
 
 
