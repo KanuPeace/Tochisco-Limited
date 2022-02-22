@@ -4,14 +4,14 @@
 
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-bg.jpg">
+    <section class="breadcrumb-section spad set-bg" data-setbg="{{ $web_source }}/web_assets/img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <h4>Property comparison</h4>
                         <div class="bt-option">
-                            <a href="/index"><i class="fa fa-home"></i> Home</a>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
                             <span>Property</span>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                     <th class="type">Type</th>
                                     <th class="compare-item middle-item">
                                         <div class="title">Villa</div>
-                                        <img src="web_assets/img/property/comparison/comparison-1.jpg" alt="">
+                                        <img src="{{ $web_source }}/web_assets/img/property/comparison/comparison-1.jpg" alt="">
                                         <div>Unimont Aurum</div>
                                         <p><span class="icon_pin_alt"></span> Badlapur East, Beyond Thane</p>
                                     </th>
@@ -167,7 +167,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                <p>Ajah,Lagos.</p>
                             </div>
                         </div>
                         <div class="ci-item">
@@ -177,8 +177,8 @@
                             <div class="ci-text">
                                 <h5>Phone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>+2349157523382</li>
+                                    <li>+2349093907715</li>
                                 </ul>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <p>kanupeace85@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="web_assets/img/m-logo.png" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

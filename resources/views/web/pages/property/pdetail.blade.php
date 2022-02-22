@@ -339,7 +339,7 @@
                             </div>
                         </div>
                         <div class="pd-widget">
-                            <h4>YOur Rating</h4>
+                            <h4>Your Rating</h4>
                             <span>
                                 @include('notifications.flash_messages')
                             </span>
