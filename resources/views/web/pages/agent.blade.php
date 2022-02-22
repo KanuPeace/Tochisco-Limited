@@ -37,7 +37,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-1.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-1.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -65,7 +65,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-2.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-2.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -93,7 +93,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-3.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-3.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -121,7 +121,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-4.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-4.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -149,7 +149,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-5.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-5.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -177,7 +177,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-6.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-6.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -207,7 +207,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-1.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-1.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -235,7 +235,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-2.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-2.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -263,7 +263,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-3.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-3.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -291,7 +291,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-4.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-4.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -319,7 +319,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-5.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-5.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
@@ -347,7 +347,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="as-item">
                             <div class="as-pic">
-                                <img src="img/agents/agent-6.jpg" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/agents/agent-6.jpg" alt="">
                                 <div class="rating-point">
                                     4.5
                                 </div>
