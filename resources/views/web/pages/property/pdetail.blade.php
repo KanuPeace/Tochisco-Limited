@@ -12,23 +12,23 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-lg-12 p-0">
-                                    <div class="ps-item-inner large-item set-bg" data-setbg="web_assets/img/property/slider/ps-1.jpg"></div>
+                                    <div class="ps-item-inner large-item set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-1.jpg"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-4.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-4.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-5.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-5.jpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -41,23 +41,23 @@
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-lg-12 p-0">
-                                    <div class="ps-item-inner large-item set-bg" data-setbg="web_assets/img/property/slider/ps-1.jpg"></div>
+                                    <div class="ps-item-inner large-item set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-1.jpg"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="row">
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-2.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-2.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-4.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-4.jpg"></div>
                                 </div>
                                 <div class="col-sm-6 p-0">
-                                    <div class="ps-item-inner set-bg" data-setbg="web_assets/img/property/slider/ps-5.jpg"></div>
+                                    <div class="ps-item-inner set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/slider/ps-5.jpg"></div>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                         </div>
                         <div class="pd-widget">
                             <h4>Floor plans</h4>
-                            <img src="web_assets/img/property/details/floor-plan.jpg" alt="">
+                            <img src="{{ $web_source }}/web_assets/img/property/details/floor-plan.jpg" alt="">
                         </div>
                         <div class="pd-widget">
                             <h4>Floor plans</h4>
@@ -274,7 +274,7 @@
                             <h4>Agent</h4>
                             <div class="pd-agent">
                                 <div class="agent-pic">
-                                    <img src="web_assets/img/property/details/agent.jpg" alt="">
+                                    <img src="{{ $web_source }}/web_assets/img/property/details/agent.jpg" alt="">
                                 </div>
                                 <div class="agent-text">
                                     <div class="at-title">
@@ -301,7 +301,7 @@
                                 <div class="pr-item">
                                     <div class="pr-avatar">
                                         <div class="pr-pic">
-                                            <img src="web_assets/img/property/details/review/review-1.jpg" alt="">
+                                            <img src="{{ $web_source }}/web_assets/img/property/details/review/review-1.jpg" alt="">
                                         </div>
                                         <div class="pr-text">
                                             <h6>Brandon Kelley</h6>
@@ -320,7 +320,7 @@
                                 <div class="pr-item">
                                     <div class="pr-avatar">
                                         <div class="pr-pic">
-                                            <img src="web_assets/img/property/details/review/review-2.jpg" alt="">
+                                            <img src="{{ $web_source }}/web_assets/img/property/details/review/review-2.jpg" alt="">
                                         </div>
                                         <div class="pr-text">
                                             <h6>Matthew Nelson</h6>
@@ -340,13 +340,16 @@
                         </div>
                         <div class="pd-widget">
                             <h4>YOur Rating</h4>
-                            <form action="#" class="review-form">
+                            <span>
+                                @include('notifications.flash_messages')
+                            </span>
+                            <form action="property" class="review-form" action="{{route('property.store')}}" method="POST">
                                 <div class="group-input">
-                                    <input type="text" placeholder="Name">
-                                    <input type="text" placeholder="Email">
-                                    <input type="text" placeholder="Website">
+                                    <input name="name" type="text" id="name" placeholder="Your name" required="">
+                                    <input name="email" type="text" id="email" placeholder="Your email" required="">
+                                    <input name="subject" type="text" id="subject" placeholder="Subject">
                                 </div>
-                                <textarea placeholder="Messages"></textarea>
+                                <textarea name="message" id="message" placeholder=" Your Message" required=""></textarea>
                                 <div class="rating">
                                     <span>Your Rating:</span>
                                     <i class="fa fa-star"></i>
@@ -355,7 +358,7 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <button type="submit" class="site-btn">send messages</button>
+                                <button type="submit" id="form-submit" class="site-btn">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -368,7 +371,7 @@
                             </div>
                             <div class="top-agent">
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-1.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-1.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -376,7 +379,7 @@
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-2.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-2.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -384,7 +387,7 @@
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="web_assets/img/property/details/sidebar/ta-3.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-3.jpg"></div>
                                     <div class="ta-text">
                                         <h6><a href="#">Ashton Kutcher</a></h6>
                                         <span>Team Leader</span>
@@ -398,13 +401,13 @@
                                 <h5>Featural categories</h5>
                             </div>
                             <div class="sf-slider owl-carousel">
-                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-1.jpg">
+                                <div class="sf-item set-bg" data-setbg="{{ $web_source }}/web_assets/img/categories/cat-1.jpg">
                                     <div class="sf-text">
                                         <h5>House</h5>
                                         <span>38 property</span>
                                     </div>
                                 </div>
-                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-2.jpg">
+                                <div class="sf-item set-bg" data-setbg="{{ $web_source }}/web_assets/img/categories/cat-2.jpg">
                                     <div class="sf-text">
                                         <h5>Apartment</h5>
                                         <span>238 property</span>
@@ -416,7 +419,7 @@
                                         <span>230 property</span>
                                     </div>
                                 </div>
-                                <div class="sf-item set-bg" data-setbg="web_assets/img/categories/cat-4.jpg">
+                                <div class="sf-item set-bg" data-setbg="{{ $web_source }}/web_assets/img/categories/cat-4.jpg">
                                     <div class="sf-text">
                                         <h5>Restaurent</h5>
                                         <span>38 property</span>
@@ -467,7 +470,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                <p>Ajah,Lagos.</p>
                             </div>
                         </div>
                         <div class="ci-item">
@@ -477,8 +480,8 @@
                             <div class="ci-text">
                                 <h5>Phone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>+2349093907715</li>
+                                    <li>+2349157522382</li>
                                 </ul>
                             </div>
                         </div>
@@ -488,7 +491,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <p>kanupeace85@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -509,7 +512,7 @@
                     <div class="fs-about">
                         <div class="fs-logo">
                             <a href="#">
-                                <img src="web_assets/img/m-logo.png" alt="">
+                                <img src="{{ $web_source }}/web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

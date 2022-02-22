@@ -187,7 +187,7 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 Route::get('/property', [App\Http\Controllers\Web\HomeController::class, 'property'])->name('property');
 Route::get('/prop_comparison', [App\Http\Controllers\Web\HomeController::class, 'prop_com'])->name('prop_comparison');
-Route::get('/prop_details', [App\Http\Controllers\Web\HomeController::class, 'prop_detail'])->name('prop_details');
+// Route::get('/prop_details', [App\Http\Controllers\Web\HomeController::class, 'prop_detail'])->name('prop_details');
 Route::get('/prop_submit', [App\Http\Controllers\Web\HomeController::class, 'prop_sub'])->name('prop_submit');
 Route::get('/agent', [App\Http\Controllers\Web\HomeController::class, 'agent'])->name('agent');
 Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])->name('about');
@@ -195,6 +195,8 @@ Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile
 // Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'contact'])->name('contact');
 // Route::post('/contact', [App\Http\Controllers\Web\ContactController::class, 'store']);
 Route::resource('contact',Web\ContactController::class);
+Route::resource('property',Web\PropertyController::class);
+
 
 
 

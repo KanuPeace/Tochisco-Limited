@@ -84,7 +84,7 @@
                             <li><a href="{{ route('property') }}">Properties</a>
                                 <ul class="dropdown">
                                     <li><a href="">Property List</a></li>
-                                    <li><a href="{{ route('prop_details') }}">Property Detail</a></li>
+                                    <li><a href="{{ route('property.index') }}">Property Detail</a></li>
                                     <li><a href="{{ route('prop_comparison') }}">Property Comperison</a></li>
                                     <li><a href="{{ route('prop_submit') }}">Property Submit</a></li>
                                 </ul>
@@ -115,10 +115,10 @@
 
                            
                             <li><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('property') }}">Properties</a>
+                            <li><a href="{{ route('property.index') }}">Properties</a>
                                 <ul class="dropdown">
-                                    <li><a href="">Property List</a></li>
-                                    <li><a href="{{ route('prop_details') }}">Property Detail</a></li>
+                                    {{-- <li><a href="">Property List</a></li> --}}
+                                    <li><a href="{{ route('property.index') }}">Property Detail</a></li>
                                     <li><a href="{{ route('prop_comparison') }}">Property Comperison</a></li>
                                     <li><a href="{{ route('prop_submit') }}">Property Submit</a></li>
                                 </ul>
