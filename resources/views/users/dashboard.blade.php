@@ -75,7 +75,15 @@
         <div class="layout-px-spacing">
 
             <div class="row layout-spacing">
-
+                <div class="row">
+                    <div class="col-md-auto col-12 text-center">
+                        <img src="{{ $user->avatarUrl() }}" alt="avatar" class="img-fluid profile mt-5">
+                        <div><a href="{{ route('user.edit_profile') }}" class="badge badge-pill badge-danger">Edit</a></div>
+                    </div>
+                    <div class="col-md-auto col-12 text-center">
+                        <h4 class="mt-3">Welcome {{ $user->username }}</h4>
+                    </div>
+                </div>
                 <!-- Content -->
                 {{-- <div class="col-xl-4 col-lg-6 col-md-5 col-sm-12 layout-top-spacing">
 
