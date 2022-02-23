@@ -15,6 +15,7 @@ class DashboardController extends Controller
     public function dashboard(User $user, Post $posts )
     {
         // $posts = $user->posts()->with(['user'])->paginate(5);
+        $user = auth()->user();
         $types = [Constants::RENT, Constants::SELL];
         $categories = PropertyCategory::get();
         $latestPost = Post::latest()->orderby("created_at", "desc")->paginate(10);
