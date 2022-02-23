@@ -37,7 +37,7 @@
                     <a href="{{route('user.post.create')}}" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <i class="fa fa-book" style="font-size:30px;color:black"></i>
-                            <span>Create</span>
+                            <span>Create Posts</span>
                         </div>
                     </a>
                 </li>
