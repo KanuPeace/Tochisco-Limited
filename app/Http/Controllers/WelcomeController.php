@@ -6,6 +6,7 @@ use App\Helpers\Constants;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\PropertyCategory;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -65,5 +66,11 @@ class WelcomeController extends Controller
             'categories' => $categories,
 
         ]);
+    }
+
+    public function state()
+    {
+       $states = State::all();
+        return $states;
     }
 }

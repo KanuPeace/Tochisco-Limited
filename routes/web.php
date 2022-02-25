@@ -46,6 +46,7 @@ Route::get('/category/{categories}/post', [App\Http\Controllers\WelcomeControlle
 // Route::get('/home', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
+Route::get('/state', [App\Http\Controllers\WelcomeController::class, 'state'])->name('state');
 
 Auth::routes(["verify" => true]);
 
