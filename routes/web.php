@@ -51,7 +51,7 @@ Route::get('/state', [App\Http\Controllers\WelcomeController::class, 'state'])->
 Auth::routes(["verify" => true]);
 
 
-Route::as("user.")->namespace("Users")->middleware('verified')->group(function () {
+Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->group(function () {
     // Route::resource('user', DashboardsController::class);
     Route::get('/dashboard', "DashboardController@dashboard")->name("dashboard");
     Route::get('/', "DashboardController@show")->name("show");
@@ -66,6 +66,7 @@ Route::as("user.")->namespace("Users")->middleware('verified')->group(function (
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
     // Route::resource('profile', ProfileController::class);
+   Route::resource('profile' , ProfileController::class);
     Route::resource('category', CategoryController::class);
    
 

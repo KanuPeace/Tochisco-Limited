@@ -42,6 +42,7 @@ namespace App\Helpers;
         self::ACTIVE => "Yes",
         self::INACTIVE => "No",
      ];
+     const USER_DEFAULT_PROFILE = 'public\users\assets\img\2.jpg';
 
      const WEB_GUARD = "web";
      const PLAN_GUARD = "plan";
