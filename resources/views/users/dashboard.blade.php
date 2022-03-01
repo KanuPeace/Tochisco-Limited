@@ -81,7 +81,7 @@
                         <div><a href="{{ route('user.edit_profile') }}" class="badge badge-pill badge-danger">Edit</a></div>
                     </div>
                     <div class="col-md-auto col-12 text-center">
-                        <h4 class="mt-3">Welcome {{ $user->username }}</h4>
+                        <h4 class="mt-3">Welcome {{ $user->name }}</h4>
                     </div>
                 </div>
                 <!-- Content -->
