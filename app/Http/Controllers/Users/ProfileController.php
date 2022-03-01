@@ -3,47 +3,103 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Helpers\MediaHandler;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Helpers\Constants as HelpersConstants;
+use App\Models\Profile;
+use App\Rules\ProfileImageRules;
+use App\Supporters\Constants;
+use Illuminate\Support\Carbon;
 
 class ProfileController extends Controller
 {
-    
-    public $mediaHandler;
-    public function __construct(MediaHandler $mediaHandler)
+    public function __construct(ProfileImageRules $avatar_rules)
     {
-        $this->mediaHandler = $mediaHandler;
+        $this->avatar_rules = $avatar_rules;
+    }    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Profile $id)
+    {
+        $profile = optional(Profile::first()) ?? HelpersConstants::USER_DEFAULT_PROFILE;
+        $date = Carbon::now()->format('d-m-y');
+        return view('users.profile.index', compact('profile', 'date'));
     }
 
-    public function edit_profile(User $user )
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $user = auth()->user();
-        return view('users.edit_profile', ["user" => $user]);
+        return view('users.profile.create');
+
     }
 
-    public function update(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
+        $data = $this->avatar_rules->validateProfileData($request);
+        // if(!empty($profileImage = ProfileImageHelper::saveProfileImage($request->avatar , 'profileImages')));
+         $profileImage = uniqid() . '_' . $request->name . '.' .
+        //  dd($request->all());
+            $request->avatar->extension();
+        $request->avatar->move(public_path('profileImages'),  $profileImage);
+        $data['avatar'] =  $profileImage;
+        Profile::create($data);
+        return back()->with('success_message', 'Profile saved');
+    }
 
-        $user = auth()->user();
-        $data = $request->validate([
-            "first_name" => "required|string",
-            "last_name" => "required|string",
-            // "email" => "required|email|unique:users,email,$user->id",
-            // "phone" => "required|string",
-            "avatar" => "nullable|image"
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-        if(!empty($avatar = $request->file("avatar"))){
-            $filePath = putFileInPrivateStorage($avatar , "temp");
-            $avatarFile = $this->mediaHandler->saveFromFilePath( storage_path('app/$filePath') , "avatars" , null , $user->id);
-            $data["avatar_id"] = $avatarFile->id;
-           
-        }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
-        $user->update($data);
-        return back()->with("success_message" , "Changes saved successfully!");
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
