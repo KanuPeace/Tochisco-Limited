@@ -17,6 +17,12 @@
                     </div>
                     <div class="user_info mt-5">
                         <div><b class="pr-3">Name:</b> <span><i>{{ auth()->user()->name }}</i></span></div>
+                        <div><b class="pr-3">Role:</b> <span><i>{{ Auth::user()->role }}</i></span></div>
+                        <div><b class="pr-3">Email:</b> <span><i>{{ auth()->user()->email }}</i></span></div>
+                        <div><b class="pr-3">Phone:</b> <span><i>{{ auth()->user()->phone }}</i></span></div>
+
+
+
 
                         <div><b class="pr-3">Joined On:</b>
                             <span><i>{{ auth()->user()->created_at->toDateString() }}</i></span></div>
