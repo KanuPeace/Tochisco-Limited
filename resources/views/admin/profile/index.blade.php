@@ -1,6 +1,6 @@
-@extends('users.layouts.app')
+@extends('admin.layouts.app')
 
-@section('content')
+@section('style')
     <div id="content" class="main-content">
         <div class="layout-px-spacing">
 
@@ -28,7 +28,7 @@
                             <span><i>{{ auth()->user()->created_at->toDateString() }}</i></span></div>
 
                     </div>
-                    <a href="{{ route('user.profile.create') }}" class=" mt-3 btn btn-secondary text-white w-100">Change
+                    <a href="{{ route('admin.profile.create') }}" class=" mt-3 btn btn-secondary text-white w-100">Change
                         Profile Image</a>
                 </div>
 

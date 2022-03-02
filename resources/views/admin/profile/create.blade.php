@@ -1,6 +1,6 @@
-@extends('users.layouts.app')
+@extends('admin.layouts.app')
 
-@section('content')
+@section('style')
     <div id="content" class="main-content">
         <div class="layout-px-spacing">
 
@@ -11,7 +11,7 @@
                     @include('notifications.flash_messages')
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 bg-white p-5">
-                            <form enctype="multipart/form-data" action="{{ route('user.profile.store') }}" method="post">
+                            <form enctype="multipart/form-data" action="{{ route('admin.profile.store') }}" method="post">
                                 @csrf
                                 <label class="form-group" for="image">Add Profile Image</label>
                                 <div class="col-8">
@@ -21,7 +21,7 @@
                                     <button class="btn btn-secondary text-white w-100">Save</button>
                                 </div>
                             </form>
-                            <p><a href="{{ route('user.profile.index') }}">Back to profile</a></p>
+                            <p><a href="{{ route('admin.profile.index') }}">Back to profile</a></p>
                         </div>
 
                     </div>
