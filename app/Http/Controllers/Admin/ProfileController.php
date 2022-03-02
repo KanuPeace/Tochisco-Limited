@@ -4,22 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Helpers\Constants as HelpersConstants;
 use App\Models\User;
+use App\Rules\ProfileImageRules;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function __construct(ProfileImageRules $avatar_rules)
+    {
+        $this->avatar_rules = $avatar_rules;
+    }  
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Profile $profiles)
+    public function index(Profile $id)
     {
-        $profiles = Profile::find(1);
-        return view('admin.profile.index' , [
-            'profiles' => $profiles
-        ]); 
+        $profile = optional(Profile::first()) ?? HelpersConstants::USER_DEFAULT_PROFILE;
+        $date = Carbon::now()->format('d-m-y');
+        return view('admin.profile.index', compact('profile', 'date'));
     }
 
     /**
@@ -29,7 +35,8 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.profile.create');
+
     }
 
     /**
@@ -40,26 +47,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request , User $user)
     {
-        $request->validate([
-            'role' => 'required',
-            'description' =>'required|string',
-            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-
-        ]);
-
-
-        $newImageName = uniqid() . '_' . $request->title . '.' .
-         $request->file('avatar')->getClientOriginalName();
-         $request->file('avatar')->move(public_path('admin/profileImages'), $newImageName);
-
-        /* Store $imageName name in DATABASE from HERE */
-
-        $request = Profile::create([
-            'image' => $newImageName,
-            'user_id' => $user->id
-        ]);
-        
-        return back()->with('success_message', ' Profile added successfully!');
+        $data = $this->avatar_rules->validateProfileData($request);
+        // if(!empty($profileImage = ProfileImageHelper::saveProfileImage($request->avatar , 'profileImages')));
+         $profileImage = uniqid() . '_' . $request->name . '.' .
+        //  dd($request->all());
+            $request->avatar->extension();
+        $request->avatar->move(public_path('profileImages'),  $profileImage);
+        $data['avatar'] =  $profileImage;
+        Profile::create($data);
+        return back()->with('success_message', 'Profile saved');
     }
 
     /**
@@ -81,10 +77,7 @@ class ProfileController extends Controller
      */
     public function edit($id, User $user)
     {
-        $user = auth()->user();
-        return view('admin.profile.edit' , [
-            'user' => $user
-         ] );
+       //
     }
 
     /**
@@ -96,25 +89,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'location' => 'required',
-            'role' => 'required',
-            'phone' => 'required',
-            'description' =>'required|string',
-            'avatar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-
-        ]);
-
-        
-        $newImageName = uniqid() . '_' . $request->title . '.' .
-         $request->file('avatar')->getClientOriginalName();
-         $request->file('avatar')->move(public_path('admin/profileImages'), $newImageName);
-
-        /* Store $imageName name in DATABASE from HERE */
-       
-        $request = Profile::create();
-        
-        return back()->with('success_message', ' Post added successfully!');
+       //
            
 
     
