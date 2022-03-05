@@ -6,13 +6,14 @@ use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Profile;
 use App\Models\Comment;
 use App\Models\PropertyCategory;
 use App\Models\User;
 
 class DashboardController extends Controller
 {
-    public function dashboard(User $user, Post $posts )
+    public function dashboard(User $user, Post $posts)
     {
         // $posts = $user->posts()->with(['user'])->paginate(5);
         $user = auth()->user();

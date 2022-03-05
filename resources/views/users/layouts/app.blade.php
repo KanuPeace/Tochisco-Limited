@@ -59,6 +59,11 @@
             width: 280px;
         }
 
+        .user-welcome{
+            text-align: center;
+            text-emphasis-color: rgb(238, 197, 121);
+        }
+
         .profile {
             border-radius: 100%;
             width: 100px;

@@ -21,7 +21,7 @@
                                     <button class="btn btn-secondary text-white w-100 mt-3 mb-3">Save</button>
                                 </div>
                             </form>
-                            <p><a href="{{ route('admin.profile.index') }}">Back to profile</a></p>
+                            <p><a href="{{ route('admin.profile.index') }}"><-</a><b>   </b>Back to profile</p>
                         </div>
 
                     </div>
