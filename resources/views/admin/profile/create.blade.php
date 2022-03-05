@@ -7,7 +7,7 @@
             <div class="row layout-spacing">
 
                 <!-- Content -->
-                <div class="col-xl-4 col-lg-12 col-md-5 col-sm-12 layout-top-spacing">
+                {{-- <div class="col-xl-4 col-lg-12 col-md-5 col-sm-12 layout-top-spacing"> --}}
                     @include('notifications.flash_messages')
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 bg-white p-5">
@@ -18,7 +18,7 @@
                                     <input class=" col-32 form-group" type="file" name="avatar" id="avatar">
                                 </div>
                                 <div class="col-8">
-                                    <button class="btn btn-secondary text-white w-100">Save</button>
+                                    <button class="btn btn-secondary text-white w-100 mt-3 mb-3">Save</button>
                                 </div>
                             </form>
                             <p><a href="{{ route('admin.profile.index') }}">Back to profile</a></p>
