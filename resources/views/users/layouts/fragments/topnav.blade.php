@@ -114,7 +114,7 @@
                           <div class="dropdown-item">
                               {{-- <form action="{{ route('logout')}}" method="post"
                             class="">@csrf --}}
-                              <form action="{{ route('logout') }}" method="post">@csrf
+                              <form action="{{ route('logout') }}" method="post" id="logoutForm">@csrf
                                   <button class="dropdown-item text-danger" type="submit"><svg
                                           xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

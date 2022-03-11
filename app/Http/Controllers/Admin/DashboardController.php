@@ -29,7 +29,7 @@ class DashboardController extends Controller
        $user->role = Constants::ADMIN_USER;
 
        $user->save();
-
+       
        return back()->with('success_message', 'Admin made user admin successfully.');
    }
 
