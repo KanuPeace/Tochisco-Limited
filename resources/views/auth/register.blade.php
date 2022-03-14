@@ -93,8 +93,15 @@
     </div>
 </div> --}}
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12"
+        style=" background-image: url('web_assets/img/New/tochi.jpg');  min-height: 300px; background-position: center;  background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 20px;">
+           <div id="bg-img"></div>
+       </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">    
                 <div class="card-header" style="background-image: url('{{ $web_source }}/web_assets/img/hero');">    
                 <h5>{{ __('Register') }}</h5 >
                     <div class="card-body">
@@ -224,16 +231,10 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <li>
-                                       <a class="nav-link" href="{{ route('login') }}"> Already a creator? {{ __('Sign-in') }}</a>
-                                    </li>  
+                                    <a class="nav-link" href="{{ route('login') }}"> Already a creator? {{ __('Sign-in') }}</a>
                                 </div>
                             </div>
                         </form> 
-
-                        <div class="login100-more"
-                            style="background-image: url('{{ $web_source }}/web_assets\img\hero');">
-                        </div>
                     </div>
                 </div>
 

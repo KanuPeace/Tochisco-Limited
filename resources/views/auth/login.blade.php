@@ -15,7 +15,7 @@
             </div>
  
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="jumbotron" style="">
+                <div class="jumbotron" style="border-radius: 20px; height: 400px; mt-10%">
                     <div class="card">
                         <div class="card-header"><b>{{ __('Login') }}</b></div>
 
@@ -23,7 +23,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
-                                <div class="form-group row">
+                                <div class="form-group row">`
                                     <label for="email"
                                         class="col-md-4 col-form-label text-md-right"><b>{{ __('E-Mail Address') }}</b></label>
 
