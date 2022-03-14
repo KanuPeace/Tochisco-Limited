@@ -84,7 +84,7 @@
                             <li><a href="{{ route('property.index') }}">Properties</a>
                                 <ul class="dropdown">
                                     {{-- <li><a href="">Property List</a></li> --}}
-                                    <li><a href=commit -m """{{ route('property.index') }}">Property Detail</a></li>
+                                    <li><a href="{{ route('property.index') }}">Property Detail</a></li>
                                     <li><a href="{{ route('prop_comparison') }}">Property Comperison</a></li>
                                     <li><a href="{{ route('prop_submit') }}">Property Submit</a></li>
                                 </ul>
