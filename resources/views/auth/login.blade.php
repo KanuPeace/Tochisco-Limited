@@ -15,8 +15,8 @@
             </div>
  
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div class="jumbotron" style="border-radius: 20px; height: 400px; mt-10%">
-                    <div class="card">
+                <div class="jumbotron" style="border-radius: 20px; height: 300px; mt-10%">
+                    <div class="card" style="height: 300px; boarder-radius: 20px;">
                         <div class="card-header"><b>{{ __('Login') }}</b></div>
 
                         <div class="card-body">
