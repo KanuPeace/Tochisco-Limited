@@ -75,7 +75,7 @@
                                                     <td>{{ $post->created_at }}
                                                     <td>
                                                         <a href="{{ url('edit-post/'.$post->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-success">Edit</a>
                                                             
                                                         <form action="{{ route('admin.post.destroy', $post->id) }}"
                                                             method="post"
