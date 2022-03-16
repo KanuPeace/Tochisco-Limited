@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="widget-content widget-content-area">
-                            <form enctype="multipart/form-data" class="form-row" action="{{route('admin.post.update' , $post->id )}}" method="POST">
+                            <form enctype="multipart/form-data" class="form-row" action="{{ url('update-post/'.$post->id) }}" method="POST">
                             @csrf @method("PUT")
                                 <div class="form-group col-md-4">
                                     <label for="">Cover Image <span class="required">*</span></label>

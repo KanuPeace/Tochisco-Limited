@@ -111,21 +111,10 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        AuthorizationService::hasPermissionTo("can_edit_posts");
-        $categories = PropertyCategory::where("is_active", Constants::ACTIVE)->get();
-        $types = [Constants::RENT, Constants::SELL];
-        $boolOptions = Constants::BOOL_OPTIONS;
-        return view(
-            "admin.posts.edit",
-            [
-                "post" => $post,
-                "PropertyCategory" => $categories,
-                "types" => $types,
-                "boolOptions" => $boolOptions
-            ]
-        );
+        $post = Post::findOrFail($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -135,39 +124,39 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request , $id)
     {
-        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
+       $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
-        // $categories = Constants::CATEGORY;
-        $request->validate([
-
-            'category_id' => "required|exist:categories,id",
+        $post = Post::where('id',$id);
+        // dd($id);
+        $data = $request->validate([
+            'category_id' => "required|string",
             'name' => 'required|string',
             'content_desccription' => 'required:string',
-            "type" => "required|string|in:$allowedTypes",
-            'cover_image' => 'required|image',
-            "cover_video" => "mimes:mp4, mp3, ogx,oga,ogv,ogg,webm",
+            "type" => "nullable|string|in:$allowedTypes",
+            'cover_image' => 'nullable|image',
+            "cover_video" => 'nullable',
+            "meta_title" => "required|string",
+            "meta_keywords" => "required|string",
+            "meta_description" => "required|string",
             "is_sponsored" => "required|string|in:$allowedOptions",
-            "is_top_story" => "required|string|in:$allowedOptions",
+            "is_top_story" => "required|string|in:$allowedOptions", 
             "is_featured" => "required|string|in:$allowedOptions",
             "is_published" => "required|string|in:$allowedOptions",
             "can_comment" => "required|string|in:$allowedOptions",
         ]);
+        // dd($data);
+       $cover_path = MediaFilesHelper::saveFromRequest($request->cover_image , "postImages");
+         $video_path = MediaFilesHelper::saveFromRequest($request->cover_video , "postVideos");
 
-        $meidiaImage = time() . '_' . $request->name . '.' .
-            $request->cover_image->extension();
-
-        $request->cover_image->move(public_path('postImages'), $meidiaImage);
-
-
-        $meidiaVideo = time() . '-' . $request->name . '.' .
-            $request->cover_video->extension();
-        $request->cover_video->move(public_path('postVideos'), $meidiaVideo);
-
-
-
-        return back()->with('success_message', 'Post updated successfully');
+        $data['cover_image'] = $cover_path;
+        $data['cover_video'] = $video_path;
+        $data["slug"] = Str::slug($request->title, '-');
+        $data['user_id'] = auth()->id();
+        // dd($post);
+        // dd($data);
+        $post->update($data);
     }
 
     /**

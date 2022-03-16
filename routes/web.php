@@ -66,9 +66,9 @@ Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->
     Route::get('/earnings', [App\Http\Controllers\Dashboard\EarningsController::class, 'earnings'])->name('earnings');
     Route::resource('post', PostController::class);
     // Route::resource('profile', ProfileController::class);
-   Route::resource('profile' , ProfileController::class);
+    Route::resource('profile', ProfileController::class);
     Route::resource('category', CategoryController::class);
-   
+
 
 
 
@@ -108,7 +108,8 @@ Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->
 });
 
 
-
+Route::get('edit-post/{id}', [App\Http\Controllers\Admin\AdminPostController::class, 'edit']);
+Route::put('update-post/{id}', [App\Http\Controllers\Admin\AdminPostController::class, 'update']);
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
@@ -135,8 +136,8 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
     Route::get('transaction/status/{id}/{status}', "TransactionController@status")->name("transaction_status");
     Route::get('referrals', [ReferralsController::class, 'index'])->name("referrals.index");
 
-    Route::post('{user}/make-admin', [App\Http\Controllers\Admin\DashboardController::class ,'makeadmin'])->name('make-admin');
-    Route::post('{user}/remove-admin', [App\Http\Controllers\Admin\DashboardController::class ,'removeadmin'])->name('remove-admin');
+    Route::post('{user}/make-admin', [App\Http\Controllers\Admin\DashboardController::class, 'makeadmin'])->name('make-admin');
+    Route::post('{user}/remove-admin', [App\Http\Controllers\Admin\DashboardController::class, 'removeadmin'])->name('remove-admin');
 
     Route::resource('coupons', CouponController::class);
     Route::get('vendors', "VendorController@vendors")->name('vendors');
@@ -196,14 +197,14 @@ Route::get('/about', [App\Http\Controllers\Web\HomeController::class, 'about'])-
 Route::get('/profile', [App\Http\Controllers\Web\HomeController::class, 'profile'])->name('profile');
 // Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'contact'])->name('contact');
 // Route::post('/contact', [App\Http\Controllers\Web\ContactController::class, 'store']);
-Route::resource('contact',Web\ContactController::class);
-Route::resource('property',Web\PropertyController::class);
+Route::resource('contact', Web\ContactController::class);
+Route::resource('property', Web\PropertyController::class);
 
 
 
 
 
 
-Route::get('/email', function() {
+Route::get('/email', function () {
     return new \App\Mail\NewUserWelcomeMail();
-  });
+});
