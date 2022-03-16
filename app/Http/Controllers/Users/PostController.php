@@ -101,6 +101,7 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
