@@ -235,7 +235,7 @@
                                 <div class="pi-agent">
                                     <div class="pa-item">
                                         <div class="pa-info">
-                                            <img src="web_assets/img/property/posted-by/pb-1.jpg" alt="">
+                                            <img src="web_assets/img/mine.jpg" alt="">
                                             <h6></h6>
                                         </div>
                                         <div class="pa-text">
