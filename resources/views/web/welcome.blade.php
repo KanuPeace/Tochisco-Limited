@@ -480,8 +480,12 @@
                 <div class="col-lg-6">
                     <div class="testimonial-item">
                         <div class="ti-text">
-                            <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
-                                magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                            <p>Wow! Made buying a house such a breeze! I was new to home buying, and have heard horror
+                                stories from friends and family about terrible real estate compnl. Tochisco.com is
+                                professional and personal!
+                                it made me The best real estate company I have ever dealt with. Very professional,
+                                experienced and helpful agents and brokers. Highly recommend.comfortable and helped me every
+                                step of the way!.</p>
                         </div>
                         <div class="ti-author">
                             <div class="ta-pic">
@@ -504,8 +508,8 @@
                 <div class="col-lg-6">
                     <div class="testimonial-item">
                         <div class="ti-text">
-                            <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
-                                magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                            <p>The best real estate company I have ever dealt with. Very professional, experienced and
+                                helpful agents and brokers. Highly recommend.</p>
                         </div>
                         <div class="ti-author">
                             <div class="ta-pic">
@@ -528,8 +532,8 @@
                 <div class="col-lg-6">
                     <div class="testimonial-item">
                         <div class="ti-text">
-                            <p>Lorem ipsum dolor amet, consectetur adipiscing elit, seiusmod tempor incididunt ut labore
-                                magna aliqua. Quis ipsum suspendisse ultrices gravida accumsan lacus vel facilisis.</p>
+                            <p>Tochisco are fabulous realtors with selling and buying. They responded fast all the time and
+                                got the best price for our condo, so we couldn’t afford a larger space..</p>
                         </div>
                         <div class="ti-author">
                             <div class="ta-pic">
