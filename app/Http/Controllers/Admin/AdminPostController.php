@@ -131,6 +131,7 @@ class AdminPostController extends Controller
         $post = Post::where('id',$id);
         // dd($id);
         $data = $request->validate([
+            'user_id' =>"required|string",
             'category_id' => "required|string",
             'name' => 'required|string',
             'content_desccription' => 'required:string',
