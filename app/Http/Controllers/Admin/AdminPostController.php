@@ -111,10 +111,12 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-        return view('admin.posts.edit', compact('post'));
+        $boolOptions = Constants::BOOL_OPTIONS;
+        $types = [Constants::RENT, Constants::SELL];
+        $categories =  PropertyCategory::get();
+        return view('admin.posts.edit', ['categories' => $categories, 'types' => $types, 'boolOptions' =>  $boolOptions,])->with('Post', $post);
     }
 
     /**
@@ -124,14 +126,14 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request , $id)
+    public function update(Request $request, Post $post)
     {
-       $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
+        $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
-        $post = Post::where('id',$id);
+        $post = Post::where('Post', $post);
         // dd($id);
         $data = $request->validate([
-            'user_id' =>"required|string",
+            'user_id' => "required|string",
             'category_id' => "required|string",
             'name' => 'required|string',
             'content_desccription' => 'required:string',
@@ -142,14 +144,14 @@ class AdminPostController extends Controller
             "meta_keywords" => "required|string",
             "meta_description" => "required|string",
             "is_sponsored" => "required|string|in:$allowedOptions",
-            "is_top_story" => "required|string|in:$allowedOptions", 
+            "is_top_story" => "required|string|in:$allowedOptions",
             "is_featured" => "required|string|in:$allowedOptions",
             "is_published" => "required|string|in:$allowedOptions",
             "can_comment" => "required|string|in:$allowedOptions",
         ]);
         // dd($data);
-       $cover_path = MediaFilesHelper::saveFromRequest($request->cover_image , "postImages");
-         $video_path = MediaFilesHelper::saveFromRequest($request->cover_video , "postVideos");
+        $cover_path = MediaFilesHelper::saveFromRequest($request->cover_image, "postImages");
+        $video_path = MediaFilesHelper::saveFromRequest($request->cover_video, "postVideos");
 
         $data['cover_image'] = $cover_path;
         $data['cover_video'] = $video_path;
@@ -158,6 +160,8 @@ class AdminPostController extends Controller
         // dd($post);
         // dd($data);
         $post->update($data);
+        return back()->with('success_message', 'Post updated successfully');
+
     }
 
     /**
