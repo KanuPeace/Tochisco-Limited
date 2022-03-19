@@ -113,6 +113,7 @@ class AdminPostController extends Controller
      */
     public function edit(Post $post)
     {
+        AuthorizationService::hasPermissionTo("can_edit_posts");
         $boolOptions = Constants::BOOL_OPTIONS;
         $types = [Constants::RENT, Constants::SELL];
         $categories =  PropertyCategory::get();
@@ -128,11 +129,40 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        AuthorizationService::hasPermissionTo("can_edit_posts");
+        $data = $this->validateData($request, $post->id);
+        $user = auth()->user();
+        $data = $this->saveCoverMedia($request, $user->id, $data, $post);
+
+        $post->update($data);
+        return back()->with("success_message", "Post saved successfully!");
+    }
+
+    public function saveCoverMedia(Request $request, $user_id, array $data, Post $post)
+    {
+        if (!empty($cover_image = $request->file("cover_image"))) {
+            $filePath = putFileInPrivateStorage($cover_image, "temp");
+            $coverImageFile = $this->mediaHandler
+                ->saveFromFilePath(storage_path("app/$filePath"), "postImages", $post->cover_image ?? null, $user_id);
+            $data["cover_image"] = $coverImageFile->id;
+        }
+
+        if (!empty($cover_video = $request->file("cover_video"))) {
+            $filePath = putFileInPrivateStorage($cover_video, "temp");
+            $coverVideoFile = $this->mediaHandler
+                ->saveFromFilePath(storage_path("app/$filePath"), "postVideos", $post->cover_video ?? null, $user_id);
+            $data["cover_video"] = $coverVideoFile->id;
+        }
+
+        return $data;
+    }
+
+    public function validateData(Request $request, $post_id = null)
+    {
         $allowedOptions = Constants::ACTIVE . "," . Constants::INACTIVE;
         $allowedTypes = Constants::LAND . "," . Constants::LUXURY;
-        $post = Post::where('Post', $post);
-        // dd($id);
-        $data = $request->validate([
+        $cover = empty($post_id) ? "required" : "";
+        return $request->validate([
             'user_id' => "required|string",
             'category_id' => "required|string",
             'name' => 'required|string',
@@ -149,19 +179,6 @@ class AdminPostController extends Controller
             "is_published" => "required|string|in:$allowedOptions",
             "can_comment" => "required|string|in:$allowedOptions",
         ]);
-        // dd($data);
-        $cover_path = MediaFilesHelper::saveFromRequest($request->cover_image, "postImages");
-        $video_path = MediaFilesHelper::saveFromRequest($request->cover_video, "postVideos");
-
-        $data['cover_image'] = $cover_path;
-        $data['cover_video'] = $video_path;
-        $data["slug"] = Str::slug($request->title, '-');
-        $data['user_id'] = auth()->id();
-        // dd($post);
-        // dd($data);
-        $post->update($data);
-        return back()->with('success_message', 'Post updated successfully');
-
     }
 
     /**
