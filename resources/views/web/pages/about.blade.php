@@ -378,7 +378,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>kanupeace85@gmail.com</p>
+                                <p>Support.tochisco@gmail.com</p>
                             </div>
                         </div>
                     </div>
