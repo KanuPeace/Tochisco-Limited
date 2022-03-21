@@ -33,7 +33,7 @@
         <div id="mobile-menu-wrap"></div>
         <div class="om-widget">
             <ul>
-                <li><i class="icon_mail_alt"></i>kanupeace85@gmail.com</li>
+                <li><i class="icon_mail_alt"></i>support.tochisco@gmail.com</li>
                 <li><i class="fa fa-mobile-phone"></i> 09157522382 <span>09093907715</span></li>
             </ul>
             <a href="#" class="hw-btn">Submit property</a>
