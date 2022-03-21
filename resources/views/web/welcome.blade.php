@@ -399,7 +399,7 @@
                         <div class="ts-text">
                             <img src="web_assets/img/team/team-2.jpg" alt="">
                             <h5>Ashton Kutcher</h5>
-                            <span>123-455-688</span>
+                            <span>+2349093907715</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -414,7 +414,7 @@
                         <div class="ts-text">
                             <img src="web_assets/img/team/team-3.jpg" alt="">
                             <h5>Ashton Kutcher</h5>
-                            <span>123-455-688</span>
+                            <span>+2349093907715</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
