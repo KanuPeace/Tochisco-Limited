@@ -275,7 +275,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Address</h5>
-                                <p>160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161</p>
+                                <p>Ajah, Lagos.</p>
                             </div>
                         </div>
                         <div class="ci-item">
@@ -285,8 +285,8 @@
                             <div class="ci-text">
                                 <h5>Phone</h5>
                                 <ul>
-                                    <li>125-711-811</li>
-                                    <li>125-668-886</li>
+                                    <li>09157522382</li>
+                                    <li>09093907715</li>
                                 </ul>
                             </div>
                         </div>
@@ -296,7 +296,7 @@
                             </div>
                             <div class="ci-text">
                                 <h5>Support</h5>
-                                <p>Support.aler@gmail.com</p>
+                                <p>Support.tochisco@gmail.com</p>
                             </div>
                         </div>
                     </div>
