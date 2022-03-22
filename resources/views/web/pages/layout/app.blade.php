@@ -39,11 +39,11 @@
             <a href="#" class="hw-btn">Submit property</a>
         </div>
         <div class="om-social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href="https://t.me/tochiscogram"><i class="fa fa-pinterest-p"></i></a>
         </div>
     </div>
     <!-- Offcanvas Menu Wrapper End -->
