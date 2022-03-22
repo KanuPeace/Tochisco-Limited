@@ -697,7 +697,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="fs-widget">
                         <h5>Newsletter</h5>
-                        <p>Deserunt mollit anim id est laborum.</p>
+                        <p>#</p>
                         <form action="#" class="subscribe-form">
                             <input type="text" placeholder="Email">
                             <button type="submit" class="site-btn">Subscribe</button>
