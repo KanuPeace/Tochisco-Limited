@@ -481,7 +481,6 @@
                 </div>
             </div>
             <div class="copyright-text">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
         </div>
     </footer>
