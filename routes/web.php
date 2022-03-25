@@ -108,7 +108,7 @@ Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->
 });
 
 
-Route::get('edit-post/{id}', [App\Http\Controllers\Admin\AdminPostController::class, 'edit']);
+Route::get('edit-post/{Post}', [App\Http\Controllers\Admin\AdminPostController::class, 'edit']);
 Route::put('update-post/{id}', [App\Http\Controllers\Admin\AdminPostController::class, 'update']);
 
 

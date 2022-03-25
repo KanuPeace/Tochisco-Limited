@@ -26,8 +26,22 @@ class PermissionTableSeeders extends Seeder
                 "guard_name" => "web",
             ],
             [
-                "name" => "can_edit_posts",
+                "name" => "can_edit_Posts",
                 "guard_name" => "web",
+            ],
+            'guards' => [
+                'web' => [
+                    'driver' => 'session',
+                    'provider' => 'users',
+                ],
+                'api' => [
+                    'driver' => 'token',
+                    'provider' => 'users',
+                ],
+                'admin' => [
+                    'driver' => 'session',
+                    'provider' => 'admin',
+                ]
             ],
             [
                 "name" => "can_delete_posts",

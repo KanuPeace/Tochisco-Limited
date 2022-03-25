@@ -71,7 +71,7 @@ class AdminPostController extends Controller
             );
         }
 
-        //    return view('admin.posts.create');
+        return back('admin.posts.index');
     }
 
     /**
@@ -113,6 +113,7 @@ class AdminPostController extends Controller
      */
     public function edit(Post $post)
     {
+        // dd($post->body);
         AuthorizationService::hasPermissionTo("can_edit_posts");
         $boolOptions = Constants::BOOL_OPTIONS;
         $types = [Constants::RENT, Constants::SELL];
