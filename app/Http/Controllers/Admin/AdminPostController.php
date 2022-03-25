@@ -114,7 +114,7 @@ class AdminPostController extends Controller
     public function edit(Post $post)
     {
         // dd($post->body);
-        AuthorizationService::hasPermissionTo("can_edit_posts");
+        // AuthorizationService::hasPermissionTo("can_edit_posts");
         $boolOptions = Constants::BOOL_OPTIONS;
         $types = [Constants::RENT, Constants::SELL];
         $categories =  PropertyCategory::get();
@@ -130,7 +130,7 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        AuthorizationService::hasPermissionTo("can_edit_posts");
+        // AuthorizationService::hasPermissionTo("can_edit_posts");
         $data = $this->validateData($request, $post->id);
         $user = auth()->user();
         $data = $this->saveCoverMedia($request, $user->id, $data, $post);

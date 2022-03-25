@@ -109,7 +109,7 @@ Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->
 
 
 Route::get('edit-post/{Post}', [App\Http\Controllers\Admin\AdminPostController::class, 'edit']);
-Route::put('update-post/{id}', [App\Http\Controllers\Admin\AdminPostController::class, 'update']);
+Route::put('update-post/{Post}', [App\Http\Controllers\Admin\AdminPostController::class, 'update']);
 
 
 Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified", "admin"])->group(function () {
