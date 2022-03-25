@@ -20,7 +20,7 @@ class TransactionController extends Controller
             Constants::CREDIT_TRANSACTION,
             Constants::DEBIT_TRANSACTION
         ];
-        return view("dashboards.admin.transactions.index", compact('transactions', 'sn' , 'types'));
+        return view("admin.transactions.index", compact('transactions', 'sn' , 'types'));
     }
 
       /**
