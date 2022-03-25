@@ -58,13 +58,13 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            {{-- <li class="menu">
                 <a href="/" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Home</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu">
 
                 <i class="fa fa-sign-out" style="font-size:30px;color:black"></i>
