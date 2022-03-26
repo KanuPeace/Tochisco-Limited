@@ -54,12 +54,12 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="">Cover Image <span class="required">*</span></label>
-                                    <input class="form-control" type="file" name="cover_image">
+                                    <input class="form-control" type="file" name="cover_image" required value="{{old('cover_image')}}">
                                 </div>
 
                                 <div class="form-group col-md-4">
                                     <label for="">Land or Luxury House <span class="required">*</span></label>
-                                    <input class="form-control" type="file" name="cover_video" value="">
+                                    <input class="form-control" type="file" name="cover_video" required value="{{old('cover_video')}}">
                                 </div>
 
                                 <div class="form-group col-md-4">
@@ -76,7 +76,7 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="">Title <span class="required">*</span></label>
-                                    <input class="form-control" type="text" name="name" placeholder="......">
+                                    <input class="form-control" type="text" name="name" placeholder="......" required value="{{old('name')}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -92,26 +92,26 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="">Body <span class="">*</span></label>
-                                    <textarea id="content_desccription" type="text" name="content_desccription" class="form-control"></textarea>
+                                    <textarea id="content_desccription" type="text" name="content_desccription" class="form-control" required value="{{old('content_desccription')}}"></textarea>
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="">Price<span class="required">*</span></label>
-                                    <input class="form-control" type="text" name="price">
+                                    <input class="form-control" type="text" name="price" required value="{{old('price')}}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Bed-Room<span class="required">*</span></label>
-                                    <input class="form-control" type="text" name="no_of_bedrooms">
+                                    <input class="form-control" type="text" name="no_of_bedrooms" required value="{{old('no_of_bedrooms')}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="">Sitting-Room<span class="required">*</span></label>
-                                    <input class="form-control" type="text" name="no_of_sittingrooms">
+                                    <input class="form-control" type="text" name="no_of_sittingrooms" required value="{{old('no_of_sittingrooms')}}">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="">Location<span class="required">*</span></label>
-                                    <input class="form-control" type="text" name="location">
+                                    <input class="form-control" type="text" name="location" required value="{{old('location')}}">
                                 </div>
 
                                 <div class="form-group col-md-3">

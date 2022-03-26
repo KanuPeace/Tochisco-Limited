@@ -15,7 +15,7 @@
                                 @csrf
                                 <label class="form-group" for="image">Add Profile Image</label>
                                 <div class="col-8">
-                                    <input class=" col-32 form-group" type="file" name="avatar" id="avatar">
+                                    <input class=" col-32 form-group" type="file" name="avatar" id="avatar" required value="{{old('avatar')}}">
                                 </div>
                                 <div class="col-8">
                                     <button class="btn btn-secondary text-white w-100">Save</button>
