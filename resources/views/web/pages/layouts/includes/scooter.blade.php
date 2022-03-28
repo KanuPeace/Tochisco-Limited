@@ -115,7 +115,7 @@
 
                            
                             <li><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('property.index') }}">Properties</a>
+                            <li><a>Properties</a>
                                 <ul class="dropdown">
                                     {{-- <li><a href="">Property List</a></li> --}}
                                     <li><a href="{{ route('property.index') }}">Property Detail</a></li>
