@@ -28,12 +28,12 @@
                             @csrf @method("PUT")
                             <div class="form-group col-md-4">
                                 <label for="">Cover Image <span class="required">*</span></label>
-                                <input class="form-control" type="file" name="cover_image">
+                                <input class="form-control" type="file" name="cover_image"  required value="{{old('cover_image')}}">
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="">Land or Luxury House <span class="required">*</span></label>
-                                <input class="form-control" type="file" name="cover_video" value="">
+                                <input class="form-control" type="file" name="cover_video" required value="{{old('cover_video')}}">
                             </div>
 
                             <div class="form-group col-md-4">
