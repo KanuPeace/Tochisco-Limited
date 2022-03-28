@@ -105,7 +105,7 @@
 
                             </li>
                         @else
-                        <li><a href="/">Become An Agent</a>
+                        <li><a>Become An Agent</a>
                             <ul class="dropdown">
                                 <li><a href="{{ route('login') }}">Sign in</a></li>
                                 <li><a href="{{ route('register') }}">Sign up</a></li>
