@@ -50,7 +50,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="">Title <span class="required">*</span></label>
-                                <input class="form-control" type="text" name="name" value="{{isset($post) ? $Post->name: ''}}" placeholder="......">
+                                <input class="form-control" type="text" name="name"  required value="{{old('name')}}" placeholder="......">
                             </div>
 
                             <div class="form-group col-md-3">
