@@ -9,9 +9,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ $web_source }}/web_assets/img/icon.png">
     
 
-    <!-- CSS
-    ============================================ -->
-
     <!-- Bootstrap CSS -->
     @include("web.pages.layouts.includes.style")
 {{-- 
