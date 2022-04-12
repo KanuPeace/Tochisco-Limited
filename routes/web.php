@@ -136,7 +136,7 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
     Route::resource('transactions', TransactionController::class);
     Route::get('transaction/status/{id}/{status}', "TransactionController@status")->name("transaction_status");
-    Route::get('referrals', [ReferralController::class, 'index'])->name("referrals.index");
+    Route::get('referrals', [App\Http\Controllers\Admin\ReferralsController::class, 'index'])->name("referrals.index");
 
     Route::post('{user}/make-admin', [App\Http\Controllers\Admin\DashboardController::class, 'makeadmin'])->name('make-admin');
     Route::post('{user}/remove-admin', [App\Http\Controllers\Admin\DashboardController::class, 'removeadmin'])->name('remove-admin');

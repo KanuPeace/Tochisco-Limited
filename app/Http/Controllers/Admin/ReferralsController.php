@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Referral;
 use Illuminate\Http\Request;
 
-class ReferralController extends Controller
+class ReferralsController extends Controller
 {
     public function index(Request $request)
     {
@@ -26,4 +26,5 @@ class ReferralController extends Controller
         $sn = $referrals->firstItem();
         return view("admin.referrals.index", compact('referrals', 'sn'));
     }
+
 }
