@@ -74,13 +74,13 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            {{-- <li class="menu">
                 <a href="{{ route("admin.withdrawals.index") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Withdrawal Requests</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu">
                 <a href="{{route('admin.coupons.index')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
