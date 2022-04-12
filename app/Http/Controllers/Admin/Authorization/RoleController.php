@@ -20,7 +20,7 @@ class RoleController extends Controller
     {
         $roles = Role::paginate(50);
         $sn = $roles->firstItem();
-        return view("dashboards.admin.authorization.roles.index" , [
+        return view("admin.authorization.roles.index" , [
             "roles" => $roles,
             "sn" => $sn
         ]);
