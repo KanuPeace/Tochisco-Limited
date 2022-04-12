@@ -57,7 +57,9 @@ Route::prefix('user')->as("user.")->namespace("Users")->middleware('verified')->
     Route::get('/', "DashboardController@show")->name("show");
     Route::get('/', "DashboardController@list")->name("list");
     Route::get('/', "DashboardController@specificCategory")->name("specificCategory");
-    Route::get('/referrals', "DashboardController@referrals")->name("referrals");
+    Route::get('/referrals', "ReferralController@referrals")->name("referrals");
+    Route::get('/referral/bonuses', "ReferralController@bonuses")->name("referral.bonuses");
+    Route::get('/referral/users', "ReferralController@users")->name("referral.users");
     Route::get('/transactions', "DashboardController@transactions")->name("transactions");
     Route::get('/subscriptions', "DashboardController@subscriptions")->name("subscriptions");
     Route::get('/withdrawal-requests', "DashboardController@withdrawal_requests")->name("withdrawal_requests");
@@ -134,7 +136,7 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
     Route::resource('transactions', TransactionController::class);
     Route::get('transaction/status/{id}/{status}', "TransactionController@status")->name("transaction_status");
-    Route::get('referrals', [ReferralsController::class, 'index'])->name("referrals.index");
+    Route::get('referrals', [ReferralController::class, 'index'])->name("referrals.index");
 
     Route::post('{user}/make-admin', [App\Http\Controllers\Admin\DashboardController::class, 'makeadmin'])->name('make-admin');
     Route::post('{user}/remove-admin', [App\Http\Controllers\Admin\DashboardController::class, 'removeadmin'])->name('remove-admin');
