@@ -46,7 +46,26 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ]
     ],
+
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+    //     'api' => [
+    //         'driver' => 'token',
+    //         'provider' => 'users',
+    //     ],
+    //     'admin' => [
+    //         'driver' => 'session',
+    //         'provider' => 'admin',
+    //     ]
+    // ],
 
     /*
     |--------------------------------------------------------------------------
