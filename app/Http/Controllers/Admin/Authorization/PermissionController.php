@@ -21,7 +21,7 @@ class PermissionController extends Controller
         $permissions = Permission::latest()->paginate(50);
         $guards = Constants::PERMISSION_GUARDS;
         $sn = $permissions->firstItem();
-        return view("dashboards.admin.authorization.permissions.index" , [
+        return view("admin.authorization.permissions.index" , [
             "permissions" => $permissions,
             "sn" => $sn,
             "guards" => $guards
