@@ -1,4 +1,4 @@
-@extends("dashboards.admin.layouts.app")
+@extends("admin.layouts.app")
 @section('content')
 
 <div class="statbox widget box box-shadow mt-5">

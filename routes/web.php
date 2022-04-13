@@ -129,7 +129,8 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
     // Route::resource('subscriptions', SubscriptionController::class);
     Route::resource('membership-subscriptions', Membership\SubscriptionsController::class);
-    Route::resource('plans', PlansController::class);
+    // Route::resource('plans', PlansController::class);
+    Route::resource('membership-plans', Membership\PlansController::class);
 
     Route::resource('withdrawals', WithdrawalController::class);
     Route::get('withdrawal/status/{id}/{status}', "WithdrawalController@status")->name("withdrawal_status");

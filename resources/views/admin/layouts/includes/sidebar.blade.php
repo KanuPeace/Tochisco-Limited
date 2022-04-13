@@ -61,7 +61,7 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="{{ route("admin.plans.index") }}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ route("admin.membership-plans.index") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Plans</span>
                     </div>
