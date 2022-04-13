@@ -16,7 +16,7 @@ class SubscriptionsController extends Controller
             ->latest()
             ->paginate();
         $plans = Plan::get(["id", "name"]);
-        return view("dashboards.admin.membership_plans.subscriptions.index", [
+        return view("admin.membership_plans.subscriptions.index", [
             "subscriptions" => $subscriptions,
             "searchByOptions" => [
                 "user_info" => "User",

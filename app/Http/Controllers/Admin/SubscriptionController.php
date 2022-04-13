@@ -26,7 +26,7 @@ class SubscriptionController extends Controller
         }
 
         $subscriptions = $queryBuilder->paginate(20);
-        return view("admin.membership-subscriptions.index", [ "subscriptions" => $subscriptions ]);
+        return view("admin.membership_plans.subscriptions.index", [ "subscriptions" => $subscriptions ]);
     }
 
     /**

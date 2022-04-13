@@ -127,7 +127,8 @@ Route::prefix("admin")->as("admin.")->namespace("Admin")->middleware(["verified"
 
     Route::resource('post', AdminPostController::class);
 
-    Route::resource('subscriptions', SubscriptionController::class);
+    // Route::resource('subscriptions', SubscriptionController::class);
+    Route::resource('membership-subscriptions', Membership\SubscriptionsController::class);
     Route::resource('plans', PlansController::class);
 
     Route::resource('withdrawals', WithdrawalController::class);

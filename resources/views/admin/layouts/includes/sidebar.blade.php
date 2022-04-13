@@ -54,7 +54,7 @@
             </li>
 
             <li class="menu">
-                <a href="{{ route("admin.subscriptions.index") }}" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ route("admin.membership-subscriptions.index") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <span>Subscriptions</span>
                     </div>
