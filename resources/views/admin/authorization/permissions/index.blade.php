@@ -1,4 +1,4 @@
-@extends("dashboards.admin.layouts.app")
+@extends("admin.layouts.app")
 @section('content')
     <div id="tableCheckbox" class="">
         <div class="statbox widget box box-shadow mt-5">
@@ -52,14 +52,14 @@
                                         </form>
                                     </td>
                                 </tr>
-                                @include("dashboards.admin.authorization.modals.permissions.edit" , ["permission" => $permission , "guards" => $guards])
+                                @include("admin.authorization.modals.permissions.edit" , ["permission" => $permission , "guards" => $guards])
                             @endforeach
                         </tbody>
                     </table>
                     {!! $permissions->links('pagination::bootstrap-4') !!}
                 </div>
 
-                @include("dashboards.admin.authorization.modals.permissions.add" , ["guards" => $guards])
+                @include("admin.authorization.modals.permissions.add" , ["guards" => $guards])
             </div>
         </div>
     </div>
