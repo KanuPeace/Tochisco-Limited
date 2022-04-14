@@ -1,8 +1,7 @@
 @extends('web.pages.layouts.app')
 
 @section('content')
-
-@include("web.pages.layouts.includes.breadcrumb")
+    @include('web.pages.layouts.includes.breadcrumb')
 
     <!-- About Section Begin -->
     <section class="about-section spad">
@@ -11,134 +10,151 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="at-title">
-                            <h3>Tochisco Limited</h3>
+                            <h3>Tochisco</h3>
                             <p></p>
                         </div>
-                        <div class="fl-col-group fl-node-609aa1b6b8604 fl-col-group-equal-height fl-col-group-align-center fl-col-group-custom-width" data-node="609aa1b6b8604">
+                        <div class="fl-col-group fl-node-609aa1b6b8604 fl-col-group-equal-height fl-col-group-align-center fl-col-group-custom-width"
+                            data-node="609aa1b6b8604">
                             <div class="fl-col fl-node-609aa1b6b8607" data-node="609aa1b6b8607">
-                    <div class="fl-col-content fl-node-content">
-                    <div class="fl-module fl-module-heading fl-node-609aa1b6b8608" data-node="609aa1b6b8608">
-                    <div class="fl-module-content fl-node-content">
-                        <h2 class="fl-heading">
-                        <span class="fl-heading-text">How it works</span>
-                    </h2>
-                    </div>
-                </div>
-                <div class="fl-module fl-module-rich-text fl-node-609aa1b6b8609" data-node="609aa1b6b8609">
-                    <div class="fl-module-content fl-node-content">
-                        <div class="fl-rich-text">
-                    <p>Still unsure if this is the best option for your personal circumstances? Contact our experts for a 
-                        free property consultation or valuation and we can explore the various options available to you.</p>
-                </div>
-                    </div>
-                </div>
-                <div class="fl-module fl-module-pp-timeline fl-node-609aa1b6b860b" data-node="609aa1b6b860b">
-                    <div class="fl-module-content fl-node-content">
-                        <div class="pp-timeline">
-                    <div class="pp-timeline-content-box clearfix">
-                        <div class="pp-timeline-content-wrapper">
-                                        <div class="pp-timeline-item clearfix pp-timeline-item-0">
-                                <div class="pp-timeline-icon-wrapper">
-                                    <span class="pp-separator-arrow pp-fade"></span>
-                                    <div class="pp-timeline-icon">
-                                        <span class="pp-icon fas fa-map-marked-alt"></span>
-                                    </div>
-                                </div>
-                                <div class="pp-timeline-content pp-fade">
-                                                    <div class="pp-timeline-title-wrapper">
-                                            <p class="pp-timeline-title">Enter your Postcode</p>
+                                <div class="fl-col-content fl-node-content">
+                                    <div class="fl-module fl-module-heading fl-node-609aa1b6b8608" data-node="609aa1b6b8608">
+                                        <div class="fl-module-content fl-node-content">
+                                            <h2 class="fl-heading">
+                                                <span class="fl-heading-text">How it works</span>
+                                            </h2>
                                         </div>
-                                                        <div class="pp-timeline-text-wrapper">
-                                        <div class="pp-timeline-text">
-                                            <p>Our Postcode Search function completes your full address for you</p>													</div>
+                                    </div>
+                                    <div class="fl-module fl-module-rich-text fl-node-609aa1b6b8609"
+                                        data-node="609aa1b6b8609">
+                                        <div class="fl-module-content fl-node-content">
+                                            <div class="fl-rich-text">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fl-module fl-module-pp-timeline fl-node-609aa1b6b860b"
+                                        data-node="609aa1b6b860b">
+                                        <div class="fl-module-content fl-node-content">
+                                            <div class="pp-timeline">
+                                                <div class="pp-timeline-content-box clearfix">
+                                                    <div class="pp-timeline-content-wrapper">
+                                                        <div class="pp-timeline-item clearfix pp-timeline-item-0">
+                                                            <div class="pp-timeline-icon-wrapper">
+                                                                <span class="pp-separator-arrow pp-fade"></span>
+                                                                <div class="pp-timeline-icon">
+                                                                    <span class="pp-icon fas fa-map-marked-alt"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pp-timeline-content pp-fade">
+                                                                <div class="pp-timeline-title-wrapper">
+                                                                    <p class="pp-timeline-title">Enter your Postcode</p>
+                                                                </div>
+                                                                <div class="pp-timeline-text-wrapper">
+                                                                    <div class="pp-timeline-text">
+                                                                        <p>Our Postcode Search function completes your full
+                                                                            address for you</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pp-timeline-item clearfix pp-timeline-item-1">
+                                                            <div class="pp-timeline-icon-wrapper">
+                                                                <span class="pp-separator-arrow pp-fade"></span>
+                                                                <div class="pp-timeline-icon">
+                                                                    <span class="pp-icon fas fa-laptop"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pp-timeline-content pp-fade">
+                                                                <div class="pp-timeline-title-wrapper">
+                                                                    <p class="pp-timeline-title">Complete our Online Form
+                                                                    </p>
+                                                                </div>
+                                                                <div class="pp-timeline-text-wrapper">
+                                                                    <div class="pp-timeline-text">
+                                                                        <p>Leave us a few details to allow us to contact
+                                                                            you.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pp-timeline-item clearfix pp-timeline-item-2">
+                                                            <div class="pp-timeline-icon-wrapper">
+                                                                <span class="pp-separator-arrow pp-fade"></span>
+                                                                <div class="pp-timeline-icon">
+                                                                    <span class="pp-icon fas fa-comments"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pp-timeline-content pp-fade">
+                                                                <div class="pp-timeline-title-wrapper">
+                                                                    <p class="pp-timeline-title">Speak to our Experts</p>
+                                                                </div>
+                                                                <div class="pp-timeline-text-wrapper">
+                                                                    <div class="pp-timeline-text">
+                                                                        <p>Our expert team will be in touch to discuss,
+                                                                            explain the process and answer any questions.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pp-timeline-item clearfix pp-timeline-item-3">
+                                                            <div class="pp-timeline-icon-wrapper">
+                                                                <span class="pp-separator-arrow pp-fade"></span>
+                                                                <div class="pp-timeline-icon">
+                                                                    <span class="pp-icon fas fa-user-tie"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pp-timeline-content pp-fade">
+                                                                <div class="pp-timeline-title-wrapper">
+                                                                    <p class="pp-timeline-title">We'll visit your property
+                                                                        and make an offer</p>
+                                                                </div>
+                                                                <div class="pp-timeline-text-wrapper">
+                                                                    <div class="pp-timeline-text">
+                                                                        <p>A representative from Scottish Property Solutions
+                                                                            will visit your property for a short visit
+                                                                            before making an offer.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pp-timeline-item clearfix pp-timeline-item-4">
+                                                            <div class="pp-timeline-icon-wrapper">
+                                                                <span class="pp-separator-arrow pp-fade"></span>
+                                                                <div class="pp-timeline-icon">
+                                                                    <span class="pp-icon fas fa-handshake"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pp-timeline-content pp-fade">
+                                                                <div class="pp-timeline-title-wrapper">
+                                                                    <p class="pp-timeline-title">Finalise and Complete the
+                                                                        sale</p>
+                                                                </div>
+                                                                <div class="pp-timeline-text-wrapper">
+                                                                    <div class="pp-timeline-text">
+                                                                        <p>On average, sales are completed in as little as
+                                                                            7-14 days.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fl-module fl-module-button fl-node-609aa1b6b860a" data-node="609aa1b6b860a">
+                                        <div class="fl-module-content fl-node-content">
+                                            <div class="fl-button-wrap fl-button-width-full fl-button-left">
+                                                <a href="#form" target="_self" class="fl-button" role="button">
+                                                    <span class="fl-button-text">Get A Cash Offer</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                                        <div class="pp-timeline-item clearfix pp-timeline-item-1">
-                                <div class="pp-timeline-icon-wrapper">
-                                    <span class="pp-separator-arrow pp-fade"></span>
-                                    <div class="pp-timeline-icon">
-                                        <span class="pp-icon fas fa-laptop"></span>
-                                    </div>
-                                </div>
-                                <div class="pp-timeline-content pp-fade">
-                                                            <div class="pp-timeline-title-wrapper">
-                                            <p class="pp-timeline-title">Complete our Online Form</p>
-                                        </div>
-                                                        <div class="pp-timeline-text-wrapper">
-                                        <div class="pp-timeline-text">
-                                            <p>Leave us a few details to allow us to contact you.</p>													</div>
-                                    </div>
-                                </div>
-                            </div>
-                                        <div class="pp-timeline-item clearfix pp-timeline-item-2">
-                                <div class="pp-timeline-icon-wrapper">
-                                    <span class="pp-separator-arrow pp-fade"></span>
-                                    <div class="pp-timeline-icon">
-                                        <span class="pp-icon fas fa-comments"></span>
-                                    </div>
-                                </div>
-                                <div class="pp-timeline-content pp-fade">
-                                                            <div class="pp-timeline-title-wrapper">
-                                            <p class="pp-timeline-title">Speak to our Experts</p>
-                                        </div>
-                                                        <div class="pp-timeline-text-wrapper">
-                                        <div class="pp-timeline-text">
-                                            <p>Our expert team will be in touch to discuss, explain the process and answer any questions.</p>													</div>
-                                    </div>
-                                </div>
-                            </div>
-                                        <div class="pp-timeline-item clearfix pp-timeline-item-3">
-                                <div class="pp-timeline-icon-wrapper">
-                                    <span class="pp-separator-arrow pp-fade"></span>
-                                    <div class="pp-timeline-icon">
-                                        <span class="pp-icon fas fa-user-tie"></span>
-                                    </div>
-                                </div>
-                                <div class="pp-timeline-content pp-fade">
-                                                            <div class="pp-timeline-title-wrapper">
-                                            <p class="pp-timeline-title">We'll visit your property and make an offer</p>
-                                        </div>
-                                                        <div class="pp-timeline-text-wrapper">
-                                        <div class="pp-timeline-text">
-                                            <p>A representative from Scottish Property Solutions will visit your property for a short visit before making an offer.</p>													</div>
-                                    </div>
-                                </div>
-                            </div>
-                                        <div class="pp-timeline-item clearfix pp-timeline-item-4">
-                                <div class="pp-timeline-icon-wrapper">
-                                    <span class="pp-separator-arrow pp-fade"></span>
-                                    <div class="pp-timeline-icon">
-                                        <span class="pp-icon fas fa-handshake"></span>
-                                    </div>
-                                </div>
-                                <div class="pp-timeline-content pp-fade">
-                                                            <div class="pp-timeline-title-wrapper">
-                                            <p class="pp-timeline-title">Finalise and Complete the sale</p>
-                                        </div>
-                                                        <div class="pp-timeline-text-wrapper">
-                                        <div class="pp-timeline-text">
-                                            <p>On average, sales are completed in as little as 7-14 days.</p>													</div>
-                                    </div>
-                                </div>
-                            </div>
-                                    </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                <div class="fl-module fl-module-button fl-node-609aa1b6b860a" data-node="609aa1b6b860a">
-                    <div class="fl-module-content fl-node-content">
-                        <div class="fl-button-wrap fl-button-width-full fl-button-left">
-                            <a href="#form" target="_self" class="fl-button" role="button">
-                                            <span class="fl-button-text">Get A Cash Offer</span>
-                                    </a>
-                </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                    </div>
+                        </div>
                         <div class="at-feature">
                             <div class="af-item">
                                 <div class="af-icon">
@@ -404,7 +420,7 @@
                                 <img src="web_assets/img/m-logo.png" alt="">
                             </a>
                         </div>
-                      
+
                         <div class="fs-social">
                             <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -453,9 +469,7 @@
             </div>
         </div>
     </footer>
+@endsection
+<!-- Footer Section End -->
 
-    @endsection
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    
+<!-- Js Plugins -->

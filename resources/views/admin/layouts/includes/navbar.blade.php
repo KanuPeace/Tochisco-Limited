@@ -39,7 +39,7 @@
                       <img src="{{ $admin_assets }}/assets/img/ca.png" class="flag-width" alt="flag">
                   </a>
                   <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
-                      <a class="dropdown-item d-flex" href="javascript:void(0);"><img
+                      {{-- <a class="dropdown-item d-flex" href="javascript:void(0);"><img
                               src="{{ $admin_assets }}/assets/img/de.png" class="flag-width" alt="flag"> <span
                               class="align-self-center">&nbsp;German</span></a>
                       <a class="dropdown-item d-flex" href="javascript:void(0);"><img
@@ -47,7 +47,7 @@
                               class="align-self-center">&nbsp;Japanese</span></a>
                       <a class="dropdown-item d-flex" href="javascript:void(0);"><img
                               src="{{ $admin_assets }}/assets/img/fr.png" class="flag-width" alt="flag"> <span
-                              class="align-self-center">&nbsp;French</span></a>
+                              class="align-self-center">&nbsp;French</span></a> --}}
                       <a class="dropdown-item d-flex" href="javascript:void(0);"><img
                               src="{{ $admin_assets }}/assets/img/ca.png" class="flag-width" alt="flag"> <span
                               class="align-self-center">&nbsp;English</span></a>
