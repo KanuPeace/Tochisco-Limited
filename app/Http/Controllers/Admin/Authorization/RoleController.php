@@ -8,6 +8,9 @@ use App\Services\Auth\AuthorizationService;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Traits\HasPermissions;
+
+use Spatie\Permission\PermissionServiceProvider;
 
 class RoleController extends Controller
 {
@@ -118,7 +121,7 @@ class RoleController extends Controller
         $role = Role::findById($id);
         $checkedPermissionIds = $request->checked_permissions;
         $permissions = Permission::whereIn("id" , $checkedPermissionIds)->get();
-        $role->syncPermissions($permissions);
+        // $role->syncPermissions($permissions);
         return back()->with("success_message", "Role permissions updated successfully!");
     }
 
