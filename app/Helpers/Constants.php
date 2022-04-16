@@ -14,6 +14,19 @@ namespace App\Helpers;
      const COMPLETED = "Completed";
 
 
+     const NGN_USD_RATE = 500;
+     const MIN_VENDOR_DEPOSIT_NGN = 5000;
+
+     const PAGINATION_SIZE = 20;
+
+     const PERCENTAGE = "Percent";
+     const FIXED = "Fixed";
+
+     const VENDOR_COUPON_PROFIT_TYPE = self::PERCENTAGE;
+     const VENDOR_COUPON_PROFIT_FIXED = 100;
+     const VENDOR_COUPON_PROFIT_PERCENT = 5;
+     const RESUBCRIPTION_BONUS_PERCENT = 5;
+
      const WALLET_PAYMENT = "Wallet";
      const WALLET_DEFAULT = "balance";
      const WALLET_REFERRAL = "referral_earnings";
