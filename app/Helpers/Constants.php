@@ -76,4 +76,7 @@ namespace App\Helpers;
 
     const DEV_EMAIL = "email";
 
+    const ERROR_CODE = 1000101;
+
+
  }
