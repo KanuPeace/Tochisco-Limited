@@ -1,26 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Users;
-use App\Constants\StatusConstants;
-use App\Constants\TransactionActivityConstants;
-use App\Constants\TransactionConstants;
-use App\Exceptions\Finance\Wallet\WalletException;
+
 use App\Helpers\Constants;
 use App\Helpers\CouponService;
-
+use App\Helpers\PlanSubscription;
+use App\Helpers\Wallet as HelpersWallet;
 use App\Http\Controllers\Controller;
 use App\Models\BankAccount;
 use Illuminate\Http\Request;
 use App\Models\CouponCode;
-use App\Models\User;
+use App\Models\Referral;
 use App\Models\Vendor;
-use App\Models\WalletTransfer;
 use App\Models\WithdrawalRequest;
-use App\Services\Finance\TransactionService;
-use App\Services\Finance\WalletService;
-use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class WalletController extends Controller
 {
@@ -59,10 +53,9 @@ class WalletController extends Controller
     public function withdraw()
     {
         $user = auth()->user();
-        $wallet = WalletService::get($user->id);
-        $current_balance = WalletService::WALLET_CURRENT;
-        $wallet_balance = format_money($wallet->$current_balance);
-        $account = $user->bankAccount ?? new BankAccount();
+        $wallet = HelpersWallet::get($user);
+        $wallet_balance = format_money($wallet->balance);
+        $account = BankAccount::where("user_id", $user->id)->firstOrNew();
         return view("dashboards.user.wallet.withdraw", ["wallet_balance" => $wallet_balance, "account" => $account]);
     }
 
@@ -81,6 +74,7 @@ class WalletController extends Controller
             ]);
 
             $user = auth()->user();
+
             if (empty($user->bankAccount)) {
                 BankAccount::create([
                     "user_id" => $user->id,
@@ -90,13 +84,11 @@ class WalletController extends Controller
                 ]);
             }
 
-
-            $fee = 0;
             $amount = $data["amount"];
+            $fee = $amount * 0.02;
             $total = $amount + $fee;
 
-            $current_balance = WalletService::WALLET_CURRENT;
-            $balance = WalletService::get($user->id)->$current_balance;
+            $balance = HelpersWallet::get($user)->balance;
             if ($total > $balance) {
                 return back()->with("error_message", "Insufficient fund");
             }
@@ -105,6 +97,7 @@ class WalletController extends Controller
                 "user_id" => $user->id,
                 "reference" => WithdrawalRequest::genReference(),
                 "amount" => $amount,
+                "fee" => $fee,
                 "bank_name" => $data["bank_name"],
                 "account_name" => $data["account_name"],
                 "account_number" => $data["account_number"],
@@ -112,96 +105,92 @@ class WalletController extends Controller
                 "request_date" => now(),
             ]);
 
-            WalletService::debit(
-                $current_balance,
-                $user->id,
-                $total,
+            HelpersWallet::debit(
+                Constants::WALLET_DEFAULT,
+                $user,
+                $amount,
+                $fee,
+                "Withdrawal request made with reference #$withdrawal->reference",
+                Constants::COMPLETED
             );
 
-            TransactionService::create([
-                "user_id" => $user->id,
-                "amount" => $amount,
-                "fee" => $fee,
-                "description" => "Withdrawal request made with reference #$withdrawal->reference",
-                "activity" => TransactionActivityConstants::WITHDRAW_FROM_WALLET,
-                "batch_no" => null,
-                "type" => TransactionConstants::DEBIT,
-                "status" => StatusConstants::PENDING
+            sendMailHelper([
+                "data" => [
+                    "user" => $user,
+                    "withdrawal" => $withdrawal,
+                ],
+                "to" => "flairworldstechnology@gmail.com",
+                "template" => "emails.withdrawal_requests.new",
+                "subject" => "New Withdrawal Request",
             ]);
+
 
             DB::commit();
-            return redirect()->route('home')->with("success_message", "Withdraw successful. THe admin would process your request within 24 working hours.");
+            return redirect()->back()->with("success_message", "Withdraw request sent successfully. Please wait will your request is being processed!");
         } catch (\Throwable $th) {
             DB::rollBack();
-            throw $th;
+            if ($th->getCode() == Constants::ERROR_CODE) {
+                return back()->with("error_message", $th->getMessage());
+            }
+            return back()->with("error_message", "An unknown error occured while processing your request!");
         }
     }
 
-    public function transfer(Request $request)
+
+    public function transferToMain(Request $request, $account)
     {
-
-        $user = auth()->user();
-        $wallet = WalletService::get($user->id);
-        $current_balance = WalletService::WALLET_CURRENT;
-        $wallet_balance = format_money($wallet->$current_balance);
-
-        if ($request->getMethod() == "GET") {
-            return view("dashboards.user.transfer.index", ["wallet_balance" => $wallet_balance]);
-        }
+        DB::beginTransaction();
 
         try {
-            $data = $request->validate([
-                "username" => "required|string|exists:users,username",
-                "amount" => "required|string",
-                "account_name" => "required|string",
-                "pin" => "required|string",
-                "description" => "nullable|string",
-            ]);
+            if (!in_array($account, [Constants::WALLET_REFERRAL, Constants::WALLET_NON_REFERRAL])) {
+                return back()->with("error_message", "Invalid wallet type provided");
+            }
 
             $user = auth()->user();
-            $wallet = WalletService::get($user->id);
+            $wallet = HelpersWallet::get($user);
+            $plan = $this->subscriptionService->currentSubscription($user->id)
+                ?? $this->subscriptionService->lastSubscription($user->id);
 
-            if (empty($wallet->pin)){
-                return back()->withInput($data)
-                ->with("error_message", "Kindly set a pin first before you proceed to transfer");
+            if (empty($plan)) {
+                return back()->with("error_message", "You are currently not subscribed to any plan!");
             }
 
-            if (!Hash::check($data["pin"], $wallet->pin)) {
-                return back()->withInput($data)->with("error_message", "Wallet pin is incorrect");
+            $transfer_limit = 0;
+            $ref_limit = 0;
+            $ref_count = 0;
+            if ($account == Constants::WALLET_REFERRAL) {
+                $transfer_limit = $plan->ref_withdrawal_limit;
+            } elseif ($account == Constants::WALLET_NON_REFERRAL) {
+                $transfer_limit = $plan->non_ref_withdrawal_limit;
             }
 
-            $receiver = User::where("username", $data["username"])->first();
 
-            if ($user->id == $receiver->id) {
-                return back()->withInput($data)->with("error_message", "You cannot transfer funds to yourself");
+            if ($wallet->$account < $transfer_limit) {
+                return back()->with("error_message", "You can`t transfer at this time. Transfer limit is " . format_money($transfer_limit));
             }
 
-            WalletService::transfer(
-                $user->id,
-                $data["amount"],
-                $receiver->id,
-                $data["description"] ?? null
+            // $ref_limit = $plan->min_refs;
+            // $ref_count = Referral::where("referrer_id", $user->id)->count();
+
+            // if ($ref_count < $ref_limit) {
+            //     return back()->with("error_message", "You can`t transfer at this time.You need to have at least $ref_limit referrals");
+            // }
+
+            HelpersWallet::transfer(
+                $account,
+                $user,
+                Constants::COMPLETED
             );
+
+            DB::commit();
             return back()->with("success_message", "Transfer successful");
-        } catch (WalletException $e) {
-            return back()->with("error_message", $e->getMessage());
-        } catch (Exception $e) {
-            return back()->with("error_message", "An error occured while processing your request");
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            if ($th->getCode() == Constants::ERROR_CODE) {
+                return back()->with("error_message", $th->getMessage());
+            }
+            return back()->with("error_message", "An unknown error occured while processing your request!");
         }
-    }
-
-    public function transfer_history()
-    {
-        $user = auth()->user();
-        $transfers = WalletTransfer::where("sender_id" , $user->id)->with("receiver")->latest()->paginate();
-        return view("dashboards.user.transfer.history" , [
-            "transfers" => $transfers
-        ]);
-    }
-
-    public function fundWallet()
-    {
-        return view("dashboards.user.fund_wallet.index");
     }
 
 }
