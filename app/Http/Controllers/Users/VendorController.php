@@ -29,7 +29,7 @@ class VendorController extends Controller
     public function application()
     {
         $user = auth()->user();
-        return view("dashboards.user.vendor.apply", ["user" => $user]);
+        return view("users.vendor.apply", ["user" => $user]);
     }
 
 
@@ -78,7 +78,7 @@ class VendorController extends Controller
         $data["user_id"] = $user->id;
         $data["payment_ref"] = Vendor::newRefCode();
         Vendor::create($data);
-        return redirect()->route("user.vendor.dashboard")->with('success_message', 'Vendor application submitted successfully.');
+        return redirect()->route("users.vendor.dashboard")->with('success_message', 'Vendor application submitted successfully.');
 
     }
 
@@ -233,7 +233,7 @@ class VendorController extends Controller
     {
         
         $vendor = Vendor::findOrFail($id);
-        return view("dashboards.user.vendor.edit", ["vendor" => $vendor]);
+        return view("users.vendor.edit", ["vendor" => $vendor]);
     }
 
     /**

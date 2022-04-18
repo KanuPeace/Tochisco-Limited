@@ -96,6 +96,7 @@ function auth_api($getUser = false)
 
 
 
+
 function collect_pagination($transformer, LengthAwarePaginator $pagination, $appendQuery = true)
 {
 	$request = request();

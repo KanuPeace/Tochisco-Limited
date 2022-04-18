@@ -43,9 +43,9 @@
                 </a>
             </li>
             <li class="menu">
-                <a href="" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{route('user.vendor.application')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
-                        <span>Apply for Vendors</span>
+                        <span>Apply for Vendor</span>
                     </div>
                 </a>
             </li>
