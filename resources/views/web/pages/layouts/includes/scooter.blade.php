@@ -26,8 +26,8 @@
         <a href="https://m.facebook.com/profile.php?ref=bookmarks"><i class="fa fa-facebook"></i></a>
         <a href="#"><i class="fa fa-twitter"></i></a>
         <<!--a href="#"><i class="fa fa-youtube-play"></i></a>-->
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="https://t.me/tochiscogram"><i class="fa fa-telegram"></i></a>
     </div>
 </div>
 <!-- Offcanvas Menu Wrapper End -->
@@ -60,9 +60,10 @@
 <div class="hs-nav">
     <div class="container">
         <div class="col-lg-3 col-md-8 col-sm-12">
-            <div class="header-top-bar d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
+            <div
+                class="header-top-bar d-flex flex-wrap align-items-center justify-content-center justify-content-md-start">
                 <ul class="header-top-date liststyle d-flex flrx-wrap align-items-center mr--20">
-                    <a href="/">{{ today()->format("d F Y") }}</a>
+                    <a href="/">{{ today()->format('d F Y') }}</a>
                 </ul>
             </div>
         </div>
@@ -81,6 +82,7 @@
                                         type="button">Dashboard</a>
                                 @endif
                             </li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('property.index') }}">Properties</a>
                                 <ul class="dropdown">
                                     {{-- <li><a href="">Property List</a></li> --}}
@@ -101,19 +103,18 @@
                                         <span>Logout</span>
                                     </a>
                                 </form>
-            
+
 
                             </li>
                         @else
-                        <li><a>Become An Agent</a>
-                            <ul class="dropdown">
-                                <li><a href="{{ route('login') }}">Sign in</a></li>
-                                <li><a href="{{ route('register') }}">Sign up</a></li>
-                            </ul>
+                            <li><a>Become An Agent</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ route('login') }}">Sign in</a></li>
+                                    <li><a href="{{ route('register') }}">Sign up</a></li>
+                                </ul>
 
-                        </li>
+                            </li>
 
-                           
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a>Properties</a>
                                 <ul class="dropdown">
@@ -135,11 +136,11 @@
             <div class="col-lg-12">
                 <div class="navbar-item search">
                     <form id="search_form" method="GET" action="{{ route('web.search') }}">
-   
+
                         <input type="text" name="query" class="searchText_nav" placeholder="type to search..."
                             autocomplete="on" />
                         <input type="submit" class="nav-submit" value="Search" />
-   
+
                     </form>
                 </div>
             </div>
