@@ -274,7 +274,7 @@
                             <h4>Agent</h4>
                             <div class="pd-agent">
                                 <div class="agent-pic">
-                                    <img src="{{ $web_source }}/web_assets/img/property/details/agent.jpg" alt="">
+                                    <img src="{{ $web_source }}/web_assets/img/property/details/sidebar/prin 1.jpg" alt="">
                                 </div>
                                 <div class="agent-text">
                                     <div class="at-title">
@@ -371,27 +371,27 @@
                             </div>
                             <div class="top-agent">
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-1.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/agent 1.jpg"></div>
                                     <div class="ta-text">
-                                        <h6><a href="#">Ashton Kutcher</a></h6>
+                                        <h6><a href="#">Babatola Oreoluwa Mosunmola</a></h6>
                                         <span>Team Leader</span>
-                                        <div class="ta-num">123-455-688</div>
+                                        <div class="ta-num">08128274853</div>
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-2.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/agent 2.jpg"></div>
                                     <div class="ta-text">
-                                        <h6><a href="#">Ashton Kutcher</a></h6>
+                                        <h6><a href="#">Adejumo lois adenike</a></h6>
                                         <span>Team Leader</span>
-                                        <div class="ta-num">123-455-688</div>
+                                        <div class="ta-num">08128274853</div>
                                     </div>
                                 </div>
                                 <div class="ta-item">
-                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/ta-3.jpg"></div>
+                                    <div class="ta-pic set-bg" data-setbg="{{ $web_source }}/web_assets/img/property/details/sidebar/agent 3.jpg"></div>
                                     <div class="ta-text">
-                                        <h6><a href="#">Ashton Kutcher</a></h6>
+                                        <h6><a href="#">Eze Queen Gift</a></h6>
                                         <span>Team Leader</span>
-                                        <div class="ta-num">123-455-688</div>
+                                        <div class="ta-num">08128274853</div>
                                     </div>
                                 </div>
                             </div>
