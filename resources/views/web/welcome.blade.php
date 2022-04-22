@@ -382,9 +382,9 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="web_assets/img/team/team-1.jpg" alt="">
-                            <h5>Micheal Grace</h5>
-                            <span>09157522382</span>
+                            <img src="web_assets/img/agents/agent 1.jpg" alt="">
+                            <h5>Babatola Oreoluwa Mosunmola</h5>
+                            <span>08128274853</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -397,9 +397,9 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="web_assets/img/team/team-2.jpg" alt="">
-                            <h5></h5>
-                            <span>+2349093907715</span>
+                            <img src="web_assets/img/agents/agent 2.jpg" alt="">
+                            <h5>Adejumo lois adenike</h5>
+                            <span>08128274853</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -412,9 +412,9 @@
                 <div class="col-md-4">
                     <div class="ts-item">
                         <div class="ts-text">
-                            <img src="web_assets/img/team/team-3.jpg" alt="">
-                            <h5>Ashton Kutcher</h5>
-                            <span>+2349093907715</span>
+                            <img src="web_assets/img/agents/agent 3.jpg" alt="">
+                            <h5>Eze Queen Gift</h5>
+                            <span>08128274853</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
