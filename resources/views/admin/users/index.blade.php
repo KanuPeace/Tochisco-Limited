@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.app',  ["meta_title" => "Users"])
 
 @section('style')
 

@@ -1,4 +1,4 @@
-@extends("users.layouts.app")
+@extends("users.layouts.app", ["meta_title" => "Vendor Application"])
 @section('content')
 
 

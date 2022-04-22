@@ -1,4 +1,4 @@
-@extends("admin.layouts.app")
+@extends("admin.layouts.app",  ["meta_title" => "Vendors"])
 @section('content')
     <div id="tableCheckbox" class="">
         <div class="statbox widget box box-shadow mt-5">

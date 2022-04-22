@@ -1,4 +1,4 @@
-@extends("dashboards.admin.layouts.app")
+@extends("dashboards.admin.layouts.app",  ["meta_title" => "Categories"])
 @section('content')
 
     <div id="tableCheckbox" class="">
