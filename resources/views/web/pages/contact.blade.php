@@ -1,4 +1,4 @@
-@extends('web.pages.layouts.app')
+@extends('web.pages.layouts.app',  ["meta_title" => "Contact"])
 
 @section('content')
     <!-- Breadcrumb Section Begin -->

@@ -1,4 +1,4 @@
-@extends('web.pages.layouts.app')
+@extends('web.pages.layouts.app', ["meta_title" => "About_Us"])
 
 @section('content')
     @include('web.pages.layouts.includes.breadcrumb')

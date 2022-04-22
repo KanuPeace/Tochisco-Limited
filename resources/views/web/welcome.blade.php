@@ -1,4 +1,4 @@
-@extends('web.pages.layouts.app')
+@extends('web.pages.layouts.app', ["meta_title" => "Tochisco"])
 
 @section('content')
     <!-- Hero Section Begin -->
