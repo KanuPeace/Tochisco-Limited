@@ -4,7 +4,10 @@
 
 
     <div class="container scrollable-area">
-        <div class="head">
+        <div class="head mt-5">
+            <h4>Vendor Application </h4>
+        </div>
+        <div class="head mt-5">
             <h4>Vendor Application</h4>
         </div>
         <div class="content-body">
