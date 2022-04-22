@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="agent-search-form">
-                        <form action="#">
-                            <input type="text" placeholder="Find agent">
+                        <form id="search_form" method="GET" action="{{ route('web.search') }}">
+                            <input type="text" name="query" placeholder="Find agent"  autocomplete="on" >
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
