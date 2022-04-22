@@ -235,11 +235,11 @@
                                 <div class="pi-agent">
                                     <div class="pa-item">
                                         <div class="pa-info">
-                                            <img src="web_assets/img/mine.jpg" alt="">
-                                            <h6></h6>
+                                            <img src="web_assets/img/agents/prin 1.jpg" alt="">
+                                            <h6>Prince Kanu</h6>
                                         </div>
                                         <div class="pa-text">
-                                            123-455-688
+                                            08128274853 
                                         </div>
                                     </div>
                                 </div>
