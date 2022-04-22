@@ -383,7 +383,7 @@
                     <div class="ts-item">
                         <div class="ts-text">
                             <img src="web_assets/img/team/team-1.jpg" alt="">
-                            <h5>Ashton Kutcher</h5>
+                            <h5>Micheal Grace</h5>
                             <span>09157522382</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
@@ -398,7 +398,7 @@
                     <div class="ts-item">
                         <div class="ts-text">
                             <img src="web_assets/img/team/team-2.jpg" alt="">
-                            <h5>Ashton Kutcher</h5>
+                            <h5></h5>
                             <span>+2349093907715</span>
                             <p>Ipsum dolor amet, consectetur adipiscing elit, eiusmod tempor incididunt lorem.</p>
                             <div class="ts-social">
