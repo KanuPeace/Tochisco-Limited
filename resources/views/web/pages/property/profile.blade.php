@@ -1,10 +1,10 @@
-@extends('web.pages.layouts.app')
+{{-- @extends('web.pages.layouts.app')
 
-@section('content')
+@section('content') --}}
 
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-bg.jpg" >
+    {{-- <section class="breadcrumb-section spad set-bg" data-setbg="web_assets/img/breadcrumb-bg.jpg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--<section class="breadcrumb-section spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
         <div class="container">
             <div class="row">
