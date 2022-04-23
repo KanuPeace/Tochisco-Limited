@@ -634,4 +634,4 @@
 <!-- Footer Section End -->
 
 <!-- Js Plugins -->
-@endsection
+{{-- @endsection --}}
