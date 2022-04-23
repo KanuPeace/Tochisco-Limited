@@ -39,7 +39,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Profile Section Begin -->
-    <section class="profile-section spad">
+    {{-- <section class="profile-section spad">
         <div class="container">
             <div class="profile-agent-content">
                 <div class="row">
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--<section class="profile-section spad">
         <div class="container">
             <div class="profile-agent-content">
@@ -124,7 +124,7 @@
     <!-- Profile Section End -->
 
     <!-- Property Section Begin -->
-    <section class="property-section profile-page spad">
+    {{-- <section class="property-section profile-page spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -317,7 +317,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--<section class="property-section profile-page spad">
         <div class="container">
             <div class="row">
