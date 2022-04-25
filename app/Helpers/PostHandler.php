@@ -18,24 +18,24 @@ class PostHandler
 
     public function getPostBodyFileName($uuid)
     {
-        return $this->getPostFolder($uuid)."body.txt";
+        return $this->getPostFolder($uuid) . "body.txt";
     }
 
 
-    public function setBodyAttribute($filename, $uuid , $body)
+    public function setBodyAttribute($filename, $uuid, $body)
     {
         if (empty($filename) ||  !Storage::disk('local')->exists($filename)) {
             $filename = $this->getPostBodyFileName($uuid);
         }
 
-        $newBody = $this->replaceBase64ImgWithPng($body , $uuid);
+        $newBody = $this->replaceBase64ImgWithPng($body, $uuid);
 
         Storage::disk('local')->put($filename, $newBody);
         return $filename;
     }
 
 
-    public function replaceBase64ImgWithPng($body , $uuid)
+    public function replaceBase64ImgWithPng($body, $uuid)
     {
         $fileConverter = new FileConverter;
         $htmlHandler = new HtmlHandler;
@@ -74,12 +74,12 @@ class PostHandler
     {
         $coverImage = $post->coverImage;
         $coverVideo = $post->coverVideo;
-        optional($coverImage)->cleanDelete(null , true);
-        optional($coverVideo)->cleanDelete(null , true);
+        optional($coverImage)->cleanDelete(null, true);
+        optional($coverVideo)->cleanDelete(null, true);
         $folder = $this->getPostFolder($post->uuid);
         Storage::deleteDirectory($folder);
-        PostComment::where("post_id" , $post->id)->delete();
-        ShareActivity::where("post_id" , $post->id)->delete();
+        PostComment::where("post_id", $post->id)->delete();
+        ShareActivity::where("post_id", $post->id)->delete();
         $post->delete();
     }
 }
