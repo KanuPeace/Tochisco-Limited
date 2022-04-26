@@ -6,6 +6,8 @@ use App\Helpers\Constants;
 use App\Http\Controllers\Controller;
 use App\Helpers\MediaHandler;
 use App\Models\Vendor;
+use App\Helpers\MediaFilesHelper;
+
 use App\Helpers\Wallet;
 use App\Helpers\Wallet as HelpersWallet;
 use App\Models\CouponCode;
@@ -69,7 +71,8 @@ class VendorController extends Controller
         }
 
         if (!empty($logo = $request->file("logo"))) {
-            $filePath = putFileInPrivateStorage($logo, "temp");
+            $filePath = 
+            $cover_path = MediaFilesHelper::saveFromRequest($request->cover_image , "postImages");
             $logoFile = $this->mediaHandler->saveFromFilePath(storage_path("app/$filePath"), "vendor_logos", null, $user->id);
             $data["logo_id"] = $logoFile->id;
             unset($data["logo"]);
