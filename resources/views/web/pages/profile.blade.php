@@ -365,9 +365,7 @@
                     </div>
                 </div>
             </div>
-            <div class="copyright-text">
-               
-            </div>
+           
         </div>
     </footer>
     <!-- Footer Section End -->
