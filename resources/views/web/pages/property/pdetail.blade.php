@@ -282,7 +282,9 @@
                                         <span>Founder & CEO</span>
                                         <a href="{{ route('profile')}}" class="primary-btn">VIew profile</a>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit, eiusmod tempor incididunt</p>
+                                    <p>Mr Charles is an Estate Agent Expert who is inclined with many properties within 
+                                        Nigeria and connections of properties outside Nigeria. Mr Charles has also led so many agent teams to achieve customers
+                                         and estate client to get their dream property</p>
                                     <div class="at-option">
                                         <div class="at-number">08128274853</div>
                                         <div class="at-social">
