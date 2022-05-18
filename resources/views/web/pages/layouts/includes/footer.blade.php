@@ -35,14 +35,13 @@
                     <h5>Links</h5>
                     <ul>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Create Property</a></li>
                         <li><a href="#">My Properties</a></li>
                         <li><a href="#">Register</a></li>
                         <li><a href="#">Login</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            {{-- <div class="col-lg-4 col-md-6">
                 <div class="fs-widget">
                     <h5>Newsletter</h5>
                     <p>#</p>
@@ -51,7 +50,7 @@
                         <button type="submit" class="site-btn">Subscribe</button>
                     </form>
                 </div>
-            </div>
+            </div> --}}
         </div>
       
     </div>
