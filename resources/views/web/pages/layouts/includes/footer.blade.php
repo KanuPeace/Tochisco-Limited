@@ -24,8 +24,6 @@
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Contact Support</a></li>
-                        <li><a href="#">Knowledgebase</a></li>
-                        <li><a href="#">Careers</a></li>
                         <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
@@ -36,8 +34,6 @@
                     <ul>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">My Properties</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
                     </ul>
                 </div>
             </div>
