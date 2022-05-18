@@ -32,7 +32,7 @@
                 <div class="fs-widget">
                     <h5>Links</h5>
                     <ul>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{route('contact.index')}}">Contact</a></li>
                         <li><a href="#">My Properties</a></li>
                     </ul>
                 </div>
