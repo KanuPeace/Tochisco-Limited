@@ -37,16 +37,16 @@
                     </ul>
                 </div>
             </div>
-            {{-- <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <div class="fs-widget">
                     <h5>Newsletter</h5>
-                    <p>#</p>
+                    <p></p>
                     <form action="#" class="subscribe-form">
                         <input type="text" placeholder="Email">
                         <button type="submit" class="site-btn">Subscribe</button>
                     </form>
                 </div>
-            </div> --}}
+            </div>
         </div>
       
     </div>

@@ -1,13 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
+
         <meta charset="UTF-8">
         <meta name="description" content="TOCHISCO LIMITED">
         <meta name="keywords" content="Aler, unica, creative, html">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Tochisco</title>
-    
+       
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=628518f65d7558001495d225&product=inline-share-buttons" async="async"></script>
+        
         <!-- Google Font -->
         @include("web.pages.layouts.includes.header")
 
