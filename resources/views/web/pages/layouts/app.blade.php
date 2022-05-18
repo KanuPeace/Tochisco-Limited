@@ -10,14 +10,14 @@
         <title>Tochisco</title>
        
         <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=628518f65d7558001495d225&product=inline-share-buttons" async="async"></script>
-        
+
         <!-- Google Font -->
         @include("web.pages.layouts.includes.header")
 
         <style>
             /* .hs-item set-bg{
-                background-size: 70% 30% ; */
-            }
+                background-size: 70% 30% ; 
+            }*/
         </style>
     </head>
 <body>
